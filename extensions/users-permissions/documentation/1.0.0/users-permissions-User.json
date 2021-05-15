@@ -604,6 +604,77 @@
         }
       }
     },
+    "/auth/change-password": {
+      "post": {
+        "deprecated": false,
+        "description": "Change password of the current user",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "UsersPermissions - User"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/auth/email-confirmation": {
       "get": {
         "deprecated": false,
@@ -1250,6 +1321,96 @@
                 "type": "string"
               }
             }
+          },
+          "userInfo": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "avatar": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "socialLinks": {
+                "type": "object"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "subscription": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "realestate": {
+                "type": "component"
+              },
+              "transport": {
+                "type": "component"
+              },
+              "jobs": {
+                "type": "component"
+              },
+              "jobsearchpurchased": {
+                "type": "boolean"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "curriculumVitae": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "PersonalDetails": {
+                "type": "component"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -1290,6 +1451,15 @@
             "default": false
           },
           "role": {
+            "type": "string"
+          },
+          "userInfo": {
+            "type": "string"
+          },
+          "subscription": {
+            "type": "string"
+          },
+          "curriculumVitae": {
             "type": "string"
           },
           "created_by": {

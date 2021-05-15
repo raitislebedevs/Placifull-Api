@@ -561,6 +561,15 @@
                 "role": {
                   "type": "string"
                 },
+                "userInfo": {
+                  "type": "string"
+                },
+                "subscription": {
+                  "type": "string"
+                },
+                "curriculumVitae": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
