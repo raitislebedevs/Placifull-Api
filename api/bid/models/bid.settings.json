@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bids",
+  "info": {
+    "name": "bid",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "real_estate_listing": {
+      "via": "bids",
+      "model": "real-estate-listing"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "transport_listing": {
+      "via": "bids",
+      "model": "transport-listings"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/vacancy-listings",
+      "handler": "vacancy-listing.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vacancy-listings/count",
+      "handler": "vacancy-listing.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vacancy-listings/:id",
+      "handler": "vacancy-listing.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/vacancy-listings",
+      "handler": "vacancy-listing.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/vacancy-listings/:id",
+      "handler": "vacancy-listing.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/vacancy-listings/:id",
+      "handler": "vacancy-listing.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

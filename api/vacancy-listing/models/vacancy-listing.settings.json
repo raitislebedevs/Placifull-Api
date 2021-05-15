@@ -1,0 +1,154 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vacancy_listings",
+  "info": {
+    "name": "vacancyListing",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "positionHeader": {
+      "type": "string"
+    },
+    "vacancyOption": {
+      "type": "enumeration",
+      "enum": [
+        "intern",
+        "volunteerWork",
+        "stockExchange",
+        "administrationAssistance",
+        "constructionRealEstate",
+        "humanResources",
+        "securityRescue",
+        "military",
+        "electronicsTelecomunication",
+        "freelanceTemporary",
+        "energyElectricity",
+        "pharmacy",
+        "financeAccounting",
+        "infromationTechnology",
+        "jurisprudenceJustice",
+        "cultureArtEntertainemnt",
+        "sports",
+        "qualityControl",
+        "agricutureEnvironmental",
+        "medicineSocialCare",
+        "mediaPublicRelations",
+        "forestryWoodworkingMetalWorking",
+        "marketingAdvertising",
+        "productionIndustry",
+        "seasonalWork",
+        "technicalScience",
+        "services",
+        "transportLogistics",
+        "tourismCateringHotels",
+        "managment",
+        "government",
+        "others"
+      ]
+    },
+    "contractType": {
+      "type": "enumeration",
+      "enum": [
+        "temporarly",
+        "fullTime",
+        "partTime",
+        "remoteFullTime",
+        "remoteParttime",
+        "other"
+      ]
+    },
+    "workingTime": {
+      "type": "enumeration",
+      "enum": [
+        "officeHours",
+        "shifts",
+        "flexible",
+        "other"
+      ]
+    },
+    "positionDescription": {
+      "type": "richtext"
+    },
+    "positionRequirements": {
+      "type": "richtext"
+    },
+    "positionBenefits": {
+      "type": "richtext"
+    },
+    "currency": {
+      "model": "currency"
+    },
+    "contactHours": {
+      "type": "json"
+    },
+    "socialLinks": {
+      "type": "json"
+    },
+    "monthlySalaryFrom": {
+      "type": "integer"
+    },
+    "monthlySalaryTo": {
+      "type": "integer"
+    },
+    "annualSalaryFrom": {
+      "type": "integer"
+    },
+    "annualSalaryTo": {
+      "type": "integer"
+    },
+    "hourlySalaryFrom": {
+      "type": "decimal"
+    },
+    "hourlySalaryTo": {
+      "type": "decimal"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "officeAddress": {
+      "type": "string"
+    },
+    "contactTime": {
+      "type": "enumeration",
+      "enum": [
+        "anyTime",
+        "workingDays",
+        "officeHours",
+        "specificTimes"
+      ]
+    },
+    "websiteLink": {
+      "type": "string"
+    },
+    "listingGallery": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "videoLink": {
+      "type": "string"
+    },
+    "tags": {
+      "collection": "tag"
+    },
+    "popularity": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.popularity"
+    }
+  }
+}

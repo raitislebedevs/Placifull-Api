@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/transport-listings",
+      "handler": "transport-listings.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/transport-listings/count",
+      "handler": "transport-listings.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/transport-listings/:id",
+      "handler": "transport-listings.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/transport-listings",
+      "handler": "transport-listings.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/transport-listings/:id",
+      "handler": "transport-listings.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/transport-listings/:id",
+      "handler": "transport-listings.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

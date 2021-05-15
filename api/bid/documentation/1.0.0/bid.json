@@ -1,0 +1,1008 @@
+{
+  "paths": {
+    "/bids": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Bid"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Bid"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewBid"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bids/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "parameters": []
+      }
+    },
+    "/bids/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Bid"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Bid"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewBid"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Bid": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "real_estate_listing": {
+            "required": [
+              "id",
+              "isPromotable"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "rooms": {
+                "type": "integer"
+              },
+              "area": {
+                "type": "number"
+              },
+              "contactHours": {
+                "type": "object"
+              },
+              "socialLinks": {
+                "type": "object"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "websiteLink": {
+                "type": "string"
+              },
+              "popularity": {
+                "type": "component"
+              },
+              "listingGallery": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "user": {
+                "type": "string"
+              },
+              "bids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "currency": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "houses",
+                  "apartments",
+                  "land",
+                  "commercial",
+                  "exclusive",
+                  "offices",
+                  "farmhouse",
+                  "agents"
+                ]
+              },
+              "action": {
+                "type": "string",
+                "enum": [
+                  "sell",
+                  "rent",
+                  "exchange"
+                ]
+              },
+              "condition": {
+                "type": "string",
+                "enum": [
+                  "brandNew",
+                  "goodCondition",
+                  "medium",
+                  "requiresFixing",
+                  "requiresConstruction",
+                  "residential",
+                  "comercial",
+                  "industrial",
+                  "agricultural"
+                ]
+              },
+              "contactTime": {
+                "type": "string",
+                "enum": [
+                  "anyTime",
+                  "workingDays",
+                  "officeHours",
+                  "specificTimes"
+                ]
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "videoLink": {
+                "type": "string"
+              },
+              "areaMeasurement": {
+                "type": "string",
+                "enum": [
+                  "metter",
+                  "feet"
+                ]
+              },
+              "moveInDate": {
+                "type": "string"
+              },
+              "moveOutDate": {
+                "type": "string"
+              },
+              "ultilitiesPrice": {
+                "type": "component"
+              },
+              "totalUltilities": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "isPromotable": {
+                "type": "boolean"
+              },
+              "extraDaysHolding": {
+                "type": "integer"
+              },
+              "bathCount": {
+                "type": "integer"
+              },
+              "yearBuilt": {
+                "type": "integer"
+              },
+              "insertDate": {
+                "type": "string"
+              },
+              "bidOffer": {
+                "type": "component"
+              },
+              "expiryDate": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "fullAddress": {
+                "type": "string"
+              },
+              "zipCode": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "price": {
+            "type": "number"
+          },
+          "transport_listing": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "transportType": {
+                "type": "string",
+                "enum": [
+                  "car",
+                  "truck",
+                  "motorcycle",
+                  "boat",
+                  "airTransport",
+                  "others"
+                ]
+              },
+              "action": {
+                "type": "string",
+                "enum": [
+                  "sell",
+                  "rent",
+                  "exchange"
+                ]
+              },
+              "condition": {
+                "type": "string",
+                "enum": [
+                  "brandNew",
+                  "goodCondition",
+                  "medium",
+                  "requiresFixing",
+                  "requiresConstruction"
+                ]
+              },
+              "description": {
+                "type": "string"
+              },
+              "transportBrand": {
+                "type": "string"
+              },
+              "transportModel": {
+                "type": "string"
+              },
+              "year": {
+                "type": "integer"
+              },
+              "price": {
+                "type": "number"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "distance": {
+                "type": "integer"
+              },
+              "distanceMesurment": {
+                "type": "string",
+                "enum": [
+                  "kilometer",
+                  "mile"
+                ]
+              },
+              "maxSpeed": {
+                "type": "integer"
+              },
+              "speedMesurment": {
+                "type": "string",
+                "enum": [
+                  "kilometerPerHour",
+                  "milePerHour"
+                ]
+              },
+              "fuelEconomy": {
+                "type": "number"
+              },
+              "fuelEconomyMesurment": {
+                "type": "string",
+                "enum": [
+                  "litrePerKilometer",
+                  "galonPerMile"
+                ]
+              },
+              "numberOfSeats": {
+                "type": "integer"
+              },
+              "numberOfDoors": {
+                "type": "integer"
+              },
+              "engineType": {
+                "type": "string",
+                "enum": [
+                  "benzine",
+                  "diesel",
+                  "gas",
+                  "electric",
+                  "other"
+                ]
+              },
+              "gearBox": {
+                "type": "string",
+                "enum": [
+                  "manual",
+                  "automatic",
+                  "other"
+                ]
+              },
+              "color": {
+                "type": "string",
+                "enum": [
+                  "red",
+                  "orange",
+                  "yellow",
+                  "green",
+                  "blue",
+                  "violent",
+                  "pink",
+                  "tan",
+                  "beige",
+                  "white",
+                  "silver",
+                  "gray",
+                  "black",
+                  "brown",
+                  "gold",
+                  "indigo",
+                  "purple",
+                  "lime",
+                  "azure",
+                  "other"
+                ]
+              },
+              "listingGallery": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "videoUrl": {
+                "type": "string"
+              },
+              "websiteLink": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "contactTime": {
+                "type": "string",
+                "enum": [
+                  "anyTime",
+                  "workingDays",
+                  "officeHours",
+                  "specificTimes"
+                ]
+              },
+              "contactHours": {
+                "type": "object"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "popularity": {
+                "type": "component"
+              },
+              "user": {
+                "type": "string"
+              },
+              "bids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "name": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "integer"
+              },
+              "socialLinks": {
+                "type": "object"
+              },
+              "insertDate": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewBid": {
+        "properties": {
+          "user": {
+            "type": "string"
+          },
+          "real_estate_listing": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "transport_listing": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Bid"
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "kind": "collectionType",
+  "collectionName": "real_estate_listings",
+  "info": {
+    "name": "RealEstateListing",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "rooms": {
+      "type": "integer"
+    },
+    "area": {
+      "type": "decimal"
+    },
+    "contactHours": {
+      "type": "json"
+    },
+    "socialLinks": {
+      "type": "json"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "websiteLink": {
+      "type": "string"
+    },
+    "popularity": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.popularity"
+    },
+    "listingGallery": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "bids": {
+      "collection": "bid",
+      "via": "real_estate_listing"
+    },
+    "currency": {
+      "model": "currency"
+    },
+    "tags": {
+      "collection": "tag"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "houses",
+        "apartments",
+        "land",
+        "commercial",
+        "exclusive",
+        "offices",
+        "farmhouse",
+        "agents"
+      ]
+    },
+    "action": {
+      "type": "enumeration",
+      "enum": [
+        "sell",
+        "rent",
+        "exchange"
+      ]
+    },
+    "condition": {
+      "type": "enumeration",
+      "enum": [
+        "brandNew",
+        "goodCondition",
+        "medium",
+        "requiresFixing",
+        "requiresConstruction",
+        "residential",
+        "comercial",
+        "industrial",
+        "agricultural"
+      ]
+    },
+    "contactTime": {
+      "type": "enumeration",
+      "enum": [
+        "anyTime",
+        "workingDays",
+        "officeHours",
+        "specificTimes"
+      ]
+    },
+    "latitude": {
+      "type": "float"
+    },
+    "longitude": {
+      "type": "float"
+    },
+    "videoLink": {
+      "type": "string"
+    },
+    "areaMeasurement": {
+      "type": "enumeration",
+      "enum": [
+        "metter",
+        "feet"
+      ]
+    },
+    "moveInDate": {
+      "type": "datetime"
+    },
+    "moveOutDate": {
+      "type": "datetime"
+    },
+    "ultilitiesPrice": {
+      "type": "component",
+      "repeatable": false,
+      "component": "ultilities.ultilities"
+    },
+    "totalUltilities": {
+      "type": "decimal"
+    },
+    "name": {
+      "type": "string"
+    },
+    "isPromotable": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "extraDaysHolding": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "bathCount": {
+      "type": "integer"
+    },
+    "yearBuilt": {
+      "type": "integer"
+    },
+    "insertDate": {
+      "type": "date"
+    },
+    "bidOffer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.bidoffer"
+    },
+    "expiryDate": {
+      "type": "date"
+    },
+    "country": {
+      "model": "country"
+    },
+    "state": {
+      "model": "state"
+    },
+    "city": {
+      "model": "city"
+    },
+    "fullAddress": {
+      "type": "string"
+    },
+    "zipCode": {
+      "type": "string"
+    }
+  }
+}

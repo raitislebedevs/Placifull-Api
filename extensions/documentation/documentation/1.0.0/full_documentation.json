@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/15/2021 12:34:15 PM"
+    "x-generation-date": "05/15/2021 12:49:07 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -45,6 +45,517 @@
     }
   ],
   "paths": {
+    "/bids": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Bid"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Bid"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewBid"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bids/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "parameters": []
+      }
+    },
+    "/bids/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Bid"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Bid"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewBid"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/cities": {
       "get": {
         "deprecated": false,
@@ -1635,6 +2146,530 @@
         "parameters": []
       }
     },
+    "/real-estate-listings": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Real-estate-listing"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Real-estate-listing"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewReal-estate-listing"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/real-estate-listings/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Real-estate-listing"
+        ],
+        "parameters": []
+      }
+    },
+    "/real-estate-listings/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Real-estate-listing"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Real-estate-listing"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewReal-estate-listing"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Real-estate-listing"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/states": {
       "get": {
         "deprecated": false,
@@ -2642,6 +3677,1054 @@
         "summary": "",
         "tags": [
           "Tag"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/transport-listings": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the transport-listings's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve transport-listings document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Transport-listings"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new transport-listings record",
+        "responses": {
+          "200": {
+            "description": "Retrieve transport-listings document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Transport-listings"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewTransport-listings"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transport-listings/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the numver of transport-listings documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve transport-listings document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Transport-listings"
+        ],
+        "parameters": []
+      }
+    },
+    "/transport-listings/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one transport-listings record",
+        "responses": {
+          "200": {
+            "description": "Retrieve transport-listings document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Transport-listings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single transport-listings record",
+        "responses": {
+          "200": {
+            "description": "Retrieve transport-listings document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Transport-listings"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewTransport-listings"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single transport-listings record",
+        "responses": {
+          "200": {
+            "description": "deletes a single transport-listings based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Transport-listings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/vacancy-listings": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Vacancy-listing"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Vacancy-listing"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewVacancy-listing"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vacancy-listings/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Vacancy-listing"
+        ],
+        "parameters": []
+      }
+    },
+    "/vacancy-listings/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Vacancy-listing"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Vacancy-listing"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewVacancy-listing"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Vacancy-listing"
         ],
         "parameters": [
           {
@@ -4886,6 +6969,490 @@
   },
   "components": {
     "schemas": {
+      "Bid": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "real_estate_listing": {
+            "required": [
+              "id",
+              "isPromotable"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "rooms": {
+                "type": "integer"
+              },
+              "area": {
+                "type": "number"
+              },
+              "contactHours": {
+                "type": "object"
+              },
+              "socialLinks": {
+                "type": "object"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "websiteLink": {
+                "type": "string"
+              },
+              "popularity": {
+                "type": "component"
+              },
+              "listingGallery": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "user": {
+                "type": "string"
+              },
+              "bids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "currency": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "houses",
+                  "apartments",
+                  "land",
+                  "commercial",
+                  "exclusive",
+                  "offices",
+                  "farmhouse",
+                  "agents"
+                ]
+              },
+              "action": {
+                "type": "string",
+                "enum": [
+                  "sell",
+                  "rent",
+                  "exchange"
+                ]
+              },
+              "condition": {
+                "type": "string",
+                "enum": [
+                  "brandNew",
+                  "goodCondition",
+                  "medium",
+                  "requiresFixing",
+                  "requiresConstruction",
+                  "residential",
+                  "comercial",
+                  "industrial",
+                  "agricultural"
+                ]
+              },
+              "contactTime": {
+                "type": "string",
+                "enum": [
+                  "anyTime",
+                  "workingDays",
+                  "officeHours",
+                  "specificTimes"
+                ]
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "videoLink": {
+                "type": "string"
+              },
+              "areaMeasurement": {
+                "type": "string",
+                "enum": [
+                  "metter",
+                  "feet"
+                ]
+              },
+              "moveInDate": {
+                "type": "string"
+              },
+              "moveOutDate": {
+                "type": "string"
+              },
+              "ultilitiesPrice": {
+                "type": "component"
+              },
+              "totalUltilities": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "isPromotable": {
+                "type": "boolean"
+              },
+              "extraDaysHolding": {
+                "type": "integer"
+              },
+              "bathCount": {
+                "type": "integer"
+              },
+              "yearBuilt": {
+                "type": "integer"
+              },
+              "insertDate": {
+                "type": "string"
+              },
+              "bidOffer": {
+                "type": "component"
+              },
+              "expiryDate": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "fullAddress": {
+                "type": "string"
+              },
+              "zipCode": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "price": {
+            "type": "number"
+          },
+          "transport_listing": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "transportType": {
+                "type": "string",
+                "enum": [
+                  "car",
+                  "truck",
+                  "motorcycle",
+                  "boat",
+                  "airTransport",
+                  "others"
+                ]
+              },
+              "action": {
+                "type": "string",
+                "enum": [
+                  "sell",
+                  "rent",
+                  "exchange"
+                ]
+              },
+              "condition": {
+                "type": "string",
+                "enum": [
+                  "brandNew",
+                  "goodCondition",
+                  "medium",
+                  "requiresFixing",
+                  "requiresConstruction"
+                ]
+              },
+              "description": {
+                "type": "string"
+              },
+              "transportBrand": {
+                "type": "string"
+              },
+              "transportModel": {
+                "type": "string"
+              },
+              "year": {
+                "type": "integer"
+              },
+              "price": {
+                "type": "number"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "distance": {
+                "type": "integer"
+              },
+              "distanceMesurment": {
+                "type": "string",
+                "enum": [
+                  "kilometer",
+                  "mile"
+                ]
+              },
+              "maxSpeed": {
+                "type": "integer"
+              },
+              "speedMesurment": {
+                "type": "string",
+                "enum": [
+                  "kilometerPerHour",
+                  "milePerHour"
+                ]
+              },
+              "fuelEconomy": {
+                "type": "number"
+              },
+              "fuelEconomyMesurment": {
+                "type": "string",
+                "enum": [
+                  "litrePerKilometer",
+                  "galonPerMile"
+                ]
+              },
+              "numberOfSeats": {
+                "type": "integer"
+              },
+              "numberOfDoors": {
+                "type": "integer"
+              },
+              "engineType": {
+                "type": "string",
+                "enum": [
+                  "benzine",
+                  "diesel",
+                  "gas",
+                  "electric",
+                  "other"
+                ]
+              },
+              "gearBox": {
+                "type": "string",
+                "enum": [
+                  "manual",
+                  "automatic",
+                  "other"
+                ]
+              },
+              "color": {
+                "type": "string",
+                "enum": [
+                  "red",
+                  "orange",
+                  "yellow",
+                  "green",
+                  "blue",
+                  "violent",
+                  "pink",
+                  "tan",
+                  "beige",
+                  "white",
+                  "silver",
+                  "gray",
+                  "black",
+                  "brown",
+                  "gold",
+                  "indigo",
+                  "purple",
+                  "lime",
+                  "azure",
+                  "other"
+                ]
+              },
+              "listingGallery": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "videoUrl": {
+                "type": "string"
+              },
+              "websiteLink": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "contactTime": {
+                "type": "string",
+                "enum": [
+                  "anyTime",
+                  "workingDays",
+                  "officeHours",
+                  "specificTimes"
+                ]
+              },
+              "contactHours": {
+                "type": "object"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "popularity": {
+                "type": "component"
+              },
+              "user": {
+                "type": "string"
+              },
+              "bids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "name": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "integer"
+              },
+              "socialLinks": {
+                "type": "object"
+              },
+              "insertDate": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewBid": {
+        "properties": {
+          "user": {
+            "type": "string"
+          },
+          "real_estate_listing": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "transport_listing": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
       "City": {
         "required": [
           "id"
@@ -5174,6 +7741,823 @@
           }
         }
       },
+      "Real-estate-listing": {
+        "required": [
+          "id",
+          "isPromotable"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "rooms": {
+            "type": "integer"
+          },
+          "area": {
+            "type": "number"
+          },
+          "contactHours": {
+            "type": "object"
+          },
+          "socialLinks": {
+            "type": "object"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "websiteLink": {
+            "type": "string"
+          },
+          "popularity": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "views": {
+                "type": "integer",
+                "default": "1"
+              },
+              "rating": {
+                "type": "number",
+                "default": 0
+              },
+              "voteCount": {
+                "type": "integer",
+                "default": 0
+              }
+            }
+          },
+          "listingGallery": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "alternativeText": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "formats": {
+                  "type": "object"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "bids": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "real_estate_listing": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "transport_listing": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "currency": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "symbol_native": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "name_plural": {
+                "type": "string"
+              },
+              "popularity": {
+                "type": "integer"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "realEstate",
+                    "transport",
+                    "job",
+                    "land",
+                    "agent"
+                  ]
+                },
+                "nameTag": {
+                  "type": "string"
+                },
+                "parentFilter": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "houses",
+              "apartments",
+              "land",
+              "commercial",
+              "exclusive",
+              "offices",
+              "farmhouse",
+              "agents"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "sell",
+              "rent",
+              "exchange"
+            ]
+          },
+          "condition": {
+            "type": "string",
+            "enum": [
+              "brandNew",
+              "goodCondition",
+              "medium",
+              "requiresFixing",
+              "requiresConstruction",
+              "residential",
+              "comercial",
+              "industrial",
+              "agricultural"
+            ]
+          },
+          "contactTime": {
+            "type": "string",
+            "enum": [
+              "anyTime",
+              "workingDays",
+              "officeHours",
+              "specificTimes"
+            ]
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "videoLink": {
+            "type": "string"
+          },
+          "areaMeasurement": {
+            "type": "string",
+            "enum": [
+              "metter",
+              "feet"
+            ]
+          },
+          "moveInDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "moveOutDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ultilitiesPrice": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "coldWater": {
+                "type": "number"
+              },
+              "hotWater": {
+                "type": "number"
+              },
+              "electricity": {
+                "type": "number"
+              },
+              "garbage": {
+                "type": "number"
+              },
+              "propertyManagement": {
+                "type": "number"
+              },
+              "heating": {
+                "type": "number"
+              },
+              "parking": {
+                "type": "number"
+              },
+              "others": {
+                "type": "number"
+              }
+            }
+          },
+          "totalUltilities": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "isPromotable": {
+            "type": "boolean",
+            "default": false
+          },
+          "extraDaysHolding": {
+            "type": "integer",
+            "default": 0
+          },
+          "bathCount": {
+            "type": "integer"
+          },
+          "yearBuilt": {
+            "type": "integer"
+          },
+          "insertDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "bidOffer": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lowest": {
+                "type": "integer"
+              },
+              "highest": {
+                "type": "integer"
+              },
+              "lowestphone": {
+                "type": "string"
+              },
+              "highestphone": {
+                "type": "string"
+              },
+              "lowestemail": {
+                "type": "string"
+              },
+              "highestemail": {
+                "type": "string"
+              }
+            }
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "country": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "iso2": {
+                "type": "string"
+              },
+              "iso3": {
+                "type": "string"
+              },
+              "phone_code": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "capital": {
+                "type": "string"
+              },
+              "native": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "state": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "state_code": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "city": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "fullAddress": {
+            "type": "string"
+          },
+          "zipCode": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewReal-estate-listing": {
+        "required": [
+          "isPromotable"
+        ],
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "rooms": {
+            "type": "integer"
+          },
+          "area": {
+            "type": "number"
+          },
+          "contactHours": {
+            "type": "object"
+          },
+          "socialLinks": {
+            "type": "object"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "websiteLink": {
+            "type": "string"
+          },
+          "popularity": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "views": {
+                "type": "integer",
+                "default": "1"
+              },
+              "rating": {
+                "type": "number",
+                "default": 0
+              },
+              "voteCount": {
+                "type": "integer",
+                "default": 0
+              }
+            }
+          },
+          "user": {
+            "type": "string"
+          },
+          "bids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "currency": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "houses",
+              "apartments",
+              "land",
+              "commercial",
+              "exclusive",
+              "offices",
+              "farmhouse",
+              "agents"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "sell",
+              "rent",
+              "exchange"
+            ]
+          },
+          "condition": {
+            "type": "string",
+            "enum": [
+              "brandNew",
+              "goodCondition",
+              "medium",
+              "requiresFixing",
+              "requiresConstruction",
+              "residential",
+              "comercial",
+              "industrial",
+              "agricultural"
+            ]
+          },
+          "contactTime": {
+            "type": "string",
+            "enum": [
+              "anyTime",
+              "workingDays",
+              "officeHours",
+              "specificTimes"
+            ]
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "videoLink": {
+            "type": "string"
+          },
+          "areaMeasurement": {
+            "type": "string",
+            "enum": [
+              "metter",
+              "feet"
+            ]
+          },
+          "moveInDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "moveOutDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ultilitiesPrice": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "coldWater": {
+                "type": "number"
+              },
+              "hotWater": {
+                "type": "number"
+              },
+              "electricity": {
+                "type": "number"
+              },
+              "garbage": {
+                "type": "number"
+              },
+              "propertyManagement": {
+                "type": "number"
+              },
+              "heating": {
+                "type": "number"
+              },
+              "parking": {
+                "type": "number"
+              },
+              "others": {
+                "type": "number"
+              }
+            }
+          },
+          "totalUltilities": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "isPromotable": {
+            "type": "boolean",
+            "default": false
+          },
+          "extraDaysHolding": {
+            "type": "integer",
+            "default": 0
+          },
+          "bathCount": {
+            "type": "integer"
+          },
+          "yearBuilt": {
+            "type": "integer"
+          },
+          "insertDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "bidOffer": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lowest": {
+                "type": "integer"
+              },
+              "highest": {
+                "type": "integer"
+              },
+              "lowestphone": {
+                "type": "string"
+              },
+              "highestphone": {
+                "type": "string"
+              },
+              "lowestemail": {
+                "type": "string"
+              },
+              "highestemail": {
+                "type": "string"
+              }
+            }
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "country": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "fullAddress": {
+            "type": "string"
+          },
+          "zipCode": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
       "State": {
         "required": [
           "id"
@@ -5304,6 +8688,1209 @@
           },
           "parentFilter": {
             "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Transport-listings": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "transportType": {
+            "type": "string",
+            "enum": [
+              "car",
+              "truck",
+              "motorcycle",
+              "boat",
+              "airTransport",
+              "others"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "sell",
+              "rent",
+              "exchange"
+            ]
+          },
+          "condition": {
+            "type": "string",
+            "enum": [
+              "brandNew",
+              "goodCondition",
+              "medium",
+              "requiresFixing",
+              "requiresConstruction"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "transportBrand": {
+            "type": "string"
+          },
+          "transportModel": {
+            "type": "string"
+          },
+          "year": {
+            "type": "integer"
+          },
+          "price": {
+            "type": "number"
+          },
+          "currency": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "symbol_native": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "name_plural": {
+                "type": "string"
+              },
+              "popularity": {
+                "type": "integer"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "distance": {
+            "type": "integer"
+          },
+          "distanceMesurment": {
+            "type": "string",
+            "enum": [
+              "kilometer",
+              "mile"
+            ]
+          },
+          "maxSpeed": {
+            "type": "integer"
+          },
+          "speedMesurment": {
+            "type": "string",
+            "enum": [
+              "kilometerPerHour",
+              "milePerHour"
+            ]
+          },
+          "fuelEconomy": {
+            "type": "number"
+          },
+          "fuelEconomyMesurment": {
+            "type": "string",
+            "enum": [
+              "litrePerKilometer",
+              "galonPerMile"
+            ]
+          },
+          "numberOfSeats": {
+            "type": "integer"
+          },
+          "numberOfDoors": {
+            "type": "integer"
+          },
+          "engineType": {
+            "type": "string",
+            "enum": [
+              "benzine",
+              "diesel",
+              "gas",
+              "electric",
+              "other"
+            ]
+          },
+          "gearBox": {
+            "type": "string",
+            "enum": [
+              "manual",
+              "automatic",
+              "other"
+            ]
+          },
+          "color": {
+            "type": "string",
+            "enum": [
+              "red",
+              "orange",
+              "yellow",
+              "green",
+              "blue",
+              "violent",
+              "pink",
+              "tan",
+              "beige",
+              "white",
+              "silver",
+              "gray",
+              "black",
+              "brown",
+              "gold",
+              "indigo",
+              "purple",
+              "lime",
+              "azure",
+              "other"
+            ]
+          },
+          "listingGallery": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "alternativeText": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "formats": {
+                  "type": "object"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "videoUrl": {
+            "type": "string"
+          },
+          "websiteLink": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "contactTime": {
+            "type": "string",
+            "enum": [
+              "anyTime",
+              "workingDays",
+              "officeHours",
+              "specificTimes"
+            ]
+          },
+          "contactHours": {
+            "type": "object"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "realEstate",
+                    "transport",
+                    "job",
+                    "land",
+                    "agent"
+                  ]
+                },
+                "nameTag": {
+                  "type": "string"
+                },
+                "parentFilter": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "popularity": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "views": {
+                "type": "integer",
+                "default": "1"
+              },
+              "rating": {
+                "type": "number",
+                "default": 0
+              },
+              "voteCount": {
+                "type": "integer",
+                "default": 0
+              }
+            }
+          },
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "bids": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "real_estate_listing": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "transport_listing": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "country": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "iso2": {
+                "type": "string"
+              },
+              "iso3": {
+                "type": "string"
+              },
+              "phone_code": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "capital": {
+                "type": "string"
+              },
+              "native": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "state": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "state_code": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "city": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "phone": {
+            "type": "integer"
+          },
+          "socialLinks": {
+            "type": "object"
+          },
+          "insertDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewTransport-listings": {
+        "properties": {
+          "transportType": {
+            "type": "string",
+            "enum": [
+              "car",
+              "truck",
+              "motorcycle",
+              "boat",
+              "airTransport",
+              "others"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "sell",
+              "rent",
+              "exchange"
+            ]
+          },
+          "condition": {
+            "type": "string",
+            "enum": [
+              "brandNew",
+              "goodCondition",
+              "medium",
+              "requiresFixing",
+              "requiresConstruction"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "transportBrand": {
+            "type": "string"
+          },
+          "transportModel": {
+            "type": "string"
+          },
+          "year": {
+            "type": "integer"
+          },
+          "price": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "distance": {
+            "type": "integer"
+          },
+          "distanceMesurment": {
+            "type": "string",
+            "enum": [
+              "kilometer",
+              "mile"
+            ]
+          },
+          "maxSpeed": {
+            "type": "integer"
+          },
+          "speedMesurment": {
+            "type": "string",
+            "enum": [
+              "kilometerPerHour",
+              "milePerHour"
+            ]
+          },
+          "fuelEconomy": {
+            "type": "number"
+          },
+          "fuelEconomyMesurment": {
+            "type": "string",
+            "enum": [
+              "litrePerKilometer",
+              "galonPerMile"
+            ]
+          },
+          "numberOfSeats": {
+            "type": "integer"
+          },
+          "numberOfDoors": {
+            "type": "integer"
+          },
+          "engineType": {
+            "type": "string",
+            "enum": [
+              "benzine",
+              "diesel",
+              "gas",
+              "electric",
+              "other"
+            ]
+          },
+          "gearBox": {
+            "type": "string",
+            "enum": [
+              "manual",
+              "automatic",
+              "other"
+            ]
+          },
+          "color": {
+            "type": "string",
+            "enum": [
+              "red",
+              "orange",
+              "yellow",
+              "green",
+              "blue",
+              "violent",
+              "pink",
+              "tan",
+              "beige",
+              "white",
+              "silver",
+              "gray",
+              "black",
+              "brown",
+              "gold",
+              "indigo",
+              "purple",
+              "lime",
+              "azure",
+              "other"
+            ]
+          },
+          "videoUrl": {
+            "type": "string"
+          },
+          "websiteLink": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "contactTime": {
+            "type": "string",
+            "enum": [
+              "anyTime",
+              "workingDays",
+              "officeHours",
+              "specificTimes"
+            ]
+          },
+          "contactHours": {
+            "type": "object"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "popularity": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "views": {
+                "type": "integer",
+                "default": "1"
+              },
+              "rating": {
+                "type": "number",
+                "default": 0
+              },
+              "voteCount": {
+                "type": "integer",
+                "default": 0
+              }
+            }
+          },
+          "user": {
+            "type": "string"
+          },
+          "bids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "integer"
+          },
+          "socialLinks": {
+            "type": "object"
+          },
+          "insertDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Vacancy-listing": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "positionHeader": {
+            "type": "string"
+          },
+          "vacancyOption": {
+            "type": "string",
+            "enum": [
+              "intern",
+              "volunteerWork",
+              "stockExchange",
+              "administrationAssistance",
+              "constructionRealEstate",
+              "humanResources",
+              "securityRescue",
+              "military",
+              "electronicsTelecomunication",
+              "freelanceTemporary",
+              "energyElectricity",
+              "pharmacy",
+              "financeAccounting",
+              "infromationTechnology",
+              "jurisprudenceJustice",
+              "cultureArtEntertainemnt",
+              "sports",
+              "qualityControl",
+              "agricutureEnvironmental",
+              "medicineSocialCare",
+              "mediaPublicRelations",
+              "forestryWoodworkingMetalWorking",
+              "marketingAdvertising",
+              "productionIndustry",
+              "seasonalWork",
+              "technicalScience",
+              "services",
+              "transportLogistics",
+              "tourismCateringHotels",
+              "managment",
+              "government",
+              "others"
+            ]
+          },
+          "contractType": {
+            "type": "string",
+            "enum": [
+              "temporarly",
+              "fullTime",
+              "partTime",
+              "remoteFullTime",
+              "remoteParttime",
+              "other"
+            ]
+          },
+          "workingTime": {
+            "type": "string",
+            "enum": [
+              "officeHours",
+              "shifts",
+              "flexible",
+              "other"
+            ]
+          },
+          "positionDescription": {
+            "type": "string"
+          },
+          "positionRequirements": {
+            "type": "string"
+          },
+          "positionBenefits": {
+            "type": "string"
+          },
+          "currency": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "symbol_native": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "name_plural": {
+                "type": "string"
+              },
+              "popularity": {
+                "type": "integer"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "contactHours": {
+            "type": "object"
+          },
+          "socialLinks": {
+            "type": "object"
+          },
+          "monthlySalaryFrom": {
+            "type": "integer"
+          },
+          "monthlySalaryTo": {
+            "type": "integer"
+          },
+          "annualSalaryFrom": {
+            "type": "integer"
+          },
+          "annualSalaryTo": {
+            "type": "integer"
+          },
+          "hourlySalaryFrom": {
+            "type": "number"
+          },
+          "hourlySalaryTo": {
+            "type": "number"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "officeAddress": {
+            "type": "string"
+          },
+          "contactTime": {
+            "type": "string",
+            "enum": [
+              "anyTime",
+              "workingDays",
+              "officeHours",
+              "specificTimes"
+            ]
+          },
+          "websiteLink": {
+            "type": "string"
+          },
+          "listingGallery": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "alternativeText": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "formats": {
+                  "type": "object"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "videoLink": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "realEstate",
+                    "transport",
+                    "job",
+                    "land",
+                    "agent"
+                  ]
+                },
+                "nameTag": {
+                  "type": "string"
+                },
+                "parentFilter": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "popularity": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "views": {
+                "type": "integer",
+                "default": "1"
+              },
+              "rating": {
+                "type": "number",
+                "default": 0
+              },
+              "voteCount": {
+                "type": "integer",
+                "default": 0
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewVacancy-listing": {
+        "properties": {
+          "positionHeader": {
+            "type": "string"
+          },
+          "vacancyOption": {
+            "type": "string",
+            "enum": [
+              "intern",
+              "volunteerWork",
+              "stockExchange",
+              "administrationAssistance",
+              "constructionRealEstate",
+              "humanResources",
+              "securityRescue",
+              "military",
+              "electronicsTelecomunication",
+              "freelanceTemporary",
+              "energyElectricity",
+              "pharmacy",
+              "financeAccounting",
+              "infromationTechnology",
+              "jurisprudenceJustice",
+              "cultureArtEntertainemnt",
+              "sports",
+              "qualityControl",
+              "agricutureEnvironmental",
+              "medicineSocialCare",
+              "mediaPublicRelations",
+              "forestryWoodworkingMetalWorking",
+              "marketingAdvertising",
+              "productionIndustry",
+              "seasonalWork",
+              "technicalScience",
+              "services",
+              "transportLogistics",
+              "tourismCateringHotels",
+              "managment",
+              "government",
+              "others"
+            ]
+          },
+          "contractType": {
+            "type": "string",
+            "enum": [
+              "temporarly",
+              "fullTime",
+              "partTime",
+              "remoteFullTime",
+              "remoteParttime",
+              "other"
+            ]
+          },
+          "workingTime": {
+            "type": "string",
+            "enum": [
+              "officeHours",
+              "shifts",
+              "flexible",
+              "other"
+            ]
+          },
+          "positionDescription": {
+            "type": "string"
+          },
+          "positionRequirements": {
+            "type": "string"
+          },
+          "positionBenefits": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "contactHours": {
+            "type": "object"
+          },
+          "socialLinks": {
+            "type": "object"
+          },
+          "monthlySalaryFrom": {
+            "type": "integer"
+          },
+          "monthlySalaryTo": {
+            "type": "integer"
+          },
+          "annualSalaryFrom": {
+            "type": "integer"
+          },
+          "annualSalaryTo": {
+            "type": "integer"
+          },
+          "hourlySalaryFrom": {
+            "type": "number"
+          },
+          "hourlySalaryTo": {
+            "type": "number"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "officeAddress": {
+            "type": "string"
+          },
+          "contactTime": {
+            "type": "string",
+            "enum": [
+              "anyTime",
+              "workingDays",
+              "officeHours",
+              "specificTimes"
+            ]
+          },
+          "websiteLink": {
+            "type": "string"
+          },
+          "videoLink": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "popularity": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "views": {
+                "type": "integer",
+                "default": "1"
+              },
+              "rating": {
+                "type": "number",
+                "default": 0
+              },
+              "voteCount": {
+                "type": "integer",
+                "default": 0
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -5603,6 +10190,9 @@
     }
   },
   "tags": [
+    {
+      "name": "Bid"
+    },
     {
       "name": "City"
     },

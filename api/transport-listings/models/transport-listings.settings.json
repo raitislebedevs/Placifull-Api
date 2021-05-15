@@ -1,0 +1,210 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transport_listings",
+  "info": {
+    "name": "transportListings",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "transportType": {
+      "type": "enumeration",
+      "enum": [
+        "car",
+        "truck",
+        "motorcycle",
+        "boat",
+        "airTransport",
+        "others"
+      ]
+    },
+    "action": {
+      "type": "enumeration",
+      "enum": [
+        "sell",
+        "rent",
+        "exchange"
+      ]
+    },
+    "condition": {
+      "type": "enumeration",
+      "enum": [
+        "brandNew",
+        "goodCondition",
+        "medium",
+        "requiresFixing",
+        "requiresConstruction"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "transportBrand": {
+      "type": "string"
+    },
+    "transportModel": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "currency": {
+      "model": "currency"
+    },
+    "distance": {
+      "type": "integer"
+    },
+    "distanceMesurment": {
+      "type": "enumeration",
+      "enum": [
+        "kilometer",
+        "mile"
+      ]
+    },
+    "maxSpeed": {
+      "type": "integer"
+    },
+    "speedMesurment": {
+      "type": "enumeration",
+      "enum": [
+        "kilometerPerHour",
+        "milePerHour"
+      ]
+    },
+    "fuelEconomy": {
+      "type": "decimal"
+    },
+    "fuelEconomyMesurment": {
+      "type": "enumeration",
+      "enum": [
+        "litrePerKilometer",
+        "galonPerMile"
+      ]
+    },
+    "numberOfSeats": {
+      "type": "integer"
+    },
+    "numberOfDoors": {
+      "type": "integer"
+    },
+    "engineType": {
+      "type": "enumeration",
+      "enum": [
+        "benzine",
+        "diesel",
+        "gas",
+        "electric",
+        "other"
+      ]
+    },
+    "gearBox": {
+      "type": "enumeration",
+      "enum": [
+        "manual",
+        "automatic",
+        "other"
+      ]
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "violent",
+        "pink",
+        "tan",
+        "beige",
+        "white",
+        "silver",
+        "gray",
+        "black",
+        "brown",
+        "gold",
+        "indigo",
+        "purple",
+        "lime",
+        "azure",
+        "other"
+      ]
+    },
+    "listingGallery": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "videoUrl": {
+      "type": "string"
+    },
+    "websiteLink": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "contactTime": {
+      "type": "enumeration",
+      "enum": [
+        "anyTime",
+        "workingDays",
+        "officeHours",
+        "specificTimes"
+      ]
+    },
+    "contactHours": {
+      "type": "json"
+    },
+    "tags": {
+      "collection": "tag"
+    },
+    "popularity": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.popularity"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "bids": {
+      "collection": "bid",
+      "via": "transport_listing"
+    },
+    "name": {
+      "type": "string"
+    },
+    "country": {
+      "model": "country"
+    },
+    "state": {
+      "model": "state"
+    },
+    "city": {
+      "model": "city"
+    },
+    "phone": {
+      "type": "integer"
+    },
+    "socialLinks": {
+      "type": "json"
+    },
+    "insertDate": {
+      "type": "date"
+    }
+  }
+}

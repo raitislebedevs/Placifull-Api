@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/real-estate-listings",
+      "handler": "real-estate-listing.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/real-estate-listings/count",
+      "handler": "real-estate-listing.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/real-estate-listings/:id",
+      "handler": "real-estate-listing.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/real-estate-listings",
+      "handler": "real-estate-listing.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/real-estate-listings/:id",
+      "handler": "real-estate-listing.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/real-estate-listings/:id",
+      "handler": "real-estate-listing.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
