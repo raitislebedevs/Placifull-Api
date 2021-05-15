@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/curency-conversions",
+      "handler": "curency-conversion.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/curency-conversions/count",
+      "handler": "curency-conversion.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/curency-conversions/:id",
+      "handler": "curency-conversion.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/curency-conversions",
+      "handler": "curency-conversion.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/curency-conversions/:id",
+      "handler": "curency-conversion.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/curency-conversions/:id",
+      "handler": "curency-conversion.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

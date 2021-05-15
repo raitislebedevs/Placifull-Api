@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "curriculum_vitaes",
+  "info": {
+    "name": "CurriculumVitaes",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "PersonalDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "personal-details.personal-details"
+    }
+  }
+}

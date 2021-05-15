@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_personal_details_personal_details",
+  "info": {
+    "name": "PersonalDetails",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "notSpecified"
+      ]
+    },
+    "showAge": {
+      "type": "enumeration",
+      "enum": [
+        "yes",
+        "no",
+        "birthDateOnly"
+      ]
+    },
+    "cvPhoneNumber": {
+      "type": "integer"
+    },
+    "aboutMe": {
+      "type": "richtext"
+    },
+    "cvFirstName": {
+      "type": "string"
+    },
+    "cvPersonalEmail": {
+      "type": "email"
+    },
+    "city": {
+      "model": "city"
+    },
+    "state": {
+      "model": "state"
+    },
+    "cvLasttName": {
+      "type": "string"
+    },
+    "country": {
+      "model": "country"
+    },
+    "birthDay": {
+      "type": "date"
+    }
+  }
+}

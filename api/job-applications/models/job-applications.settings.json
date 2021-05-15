@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_applications",
+  "info": {
+    "name": "JobApplications"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "applyText": {
+      "type": "text"
+    },
+    "dreamJob": {
+      "type": "text"
+    },
+    "positionName": {
+      "type": "string"
+    },
+    "salaryExpectation": {
+      "type": "biginteger"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}

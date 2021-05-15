@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "curency_conversions",
+  "info": {
+    "name": "CurencyConversion"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "sourceCurrency": {
+      "model": "currency"
+    },
+    "targetCurrency": {
+      "model": "currency"
+    },
+    "code": {
+      "type": "string"
+    },
+    "rate": {
+      "type": "float"
+    }
+  }
+}

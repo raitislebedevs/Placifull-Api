@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/bids",
-      "handler": "bid.find",
+      "path": "/job-applications",
+      "handler": "job-applications.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/bids/count",
-      "handler": "bid.count",
+      "path": "/job-applications/count",
+      "handler": "job-applications.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/bids/:id",
-      "handler": "bid.findOne",
+      "path": "/job-applications/:id",
+      "handler": "job-applications.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/bids",
-      "handler": "bid.create",
+      "path": "/job-applications",
+      "handler": "job-applications.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/bids/:id",
-      "handler": "bid.update",
+      "path": "/job-applications/:id",
+      "handler": "job-applications.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/bids/:id",
-      "handler": "bid.delete",
+      "path": "/job-applications/:id",
+      "handler": "job-applications.delete",
       "config": {
         "policies": []
       }

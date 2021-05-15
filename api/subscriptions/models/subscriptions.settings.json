@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscriptions",
+  "info": {
+    "name": "subscriptions"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "realestate": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subscription.single-subscription"
+    },
+    "transport": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subscription.single-subscription"
+    },
+    "jobs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subscription.single-subscription"
+    },
+    "jobsearchpurchased": {
+      "type": "boolean"
+    }
+  }
+}
