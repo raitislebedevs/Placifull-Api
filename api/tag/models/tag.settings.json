@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tags",
+  "info": {
+    "name": "tag",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "realEstate",
+        "transport",
+        "job",
+        "land",
+        "agent"
+      ]
+    },
+    "nameTag": {
+      "type": "string",
+      "unique": true
+    },
+    "parentFilter": {
+      "type": "string"
+    }
+  }
+}

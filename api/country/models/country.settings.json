@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "countries",
+  "info": {
+    "name": "Country",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "iso2": {
+      "type": "string"
+    },
+    "iso3": {
+      "type": "string"
+    },
+    "phone_code": {
+      "type": "string"
+    },
+    "currency": {
+      "model": "currency"
+    },
+    "capital": {
+      "type": "string"
+    },
+    "native": {
+      "type": "string"
+    }
+  }
+}

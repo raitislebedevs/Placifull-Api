@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_ultilities_ultilities",
+  "info": {
+    "name": "ultilities",
+    "icon": "money-bill"
+  },
+  "options": {},
+  "attributes": {
+    "coldWater": {
+      "type": "decimal"
+    },
+    "hotWater": {
+      "type": "decimal"
+    },
+    "electricity": {
+      "type": "decimal"
+    },
+    "garbage": {
+      "type": "decimal"
+    },
+    "propertyManagement": {
+      "type": "decimal"
+    },
+    "heating": {
+      "type": "decimal"
+    },
+    "parking": {
+      "type": "decimal"
+    },
+    "others": {
+      "type": "decimal"
+    }
+  }
+}

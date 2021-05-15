@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_common_bidoffers",
+  "info": {
+    "name": "bidoffer",
+    "icon": "bullseye"
+  },
+  "options": {},
+  "attributes": {
+    "lowest": {
+      "type": "integer"
+    },
+    "highest": {
+      "type": "integer"
+    },
+    "lowestphone": {
+      "type": "string"
+    },
+    "highestphone": {
+      "type": "string"
+    },
+    "lowestemail": {
+      "type": "email"
+    },
+    "highestemail": {
+      "type": "email"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_subscription_subscriptions",
+  "info": {
+    "name": "Subscription",
+    "icon": "dollar-sign"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "posts": {
+      "type": "integer"
+    },
+    "validTo": {
+      "type": "date"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "currencies",
+  "info": {
+    "name": "currency",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "symbol_native": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "name_plural": {
+      "type": "string"
+    },
+    "popularity": {
+      "type": "integer"
+    }
+  }
+}

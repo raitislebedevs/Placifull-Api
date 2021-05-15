@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_subscription_single_subscriptions",
+  "info": {
+    "name": "SingleSubscription",
+    "icon": "donate"
+  },
+  "options": {},
+  "attributes": {
+    "subscriptionPeriods": {
+      "type": "component",
+      "repeatable": true,
+      "component": "subscription.subscription"
+    },
+    "totalAvailable": {
+      "type": "integer"
+    }
+  }
+}

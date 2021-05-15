@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_popularity_popularities",
+  "info": {
+    "name": "Popularity",
+    "icon": "hand-pointer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "views": {
+      "type": "biginteger",
+      "default": "1"
+    },
+    "rating": {
+      "type": "decimal",
+      "required": false,
+      "default": 0
+    },
+    "voteCount": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

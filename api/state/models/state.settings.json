@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "states",
+  "info": {
+    "name": "State",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "state_code": {
+      "type": "string"
+    },
+    "country": {
+      "model": "country"
+    }
+  }
+}
