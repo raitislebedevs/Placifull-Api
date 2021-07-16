@@ -2,7 +2,8 @@
   "collectionName": "components_personal_details_personal_details",
   "info": {
     "name": "PersonalDetails",
-    "icon": "address-card"
+    "icon": "address-card",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -22,9 +23,6 @@
         "birthDateOnly"
       ]
     },
-    "cvPhoneNumber": {
-      "type": "integer"
-    },
     "aboutMe": {
       "type": "richtext"
     },
@@ -34,20 +32,26 @@
     "cvPersonalEmail": {
       "type": "email"
     },
-    "city": {
-      "model": "city"
-    },
-    "state": {
-      "model": "state"
-    },
     "cvLasttName": {
       "type": "string"
     },
-    "country": {
-      "model": "country"
-    },
     "birthDay": {
       "type": "date"
+    },
+    "country": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "cvProfession": {
+      "type": "string"
+    },
+    "cvPhoneNumber": {
+      "type": "string"
     }
   }
 }

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_address_addresses",
+  "info": {
+    "name": "address",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "country": {
+      "model": "country"
+    },
+    "state": {
+      "model": "state"
+    },
+    "city": {
+      "model": "city"
+    },
+    "fullAddress": {
+      "type": "string"
+    },
+    "zipCode": {
+      "type": "string"
+    }
+  }
+}

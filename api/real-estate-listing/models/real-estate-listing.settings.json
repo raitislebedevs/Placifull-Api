@@ -50,7 +50,8 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "user": {
       "plugin": "users-permissions",
@@ -156,9 +157,6 @@
     "bathCount": {
       "type": "integer"
     },
-    "yearBuilt": {
-      "type": "integer"
-    },
     "insertDate": {
       "type": "date"
     },
@@ -184,6 +182,13 @@
     },
     "zipCode": {
       "type": "string"
+    },
+    "flagged": {
+      "type": "boolean",
+      "default": false
+    },
+    "yearBuilt": {
+      "type": "date"
     }
   }
 }

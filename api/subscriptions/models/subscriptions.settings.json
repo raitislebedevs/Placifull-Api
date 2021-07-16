@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "subscriptions",
   "info": {
-    "name": "subscriptions"
+    "name": "subscriptions",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -10,23 +11,28 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "realestate": {
+    "realEstate": {
       "type": "component",
       "repeatable": false,
-      "component": "subscription.single-subscription"
+      "component": "subscription.real-estate"
     },
     "transport": {
       "type": "component",
       "repeatable": false,
-      "component": "subscription.single-subscription"
+      "component": "subscription.real-estate"
     },
     "jobs": {
       "type": "component",
       "repeatable": false,
-      "component": "subscription.single-subscription"
+      "component": "subscription.real-estate"
     },
-    "jobsearchpurchased": {
-      "type": "boolean"
+    "browserCv": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subscription.browser-cv"
+    },
+    "userId": {
+      "type": "string"
     }
   }
 }

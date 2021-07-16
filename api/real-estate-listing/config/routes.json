@@ -10,8 +10,24 @@
     },
     {
       "method": "GET",
+      "path": "/real-estate-listings/form",
+      "handler": "real-estate-listing.findForm",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/real-estate-listings/count",
       "handler": "real-estate-listing.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/real-estate-listings/form/count",
+      "handler": "real-estate-listing.countForm",
       "config": {
         "policies": []
       }

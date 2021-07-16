@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_subscription_listing_ids",
+  "info": {
+    "name": "ListingIds",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "ListingId": {
+      "type": "string"
+    }
+  }
+}

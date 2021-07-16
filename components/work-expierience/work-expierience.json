@@ -1,0 +1,76 @@
+{
+  "collectionName": "components_work_expierience_work_expieriences",
+  "info": {
+    "name": "Work-Expierience",
+    "icon": "allergies",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "companyName": {
+      "type": "string"
+    },
+    "employmentSector": {
+      "type": "enumeration",
+      "enum": [
+        "intern",
+        "volunteerWork",
+        "stockExchange",
+        "administrationAssistance",
+        "constructionRealEstate",
+        "humanResources",
+        "securityRescue",
+        "military",
+        "electronicsTelecomunication",
+        "freelanceTemporary",
+        "energyElectricity",
+        "pharmacy",
+        "financeAccounting",
+        "infromationTechnology",
+        "jurisprudenceJustice",
+        "cultureArtEntertainemnt",
+        "sports",
+        "qualityControl",
+        "agricutureEnvironmental",
+        "medicineSocialCare",
+        "mediaPublicRelations",
+        "forestryWoodworkingMetalWorking",
+        "marketingAdvertising",
+        "productionIndustry",
+        "seasonalWork",
+        "technicalScience",
+        "services",
+        "transportLogistics",
+        "tourismCateringHotels",
+        "managment",
+        "government",
+        "others"
+      ]
+    },
+    "positionDescription": {
+      "type": "richtext"
+    },
+    "positionName": {
+      "type": "string"
+    },
+    "seniority": {
+      "type": "enumeration",
+      "enum": [
+        "volunteer",
+        "intern",
+        "junior",
+        "intermediate",
+        "senior",
+        "executive",
+        "ceo",
+        "other"
+      ]
+    },
+    "fromDate": {
+      "type": "date"
+    },
+    "toDate": {
+      "type": "date"
+    }
+  }
+}

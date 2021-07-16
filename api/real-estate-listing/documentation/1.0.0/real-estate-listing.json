@@ -259,7 +259,121 @@
         }
       }
     },
+    "/real-estate-listings/form": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Real-estate-listing"
+        ],
+        "parameters": []
+      }
+    },
     "/real-estate-listings/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Real-estate-listing"
+        ],
+        "parameters": []
+      }
+    },
+    "/real-estate-listings/form/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -696,9 +810,6 @@
               "userInfo": {
                 "type": "string"
               },
-              "subscription": {
-                "type": "string"
-              },
               "curriculumVitae": {
                 "type": "string"
               },
@@ -730,6 +841,9 @@
                   "type": "number"
                 },
                 "transport_listing": {
+                  "type": "string"
+                },
+                "vacancy_listing": {
                   "type": "string"
                 },
                 "published_at": {
@@ -939,9 +1053,6 @@
           "bathCount": {
             "type": "integer"
           },
-          "yearBuilt": {
-            "type": "integer"
-          },
           "insertDate": {
             "type": "string",
             "format": "date"
@@ -972,6 +1083,12 @@
               },
               "highestemail": {
                 "type": "string"
+              },
+              "avarage": {
+                "type": "number"
+              },
+              "avarageCount": {
+                "type": "integer"
               }
             }
           },
@@ -1086,6 +1203,14 @@
           },
           "zipCode": {
             "type": "string"
+          },
+          "flagged": {
+            "type": "boolean",
+            "default": false
+          },
+          "yearBuilt": {
+            "type": "string",
+            "format": "date"
           },
           "published_at": {
             "type": "string",
@@ -1286,9 +1411,6 @@
           "bathCount": {
             "type": "integer"
           },
-          "yearBuilt": {
-            "type": "integer"
-          },
           "insertDate": {
             "type": "string",
             "format": "date"
@@ -1319,6 +1441,12 @@
               },
               "highestemail": {
                 "type": "string"
+              },
+              "avarage": {
+                "type": "number"
+              },
+              "avarageCount": {
+                "type": "integer"
               }
             }
           },
@@ -1340,6 +1468,14 @@
           },
           "zipCode": {
             "type": "string"
+          },
+          "flagged": {
+            "type": "boolean",
+            "default": false
+          },
+          "yearBuilt": {
+            "type": "string",
+            "format": "date"
           },
           "published_at": {
             "type": "string",

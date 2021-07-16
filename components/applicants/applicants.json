@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_applicants_applicants",
+  "info": {
+    "name": "Applicants",
+    "icon": "baby",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "cv": {
+      "model": "curriculum-vitaes"
+    },
+    "proposedSalary": {
+      "type": "integer"
+    },
+    "index": {
+      "type": "integer",
+      "required": true
+    },
+    "column": {
+      "type": "string",
+      "required": true,
+      "default": "applicants"
+    },
+    "appliedDate": {
+      "type": "date"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string"
+    }
+  }
+}

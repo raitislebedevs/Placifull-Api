@@ -1,0 +1,73 @@
+{
+  "collectionName": "components_work_expectations_work_expectations",
+  "info": {
+    "name": "WorkExpectations",
+    "icon": "atom",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "vacancyOption": {
+      "type": "enumeration",
+      "enum": [
+        "intern",
+        "volunteerWork",
+        "stockExchange",
+        "administrationAssistance",
+        "constructionRealEstate",
+        "humanResources",
+        "securityRescue",
+        "military",
+        "electronicsTelecomunication",
+        "freelanceTemporary",
+        "energyElectricity",
+        "pharmacy",
+        "financeAccounting",
+        "infromationTechnology",
+        "jurisprudenceJustice",
+        "cultureArtEntertainemnt",
+        "sports",
+        "qualityControl",
+        "agricutureEnvironmental",
+        "medicineSocialCare",
+        "mediaPublicRelations",
+        "forestryWoodworkingMetalWorking",
+        "marketingAdvertising",
+        "productionIndustry",
+        "seasonalWork",
+        "technicalScience",
+        "services",
+        "transportLogistics",
+        "tourismCateringHotels",
+        "managment",
+        "government",
+        "others"
+      ]
+    },
+    "position": {
+      "type": "string"
+    },
+    "seniority": {
+      "type": "enumeration",
+      "enum": [
+        "volunteer",
+        "intern",
+        "junior",
+        "intermediate",
+        "senior",
+        "executive",
+        "ceo",
+        "other"
+      ]
+    },
+    "hourlyRate": {
+      "type": "decimal"
+    },
+    "monthly": {
+      "type": "decimal"
+    },
+    "yearly": {
+      "type": "decimal"
+    }
+  }
+}

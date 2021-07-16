@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_common_languages",
+  "info": {
+    "name": "textField",
+    "icon": "flag-usa",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
+}

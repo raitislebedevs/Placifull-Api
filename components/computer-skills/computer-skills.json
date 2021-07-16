@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_computer_skills_computer_skills",
+  "info": {
+    "name": "ComputerSkills",
+    "icon": "apple-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "skill": {
+      "type": "string"
+    },
+    "expierienceGathered": {
+      "type": "enumeration",
+      "enum": [
+        "selfTaught",
+        "course",
+        "freelance",
+        "contractProject",
+        "fullTimeJob",
+        "other"
+      ]
+    },
+    "yearExpierience": {
+      "type": "enumeration",
+      "enum": [
+        "uptoOne",
+        "oneToThree",
+        "threeToFive",
+        "fiveToTen",
+        "tenToFifteen",
+        "moreThanFifteen"
+      ]
+    },
+    "skillCertificate": {
+      "type": "string"
+    }
+  }
+}

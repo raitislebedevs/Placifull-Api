@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/transport-listings/form",
+      "handler": "transport-listings.findForm",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/transport-listings",
       "handler": "transport-listings.find",
       "config": {
@@ -12,6 +20,14 @@
       "method": "GET",
       "path": "/transport-listings/count",
       "handler": "transport-listings.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/transport-listings/form/count",
+      "handler": "transport-listings.countForm",
       "config": {
         "policies": []
       }

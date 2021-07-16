@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/15/2021 1:02:58 PM"
+    "x-generation-date": "07/16/2021 6:02:39 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -45,6 +45,517 @@
     }
   ],
   "paths": {
+    "/bids": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Bid"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Bid"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewBid"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bids/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "parameters": []
+      }
+    },
+    "/bids/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Bid"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Bid"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewBid"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Bid"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/cities": {
       "get": {
         "deprecated": false,
@@ -2361,6 +2872,120 @@
         }
       }
     },
+    "/curriculum-vitaes/form": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve curriculum-vitaes document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Curriculum-vitaes"
+        ],
+        "parameters": []
+      }
+    },
+    "/curriculum-vitaes/form/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve curriculum-vitaes document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Curriculum-vitaes"
+        ],
+        "parameters": []
+      }
+    },
     "/curriculum-vitaes/count": {
       "get": {
         "deprecated": false,
@@ -2624,6 +3249,78 @@
             }
           }
         ]
+      }
+    },
+    "/curriculum-vitaes/me": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single curriculum-vitaes record",
+        "responses": {
+          "200": {
+            "description": "Retrieve curriculum-vitaes document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Curriculum-vitaes"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": []
       }
     },
     "/importData": {
@@ -3207,6 +3904,517 @@
         ]
       }
     },
+    "/languages": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the languages's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve languages document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Languages"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Languages"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new languages record",
+        "responses": {
+          "200": {
+            "description": "Retrieve languages document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Languages"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Languages"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewLanguages"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/languages/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the numver of languages documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve languages document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Languages"
+        ],
+        "parameters": []
+      }
+    },
+    "/languages/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one languages record",
+        "responses": {
+          "200": {
+            "description": "Retrieve languages document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Languages"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Languages"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single languages record",
+        "responses": {
+          "200": {
+            "description": "Retrieve languages document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Languages"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Languages"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewLanguages"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single languages record",
+        "responses": {
+          "200": {
+            "description": "deletes a single languages based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Languages"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/real-estate-listings": {
       "get": {
         "deprecated": false,
@@ -3466,7 +4674,121 @@
         }
       }
     },
+    "/real-estate-listings/form": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Real-estate-listing"
+        ],
+        "parameters": []
+      }
+    },
     "/real-estate-listings/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Real-estate-listing"
+        ],
+        "parameters": []
+      }
+    },
+    "/real-estate-listings/form/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -3729,6 +5051,77 @@
             }
           }
         ]
+      }
+    },
+    "/send-email": {
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Send-email"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/states": {
@@ -5264,6 +6657,63 @@
         ]
       }
     },
+    "/transport-listings/form": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve transport-listings document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Transport-listings"
+        ],
+        "parameters": []
+      }
+    },
     "/transport-listings": {
       "get": {
         "deprecated": false,
@@ -5527,6 +6977,63 @@
       "get": {
         "deprecated": false,
         "description": "Retrieve the numver of transport-listings documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve transport-listings document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Transport-listings"
+        ],
+        "parameters": []
+      }
+    },
+    "/transport-listings/form/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
         "responses": {
           "200": {
             "description": "Retrieve transport-listings document(s)",
@@ -6643,7 +8150,121 @@
         }
       }
     },
+    "/vacancy-listings/form": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Vacancy-listing"
+        ],
+        "parameters": []
+      }
+    },
     "/vacancy-listings/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Vacancy-listing"
+        ],
+        "parameters": []
+      }
+    },
+    "/vacancy-listings/form/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -6977,134 +8598,6 @@
             }
           }
         }
-      }
-    },
-    "/email/test": {
-      "post": {
-        "deprecated": false,
-        "description": "Send an test email",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Email - Email"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/email/settings": {
-      "get": {
-        "deprecated": false,
-        "description": "Get the email settings",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Email - Email"
-        ],
-        "parameters": []
       }
     },
     "/upload/": {
@@ -9208,6 +10701,726 @@
   },
   "components": {
     "schemas": {
+      "Bid": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "userInfo": {
+                "type": "string"
+              },
+              "curriculumVitae": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "real_estate_listing": {
+            "required": [
+              "id",
+              "isPromotable"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "rooms": {
+                "type": "integer"
+              },
+              "area": {
+                "type": "number"
+              },
+              "contactHours": {
+                "type": "object"
+              },
+              "socialLinks": {
+                "type": "object"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "websiteLink": {
+                "type": "string"
+              },
+              "popularity": {
+                "type": "component"
+              },
+              "listingGallery": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "user": {
+                "type": "string"
+              },
+              "bids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "currency": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "houses",
+                  "apartments",
+                  "land",
+                  "commercial",
+                  "exclusive",
+                  "offices",
+                  "farmhouse",
+                  "agents"
+                ]
+              },
+              "action": {
+                "type": "string",
+                "enum": [
+                  "sell",
+                  "rent",
+                  "exchange"
+                ]
+              },
+              "condition": {
+                "type": "string",
+                "enum": [
+                  "brandNew",
+                  "goodCondition",
+                  "medium",
+                  "requiresFixing",
+                  "requiresConstruction",
+                  "residential",
+                  "comercial",
+                  "industrial",
+                  "agricultural"
+                ]
+              },
+              "contactTime": {
+                "type": "string",
+                "enum": [
+                  "anyTime",
+                  "workingDays",
+                  "officeHours",
+                  "specificTimes"
+                ]
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "videoLink": {
+                "type": "string"
+              },
+              "areaMeasurement": {
+                "type": "string",
+                "enum": [
+                  "metter",
+                  "feet"
+                ]
+              },
+              "moveInDate": {
+                "type": "string"
+              },
+              "moveOutDate": {
+                "type": "string"
+              },
+              "ultilitiesPrice": {
+                "type": "component"
+              },
+              "totalUltilities": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "isPromotable": {
+                "type": "boolean"
+              },
+              "extraDaysHolding": {
+                "type": "integer"
+              },
+              "bathCount": {
+                "type": "integer"
+              },
+              "insertDate": {
+                "type": "string"
+              },
+              "bidOffer": {
+                "type": "component"
+              },
+              "expiryDate": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "fullAddress": {
+                "type": "string"
+              },
+              "zipCode": {
+                "type": "string"
+              },
+              "flagged": {
+                "type": "boolean"
+              },
+              "yearBuilt": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "price": {
+            "type": "number"
+          },
+          "transport_listing": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "transportType": {
+                "type": "string",
+                "enum": [
+                  "car",
+                  "truck",
+                  "motorcycle",
+                  "boat",
+                  "airTransport",
+                  "others"
+                ]
+              },
+              "action": {
+                "type": "string",
+                "enum": [
+                  "sell",
+                  "rent",
+                  "exchange",
+                  "forParts"
+                ]
+              },
+              "condition": {
+                "type": "string",
+                "enum": [
+                  "brandNew",
+                  "likeNew",
+                  "used",
+                  "requiresFixing",
+                  "afterCrash"
+                ]
+              },
+              "description": {
+                "type": "string"
+              },
+              "transportBrand": {
+                "type": "string"
+              },
+              "transportModel": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "distance": {
+                "type": "integer"
+              },
+              "distanceMesurment": {
+                "type": "string",
+                "enum": [
+                  "kilometer",
+                  "mile"
+                ]
+              },
+              "maxSpeed": {
+                "type": "integer"
+              },
+              "speedMesurment": {
+                "type": "string",
+                "enum": [
+                  "kilometerPerHour",
+                  "milePerHour"
+                ]
+              },
+              "fuelEconomy": {
+                "type": "number"
+              },
+              "fuelEconomyMesurment": {
+                "type": "string",
+                "enum": [
+                  "litrePerKilometer",
+                  "galonPerMile"
+                ]
+              },
+              "numberOfSeats": {
+                "type": "integer"
+              },
+              "numberOfDoors": {
+                "type": "integer"
+              },
+              "engineType": {
+                "type": "string",
+                "enum": [
+                  "benzine",
+                  "diesel",
+                  "gas",
+                  "electric",
+                  "other"
+                ]
+              },
+              "gearBox": {
+                "type": "string",
+                "enum": [
+                  "manual",
+                  "automatic",
+                  "other"
+                ]
+              },
+              "color": {
+                "type": "string",
+                "enum": [
+                  "red",
+                  "orange",
+                  "yellow",
+                  "green",
+                  "blue",
+                  "violent",
+                  "pink",
+                  "tan",
+                  "beige",
+                  "white",
+                  "silver",
+                  "gray",
+                  "black",
+                  "brown",
+                  "gold",
+                  "indigo",
+                  "purple",
+                  "lime",
+                  "azure",
+                  "other"
+                ]
+              },
+              "listingGallery": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "videoUrl": {
+                "type": "string"
+              },
+              "websiteLink": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "contactTime": {
+                "type": "string",
+                "enum": [
+                  "anyTime",
+                  "workingDays",
+                  "officeHours",
+                  "specificTimes"
+                ]
+              },
+              "contactHours": {
+                "type": "object"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "popularity": {
+                "type": "component"
+              },
+              "user": {
+                "type": "string"
+              },
+              "bids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "name": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "integer"
+              },
+              "socialLinks": {
+                "type": "object"
+              },
+              "insertDate": {
+                "type": "string"
+              },
+              "flagged": {
+                "type": "boolean"
+              },
+              "bidOffer": {
+                "type": "component"
+              },
+              "year": {
+                "type": "string"
+              },
+              "expiryDate": {
+                "type": "string"
+              },
+              "meetUpAddress": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "vacancy_listing": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "positionHeader": {
+                "type": "string"
+              },
+              "vacancyOption": {
+                "type": "string",
+                "enum": [
+                  "intern",
+                  "volunteerWork",
+                  "stockExchange",
+                  "administrationAssistance",
+                  "constructionRealEstate",
+                  "humanResources",
+                  "securityRescue",
+                  "military",
+                  "electronicsTelecomunication",
+                  "freelanceTemporary",
+                  "energyElectricity",
+                  "pharmacy",
+                  "financeAccounting",
+                  "infromationTechnology",
+                  "jurisprudenceJustice",
+                  "cultureArtEntertainemnt",
+                  "sports",
+                  "qualityControl",
+                  "agricutureEnvironmental",
+                  "medicineSocialCare",
+                  "mediaPublicRelations",
+                  "forestryWoodworkingMetalWorking",
+                  "marketingAdvertising",
+                  "productionIndustry",
+                  "seasonalWork",
+                  "technicalScience",
+                  "services",
+                  "transportLogistics",
+                  "tourismCateringHotels",
+                  "managment",
+                  "government",
+                  "others"
+                ]
+              },
+              "contractType": {
+                "type": "string",
+                "enum": [
+                  "temporarly",
+                  "fullTime",
+                  "partTime",
+                  "remoteFullTime",
+                  "remotePartTime",
+                  "other"
+                ]
+              },
+              "workingTime": {
+                "type": "string",
+                "enum": [
+                  "officeHours",
+                  "shifts",
+                  "flexible",
+                  "other"
+                ]
+              },
+              "positionDescription": {
+                "type": "string"
+              },
+              "positionRequirements": {
+                "type": "string"
+              },
+              "positionBenefits": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "contactHours": {
+                "type": "object"
+              },
+              "socialLinks": {
+                "type": "object"
+              },
+              "monthlySalaryFrom": {
+                "type": "integer"
+              },
+              "monthlySalaryTo": {
+                "type": "integer"
+              },
+              "annualSalaryFrom": {
+                "type": "integer"
+              },
+              "annualSalaryTo": {
+                "type": "integer"
+              },
+              "hourlySalaryFrom": {
+                "type": "number"
+              },
+              "hourlySalaryTo": {
+                "type": "number"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "officeAddress": {
+                "type": "string"
+              },
+              "contactTime": {
+                "type": "string",
+                "enum": [
+                  "anyTime",
+                  "workingDays",
+                  "officeHours",
+                  "specificTimes"
+                ]
+              },
+              "websiteLink": {
+                "type": "string"
+              },
+              "listingGallery": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "videoLink": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "bids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "popularity": {
+                "type": "component"
+              },
+              "companyName": {
+                "type": "string"
+              },
+              "enLanguages": {
+                "type": "object"
+              },
+              "nativeLanguages": {
+                "type": "object"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "companyLogo": {
+                "type": "string"
+              },
+              "insertDate": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "bidOffer": {
+                "type": "component"
+              },
+              "Applicants": {
+                "type": "component"
+              },
+              "expiryDate": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "KanBanColumns": {
+                "type": "component"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewBid": {
+        "properties": {
+          "user": {
+            "type": "string"
+          },
+          "real_estate_listing": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "transport_listing": {
+            "type": "string"
+          },
+          "vacancy_listing": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
       "City": {
         "required": [
           "id"
@@ -9649,9 +11862,6 @@
                   "birthDateOnly"
                 ]
               },
-              "cvPhoneNumber": {
-                "type": "integer"
-              },
               "aboutMe": {
                 "type": "string"
               },
@@ -9661,114 +11871,375 @@
               "cvPersonalEmail": {
                 "type": "string"
               },
-              "city": {
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "latitude": {
-                    "type": "number"
-                  },
-                  "longitude": {
-                    "type": "number"
-                  },
-                  "country": {
-                    "type": "string"
-                  },
-                  "state": {
-                    "type": "string"
-                  },
-                  "published_at": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
-              },
-              "state": {
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "state_code": {
-                    "type": "string"
-                  },
-                  "country": {
-                    "type": "string"
-                  },
-                  "published_at": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
-              },
               "cvLasttName": {
                 "type": "string"
-              },
-              "country": {
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "iso2": {
-                    "type": "string"
-                  },
-                  "iso3": {
-                    "type": "string"
-                  },
-                  "phone_code": {
-                    "type": "string"
-                  },
-                  "currency": {
-                    "type": "string"
-                  },
-                  "capital": {
-                    "type": "string"
-                  },
-                  "native": {
-                    "type": "string"
-                  },
-                  "published_at": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
               },
               "birthDay": {
                 "type": "string",
                 "format": "date"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "cvProfession": {
+                "type": "string"
+              },
+              "cvPhoneNumber": {
+                "type": "string"
+              }
+            }
+          },
+          "EducationHistory": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "fromYear": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "toYear": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "qualification": {
+                  "type": "string",
+                  "enum": [
+                    "primary",
+                    "secondary",
+                    "vocational",
+                    "bachelors",
+                    "master",
+                    "doctorate",
+                    "other"
+                  ]
+                },
+                "avarageGrade": {
+                  "type": "string"
+                },
+                "schoolName": {
+                  "type": "string"
+                },
+                "qualificationArea": {
+                  "type": "object"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "studyArea": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "WorkExpierience": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "companyName": {
+                  "type": "string"
+                },
+                "employmentSector": {
+                  "type": "string",
+                  "enum": [
+                    "intern",
+                    "volunteerWork",
+                    "stockExchange",
+                    "administrationAssistance",
+                    "constructionRealEstate",
+                    "humanResources",
+                    "securityRescue",
+                    "military",
+                    "electronicsTelecomunication",
+                    "freelanceTemporary",
+                    "energyElectricity",
+                    "pharmacy",
+                    "financeAccounting",
+                    "infromationTechnology",
+                    "jurisprudenceJustice",
+                    "cultureArtEntertainemnt",
+                    "sports",
+                    "qualityControl",
+                    "agricutureEnvironmental",
+                    "medicineSocialCare",
+                    "mediaPublicRelations",
+                    "forestryWoodworkingMetalWorking",
+                    "marketingAdvertising",
+                    "productionIndustry",
+                    "seasonalWork",
+                    "technicalScience",
+                    "services",
+                    "transportLogistics",
+                    "tourismCateringHotels",
+                    "managment",
+                    "government",
+                    "others"
+                  ]
+                },
+                "positionDescription": {
+                  "type": "string"
+                },
+                "positionName": {
+                  "type": "string"
+                },
+                "seniority": {
+                  "type": "string",
+                  "enum": [
+                    "volunteer",
+                    "intern",
+                    "junior",
+                    "intermediate",
+                    "senior",
+                    "executive",
+                    "ceo",
+                    "other"
+                  ]
+                },
+                "fromDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "toDate": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          },
+          "LanguageSkiills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "languageName": {
+                  "type": "string"
+                },
+                "level": {
+                  "type": "string",
+                  "enum": [
+                    "a1",
+                    "a2",
+                    "b1",
+                    "b2",
+                    "c1",
+                    "c2",
+                    "native"
+                  ]
+                },
+                "certificate": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ComputerSkiills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "skill": {
+                  "type": "string"
+                },
+                "expierienceGathered": {
+                  "type": "string",
+                  "enum": [
+                    "selfTaught",
+                    "course",
+                    "freelance",
+                    "contractProject",
+                    "fullTimeJob",
+                    "other"
+                  ]
+                },
+                "yearExpierience": {
+                  "type": "string",
+                  "enum": [
+                    "uptoOne",
+                    "oneToThree",
+                    "threeToFive",
+                    "fiveToTen",
+                    "tenToFifteen",
+                    "moreThanFifteen"
+                  ]
+                },
+                "skillCertificate": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "TransportLicenses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "issueCountry": {
+                  "type": "string"
+                },
+                "licence": {
+                  "type": "string"
+                },
+                "yearExpierience": {
+                  "type": "string",
+                  "enum": [
+                    "uptoOne",
+                    "oneToThree",
+                    "threeToFive",
+                    "fiveToTen",
+                    "tenToFifteen",
+                    "moreThanFifteen"
+                  ]
+                }
+              }
+            }
+          },
+          "WorkExpectations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "vacancyOption": {
+                  "type": "string",
+                  "enum": [
+                    "intern",
+                    "volunteerWork",
+                    "stockExchange",
+                    "administrationAssistance",
+                    "constructionRealEstate",
+                    "humanResources",
+                    "securityRescue",
+                    "military",
+                    "electronicsTelecomunication",
+                    "freelanceTemporary",
+                    "energyElectricity",
+                    "pharmacy",
+                    "financeAccounting",
+                    "infromationTechnology",
+                    "jurisprudenceJustice",
+                    "cultureArtEntertainemnt",
+                    "sports",
+                    "qualityControl",
+                    "agricutureEnvironmental",
+                    "medicineSocialCare",
+                    "mediaPublicRelations",
+                    "forestryWoodworkingMetalWorking",
+                    "marketingAdvertising",
+                    "productionIndustry",
+                    "seasonalWork",
+                    "technicalScience",
+                    "services",
+                    "transportLogistics",
+                    "tourismCateringHotels",
+                    "managment",
+                    "government",
+                    "others"
+                  ]
+                },
+                "position": {
+                  "type": "string"
+                },
+                "seniority": {
+                  "type": "string",
+                  "enum": [
+                    "volunteer",
+                    "intern",
+                    "junior",
+                    "intermediate",
+                    "senior",
+                    "executive",
+                    "ceo",
+                    "other"
+                  ]
+                },
+                "hourlyRate": {
+                  "type": "number"
+                },
+                "monthly": {
+                  "type": "number"
+                },
+                "yearly": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "currency": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "symbol_native": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "name_plural": {
+                "type": "string"
+              },
+              "popularity": {
+                "type": "integer"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           },
@@ -9805,9 +12276,6 @@
                   "birthDateOnly"
                 ]
               },
-              "cvPhoneNumber": {
-                "type": "integer"
-              },
               "aboutMe": {
                 "type": "string"
               },
@@ -9817,116 +12285,343 @@
               "cvPersonalEmail": {
                 "type": "string"
               },
-              "city": {
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "latitude": {
-                    "type": "number"
-                  },
-                  "longitude": {
-                    "type": "number"
-                  },
-                  "country": {
-                    "type": "string"
-                  },
-                  "state": {
-                    "type": "string"
-                  },
-                  "published_at": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
-              },
-              "state": {
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "state_code": {
-                    "type": "string"
-                  },
-                  "country": {
-                    "type": "string"
-                  },
-                  "published_at": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
-              },
               "cvLasttName": {
                 "type": "string"
-              },
-              "country": {
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "iso2": {
-                    "type": "string"
-                  },
-                  "iso3": {
-                    "type": "string"
-                  },
-                  "phone_code": {
-                    "type": "string"
-                  },
-                  "currency": {
-                    "type": "string"
-                  },
-                  "capital": {
-                    "type": "string"
-                  },
-                  "native": {
-                    "type": "string"
-                  },
-                  "published_at": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
               },
               "birthDay": {
                 "type": "string",
                 "format": "date"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "cvProfession": {
+                "type": "string"
+              },
+              "cvPhoneNumber": {
+                "type": "string"
               }
             }
+          },
+          "EducationHistory": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "fromYear": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "toYear": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "qualification": {
+                  "type": "string",
+                  "enum": [
+                    "primary",
+                    "secondary",
+                    "vocational",
+                    "bachelors",
+                    "master",
+                    "doctorate",
+                    "other"
+                  ]
+                },
+                "avarageGrade": {
+                  "type": "string"
+                },
+                "schoolName": {
+                  "type": "string"
+                },
+                "qualificationArea": {
+                  "type": "object"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "studyArea": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "WorkExpierience": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "companyName": {
+                  "type": "string"
+                },
+                "employmentSector": {
+                  "type": "string",
+                  "enum": [
+                    "intern",
+                    "volunteerWork",
+                    "stockExchange",
+                    "administrationAssistance",
+                    "constructionRealEstate",
+                    "humanResources",
+                    "securityRescue",
+                    "military",
+                    "electronicsTelecomunication",
+                    "freelanceTemporary",
+                    "energyElectricity",
+                    "pharmacy",
+                    "financeAccounting",
+                    "infromationTechnology",
+                    "jurisprudenceJustice",
+                    "cultureArtEntertainemnt",
+                    "sports",
+                    "qualityControl",
+                    "agricutureEnvironmental",
+                    "medicineSocialCare",
+                    "mediaPublicRelations",
+                    "forestryWoodworkingMetalWorking",
+                    "marketingAdvertising",
+                    "productionIndustry",
+                    "seasonalWork",
+                    "technicalScience",
+                    "services",
+                    "transportLogistics",
+                    "tourismCateringHotels",
+                    "managment",
+                    "government",
+                    "others"
+                  ]
+                },
+                "positionDescription": {
+                  "type": "string"
+                },
+                "positionName": {
+                  "type": "string"
+                },
+                "seniority": {
+                  "type": "string",
+                  "enum": [
+                    "volunteer",
+                    "intern",
+                    "junior",
+                    "intermediate",
+                    "senior",
+                    "executive",
+                    "ceo",
+                    "other"
+                  ]
+                },
+                "fromDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "toDate": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          },
+          "LanguageSkiills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "languageName": {
+                  "type": "string"
+                },
+                "level": {
+                  "type": "string",
+                  "enum": [
+                    "a1",
+                    "a2",
+                    "b1",
+                    "b2",
+                    "c1",
+                    "c2",
+                    "native"
+                  ]
+                },
+                "certificate": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ComputerSkiills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "skill": {
+                  "type": "string"
+                },
+                "expierienceGathered": {
+                  "type": "string",
+                  "enum": [
+                    "selfTaught",
+                    "course",
+                    "freelance",
+                    "contractProject",
+                    "fullTimeJob",
+                    "other"
+                  ]
+                },
+                "yearExpierience": {
+                  "type": "string",
+                  "enum": [
+                    "uptoOne",
+                    "oneToThree",
+                    "threeToFive",
+                    "fiveToTen",
+                    "tenToFifteen",
+                    "moreThanFifteen"
+                  ]
+                },
+                "skillCertificate": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "TransportLicenses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "issueCountry": {
+                  "type": "string"
+                },
+                "licence": {
+                  "type": "string"
+                },
+                "yearExpierience": {
+                  "type": "string",
+                  "enum": [
+                    "uptoOne",
+                    "oneToThree",
+                    "threeToFive",
+                    "fiveToTen",
+                    "tenToFifteen",
+                    "moreThanFifteen"
+                  ]
+                }
+              }
+            }
+          },
+          "WorkExpectations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "vacancyOption": {
+                  "type": "string",
+                  "enum": [
+                    "intern",
+                    "volunteerWork",
+                    "stockExchange",
+                    "administrationAssistance",
+                    "constructionRealEstate",
+                    "humanResources",
+                    "securityRescue",
+                    "military",
+                    "electronicsTelecomunication",
+                    "freelanceTemporary",
+                    "energyElectricity",
+                    "pharmacy",
+                    "financeAccounting",
+                    "infromationTechnology",
+                    "jurisprudenceJustice",
+                    "cultureArtEntertainemnt",
+                    "sports",
+                    "qualityControl",
+                    "agricutureEnvironmental",
+                    "medicineSocialCare",
+                    "mediaPublicRelations",
+                    "forestryWoodworkingMetalWorking",
+                    "marketingAdvertising",
+                    "productionIndustry",
+                    "seasonalWork",
+                    "technicalScience",
+                    "services",
+                    "transportLogistics",
+                    "tourismCateringHotels",
+                    "managment",
+                    "government",
+                    "others"
+                  ]
+                },
+                "position": {
+                  "type": "string"
+                },
+                "seniority": {
+                  "type": "string",
+                  "enum": [
+                    "volunteer",
+                    "intern",
+                    "junior",
+                    "intermediate",
+                    "senior",
+                    "executive",
+                    "ceo",
+                    "other"
+                  ]
+                },
+                "hourlyRate": {
+                  "type": "number"
+                },
+                "monthly": {
+                  "type": "number"
+                },
+                "yearly": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "currency": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -10002,6 +12697,46 @@
             "type": "string"
           },
           "phone": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Languages": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "nativeName": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewLanguages": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "nativeName": {
             "type": "string"
           },
           "published_at": {
@@ -10185,9 +12920,6 @@
               "userInfo": {
                 "type": "string"
               },
-              "subscription": {
-                "type": "string"
-              },
               "curriculumVitae": {
                 "type": "string"
               },
@@ -10219,6 +12951,9 @@
                   "type": "number"
                 },
                 "transport_listing": {
+                  "type": "string"
+                },
+                "vacancy_listing": {
                   "type": "string"
                 },
                 "published_at": {
@@ -10428,9 +13163,6 @@
           "bathCount": {
             "type": "integer"
           },
-          "yearBuilt": {
-            "type": "integer"
-          },
           "insertDate": {
             "type": "string",
             "format": "date"
@@ -10461,6 +13193,12 @@
               },
               "highestemail": {
                 "type": "string"
+              },
+              "avarage": {
+                "type": "number"
+              },
+              "avarageCount": {
+                "type": "integer"
               }
             }
           },
@@ -10575,6 +13313,14 @@
           },
           "zipCode": {
             "type": "string"
+          },
+          "flagged": {
+            "type": "boolean",
+            "default": false
+          },
+          "yearBuilt": {
+            "type": "string",
+            "format": "date"
           },
           "published_at": {
             "type": "string",
@@ -10775,9 +13521,6 @@
           "bathCount": {
             "type": "integer"
           },
-          "yearBuilt": {
-            "type": "integer"
-          },
           "insertDate": {
             "type": "string",
             "format": "date"
@@ -10808,6 +13551,12 @@
               },
               "highestemail": {
                 "type": "string"
+              },
+              "avarage": {
+                "type": "number"
+              },
+              "avarageCount": {
+                "type": "integer"
               }
             }
           },
@@ -10829,6 +13578,14 @@
           },
           "zipCode": {
             "type": "string"
+          },
+          "flagged": {
+            "type": "boolean",
+            "default": false
+          },
+          "yearBuilt": {
+            "type": "string",
+            "format": "date"
           },
           "published_at": {
             "type": "string",
@@ -10933,7 +13690,7 @@
           "id": {
             "type": "string"
           },
-          "realestate": {
+          "realEstate": {
             "type": "object",
             "required": [
               "id"
@@ -10942,32 +13699,40 @@
               "id": {
                 "type": "string"
               },
-              "subscriptionPeriods": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "posts": {
-                      "type": "integer"
-                    },
-                    "validTo": {
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
+              "standalone": {
+                "type": "integer",
+                "default": 0
               },
-              "totalAvailable": {
-                "type": "integer"
+              "subscriptionQuarterly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryQuarterly": {
+                "type": "string",
+                "format": "date"
+              },
+              "subscriptionYearly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryYearly": {
+                "type": "string",
+                "format": "date"
+              },
+              "standaloneInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionQuarterlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionYearlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "listingIds": {
+                "type": "object"
               }
             }
           },
@@ -10980,32 +13745,40 @@
               "id": {
                 "type": "string"
               },
-              "subscriptionPeriods": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "posts": {
-                      "type": "integer"
-                    },
-                    "validTo": {
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
+              "standalone": {
+                "type": "integer",
+                "default": 0
               },
-              "totalAvailable": {
-                "type": "integer"
+              "subscriptionQuarterly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryQuarterly": {
+                "type": "string",
+                "format": "date"
+              },
+              "subscriptionYearly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryYearly": {
+                "type": "string",
+                "format": "date"
+              },
+              "standaloneInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionQuarterlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionYearlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "listingIds": {
+                "type": "object"
               }
             }
           },
@@ -11018,37 +13791,63 @@
               "id": {
                 "type": "string"
               },
-              "subscriptionPeriods": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "posts": {
-                      "type": "integer"
-                    },
-                    "validTo": {
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
+              "standalone": {
+                "type": "integer",
+                "default": 0
               },
-              "totalAvailable": {
-                "type": "integer"
+              "subscriptionQuarterly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryQuarterly": {
+                "type": "string",
+                "format": "date"
+              },
+              "subscriptionYearly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryYearly": {
+                "type": "string",
+                "format": "date"
+              },
+              "standaloneInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionQuarterlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionYearlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "listingIds": {
+                "type": "object"
               }
             }
           },
-          "jobsearchpurchased": {
-            "type": "boolean"
+          "browserCv": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "subscriptionExpiryBrowserCV": {
+                "type": "string",
+                "format": "date"
+              },
+              "activeSubscription": {
+                "type": "boolean"
+              }
+            }
+          },
+          "userId": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -11058,7 +13857,7 @@
       },
       "NewSubscriptions": {
         "properties": {
-          "realestate": {
+          "realEstate": {
             "type": "object",
             "required": [
               "id"
@@ -11067,32 +13866,40 @@
               "id": {
                 "type": "string"
               },
-              "subscriptionPeriods": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "posts": {
-                      "type": "integer"
-                    },
-                    "validTo": {
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
+              "standalone": {
+                "type": "integer",
+                "default": 0
               },
-              "totalAvailable": {
-                "type": "integer"
+              "subscriptionQuarterly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryQuarterly": {
+                "type": "string",
+                "format": "date"
+              },
+              "subscriptionYearly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryYearly": {
+                "type": "string",
+                "format": "date"
+              },
+              "standaloneInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionQuarterlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionYearlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "listingIds": {
+                "type": "object"
               }
             }
           },
@@ -11105,32 +13912,40 @@
               "id": {
                 "type": "string"
               },
-              "subscriptionPeriods": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "posts": {
-                      "type": "integer"
-                    },
-                    "validTo": {
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
+              "standalone": {
+                "type": "integer",
+                "default": 0
               },
-              "totalAvailable": {
-                "type": "integer"
+              "subscriptionQuarterly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryQuarterly": {
+                "type": "string",
+                "format": "date"
+              },
+              "subscriptionYearly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryYearly": {
+                "type": "string",
+                "format": "date"
+              },
+              "standaloneInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionQuarterlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionYearlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "listingIds": {
+                "type": "object"
               }
             }
           },
@@ -11143,37 +13958,63 @@
               "id": {
                 "type": "string"
               },
-              "subscriptionPeriods": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "posts": {
-                      "type": "integer"
-                    },
-                    "validTo": {
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
+              "standalone": {
+                "type": "integer",
+                "default": 0
               },
-              "totalAvailable": {
-                "type": "integer"
+              "subscriptionQuarterly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryQuarterly": {
+                "type": "string",
+                "format": "date"
+              },
+              "subscriptionYearly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryYearly": {
+                "type": "string",
+                "format": "date"
+              },
+              "standaloneInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionQuarterlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionYearlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "listingIds": {
+                "type": "object"
               }
             }
           },
-          "jobsearchpurchased": {
-            "type": "boolean"
+          "browserCv": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "subscriptionExpiryBrowserCV": {
+                "type": "string",
+                "format": "date"
+              },
+              "activeSubscription": {
+                "type": "boolean"
+              }
+            }
+          },
+          "userId": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -11271,17 +14112,18 @@
             "enum": [
               "sell",
               "rent",
-              "exchange"
+              "exchange",
+              "forParts"
             ]
           },
           "condition": {
             "type": "string",
             "enum": [
               "brandNew",
-              "goodCondition",
-              "medium",
+              "likeNew",
+              "used",
               "requiresFixing",
-              "requiresConstruction"
+              "afterCrash"
             ]
           },
           "description": {
@@ -11292,9 +14134,6 @@
           },
           "transportModel": {
             "type": "string"
-          },
-          "year": {
-            "type": "integer"
           },
           "price": {
             "type": "number"
@@ -11607,9 +14446,6 @@
               "userInfo": {
                 "type": "string"
               },
-              "subscription": {
-                "type": "string"
-              },
               "curriculumVitae": {
                 "type": "string"
               },
@@ -11641,6 +14477,9 @@
                   "type": "number"
                 },
                 "transport_listing": {
+                  "type": "string"
+                },
+                "vacancy_listing": {
                   "type": "string"
                 },
                 "published_at": {
@@ -11770,6 +14609,62 @@
             "type": "string",
             "format": "date"
           },
+          "flagged": {
+            "type": "boolean",
+            "default": false
+          },
+          "bidOffer": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lowest": {
+                "type": "integer"
+              },
+              "highest": {
+                "type": "integer"
+              },
+              "lowestphone": {
+                "type": "string"
+              },
+              "highestphone": {
+                "type": "string"
+              },
+              "lowestemail": {
+                "type": "string"
+              },
+              "highestemail": {
+                "type": "string"
+              },
+              "avarage": {
+                "type": "number"
+              },
+              "avarageCount": {
+                "type": "integer"
+              }
+            }
+          },
+          "year": {
+            "type": "string",
+            "format": "date"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "meetUpAddress": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -11794,17 +14689,18 @@
             "enum": [
               "sell",
               "rent",
-              "exchange"
+              "exchange",
+              "forParts"
             ]
           },
           "condition": {
             "type": "string",
             "enum": [
               "brandNew",
-              "goodCondition",
-              "medium",
+              "likeNew",
+              "used",
               "requiresFixing",
-              "requiresConstruction"
+              "afterCrash"
             ]
           },
           "description": {
@@ -11815,9 +14711,6 @@
           },
           "transportModel": {
             "type": "string"
-          },
-          "year": {
-            "type": "integer"
           },
           "price": {
             "type": "number"
@@ -11984,6 +14877,62 @@
           "insertDate": {
             "type": "string",
             "format": "date"
+          },
+          "flagged": {
+            "type": "boolean",
+            "default": false
+          },
+          "bidOffer": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lowest": {
+                "type": "integer"
+              },
+              "highest": {
+                "type": "integer"
+              },
+              "lowestphone": {
+                "type": "string"
+              },
+              "highestphone": {
+                "type": "string"
+              },
+              "lowestemail": {
+                "type": "string"
+              },
+              "highestemail": {
+                "type": "string"
+              },
+              "avarage": {
+                "type": "number"
+              },
+              "avarageCount": {
+                "type": "integer"
+              }
+            }
+          },
+          "year": {
+            "type": "string",
+            "format": "date"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "meetUpAddress": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
           },
           "published_at": {
             "type": "string",
@@ -12177,7 +15126,7 @@
               "fullTime",
               "partTime",
               "remoteFullTime",
-              "remoteParttime",
+              "remotePartTime",
               "other"
             ]
           },
@@ -12392,6 +15341,43 @@
               }
             }
           },
+          "bids": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "real_estate_listing": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "transport_listing": {
+                  "type": "string"
+                },
+                "vacancy_listing": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "popularity": {
             "type": "object",
             "required": [
@@ -12412,6 +15398,396 @@
               "voteCount": {
                 "type": "integer",
                 "default": 0
+              }
+            }
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "enLanguages": {
+            "type": "object"
+          },
+          "nativeLanguages": {
+            "type": "object"
+          },
+          "country": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "iso2": {
+                "type": "string"
+              },
+              "iso3": {
+                "type": "string"
+              },
+              "phone_code": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "capital": {
+                "type": "string"
+              },
+              "native": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "state": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "state_code": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "city": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "companyLogo": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "insertDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "userInfo": {
+                "type": "string"
+              },
+              "curriculumVitae": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "bidOffer": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lowest": {
+                "type": "integer"
+              },
+              "highest": {
+                "type": "integer"
+              },
+              "lowestphone": {
+                "type": "string"
+              },
+              "highestphone": {
+                "type": "string"
+              },
+              "lowestemail": {
+                "type": "string"
+              },
+              "highestemail": {
+                "type": "string"
+              },
+              "avarage": {
+                "type": "number"
+              },
+              "avarageCount": {
+                "type": "integer"
+              }
+            }
+          },
+          "Applicants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "index",
+                "column"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "cv": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "PersonalDetails": {
+                      "type": "component"
+                    },
+                    "EducationHistory": {
+                      "type": "component"
+                    },
+                    "WorkExpierience": {
+                      "type": "component"
+                    },
+                    "LanguageSkiills": {
+                      "type": "component"
+                    },
+                    "ComputerSkiills": {
+                      "type": "component"
+                    },
+                    "TransportLicenses": {
+                      "type": "component"
+                    },
+                    "WorkExpectations": {
+                      "type": "component"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "proposedSalary": {
+                  "type": "integer"
+                },
+                "index": {
+                  "type": "integer"
+                },
+                "column": {
+                  "type": "string",
+                  "default": "applicants"
+                },
+                "appliedDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "phoneNumber": {
+                  "type": "string"
+                },
+                "fullName": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "KanBanColumns": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "columnId": {
+                  "type": "string",
+                  "default": "applicants"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "background": {
+                  "type": "string"
+                },
+                "borderColor": {
+                  "type": "string"
+                },
+                "countColor": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -12470,7 +15846,7 @@
               "fullTime",
               "partTime",
               "remoteFullTime",
-              "remoteParttime",
+              "remotePartTime",
               "other"
             ]
           },
@@ -12549,6 +15925,12 @@
               "type": "string"
             }
           },
+          "bids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "popularity": {
             "type": "object",
             "required": [
@@ -12569,6 +15951,188 @@
               "voteCount": {
                 "type": "integer",
                 "default": 0
+              }
+            }
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "enLanguages": {
+            "type": "object"
+          },
+          "nativeLanguages": {
+            "type": "object"
+          },
+          "country": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "insertDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "user": {
+            "type": "string"
+          },
+          "bidOffer": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lowest": {
+                "type": "integer"
+              },
+              "highest": {
+                "type": "integer"
+              },
+              "lowestphone": {
+                "type": "string"
+              },
+              "highestphone": {
+                "type": "string"
+              },
+              "lowestemail": {
+                "type": "string"
+              },
+              "highestemail": {
+                "type": "string"
+              },
+              "avarage": {
+                "type": "number"
+              },
+              "avarageCount": {
+                "type": "integer"
+              }
+            }
+          },
+          "Applicants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "index",
+                "column"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "cv": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "PersonalDetails": {
+                      "type": "component"
+                    },
+                    "EducationHistory": {
+                      "type": "component"
+                    },
+                    "WorkExpierience": {
+                      "type": "component"
+                    },
+                    "LanguageSkiills": {
+                      "type": "component"
+                    },
+                    "ComputerSkiills": {
+                      "type": "component"
+                    },
+                    "TransportLicenses": {
+                      "type": "component"
+                    },
+                    "WorkExpectations": {
+                      "type": "component"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "proposedSalary": {
+                  "type": "integer"
+                },
+                "index": {
+                  "type": "integer"
+                },
+                "column": {
+                  "type": "string",
+                  "default": "applicants"
+                },
+                "appliedDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "phoneNumber": {
+                  "type": "string"
+                },
+                "fullName": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "KanBanColumns": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "columnId": {
+                  "type": "string",
+                  "default": "applicants"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "background": {
+                  "type": "string"
+                },
+                "borderColor": {
+                  "type": "string"
+                },
+                "countColor": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -12684,9 +16248,6 @@
                   "type": "string"
                 },
                 "userInfo": {
-                  "type": "string"
-                },
-                "subscription": {
                   "type": "string"
                 },
                 "curriculumVitae": {
@@ -12842,37 +16403,6 @@
               }
             }
           },
-          "subscription": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "realestate": {
-                "type": "component"
-              },
-              "transport": {
-                "type": "component"
-              },
-              "jobs": {
-                "type": "component"
-              },
-              "jobsearchpurchased": {
-                "type": "boolean"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "curriculumVitae": {
             "required": [
               "id"
@@ -12883,6 +16413,27 @@
               },
               "PersonalDetails": {
                 "type": "component"
+              },
+              "EducationHistory": {
+                "type": "component"
+              },
+              "WorkExpierience": {
+                "type": "component"
+              },
+              "LanguageSkiills": {
+                "type": "component"
+              },
+              "ComputerSkiills": {
+                "type": "component"
+              },
+              "TransportLicenses": {
+                "type": "component"
+              },
+              "WorkExpectations": {
+                "type": "component"
+              },
+              "currency": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -12939,9 +16490,6 @@
           "userInfo": {
             "type": "string"
           },
-          "subscription": {
-            "type": "string"
-          },
           "curriculumVitae": {
             "type": "string"
           },
@@ -12979,6 +16527,9 @@
   },
   "tags": [
     {
+      "name": "Bid"
+    },
+    {
       "name": "City"
     },
     {
@@ -12989,6 +16540,9 @@
     },
     {
       "name": "Importdata"
+    },
+    {
+      "name": "Languages"
     },
     {
       "name": "State"

@@ -1,5 +1,62 @@
 {
   "paths": {
+    "/transport-listings/form": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve transport-listings document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Transport-listings"
+        ],
+        "parameters": []
+      }
+    },
     "/transport-listings": {
       "get": {
         "deprecated": false,
@@ -316,6 +373,63 @@
         "parameters": []
       }
     },
+    "/transport-listings/form/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve transport-listings document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Transport-listings"
+        ],
+        "parameters": []
+      }
+    },
     "/transport-listings/{id}": {
       "get": {
         "deprecated": false,
@@ -551,17 +665,18 @@
             "enum": [
               "sell",
               "rent",
-              "exchange"
+              "exchange",
+              "forParts"
             ]
           },
           "condition": {
             "type": "string",
             "enum": [
               "brandNew",
-              "goodCondition",
-              "medium",
+              "likeNew",
+              "used",
               "requiresFixing",
-              "requiresConstruction"
+              "afterCrash"
             ]
           },
           "description": {
@@ -572,9 +687,6 @@
           },
           "transportModel": {
             "type": "string"
-          },
-          "year": {
-            "type": "integer"
           },
           "price": {
             "type": "number"
@@ -887,9 +999,6 @@
               "userInfo": {
                 "type": "string"
               },
-              "subscription": {
-                "type": "string"
-              },
               "curriculumVitae": {
                 "type": "string"
               },
@@ -921,6 +1030,9 @@
                   "type": "number"
                 },
                 "transport_listing": {
+                  "type": "string"
+                },
+                "vacancy_listing": {
                   "type": "string"
                 },
                 "published_at": {
@@ -1050,6 +1162,62 @@
             "type": "string",
             "format": "date"
           },
+          "flagged": {
+            "type": "boolean",
+            "default": false
+          },
+          "bidOffer": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lowest": {
+                "type": "integer"
+              },
+              "highest": {
+                "type": "integer"
+              },
+              "lowestphone": {
+                "type": "string"
+              },
+              "highestphone": {
+                "type": "string"
+              },
+              "lowestemail": {
+                "type": "string"
+              },
+              "highestemail": {
+                "type": "string"
+              },
+              "avarage": {
+                "type": "number"
+              },
+              "avarageCount": {
+                "type": "integer"
+              }
+            }
+          },
+          "year": {
+            "type": "string",
+            "format": "date"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "meetUpAddress": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1074,17 +1242,18 @@
             "enum": [
               "sell",
               "rent",
-              "exchange"
+              "exchange",
+              "forParts"
             ]
           },
           "condition": {
             "type": "string",
             "enum": [
               "brandNew",
-              "goodCondition",
-              "medium",
+              "likeNew",
+              "used",
               "requiresFixing",
-              "requiresConstruction"
+              "afterCrash"
             ]
           },
           "description": {
@@ -1095,9 +1264,6 @@
           },
           "transportModel": {
             "type": "string"
-          },
-          "year": {
-            "type": "integer"
           },
           "price": {
             "type": "number"
@@ -1264,6 +1430,62 @@
           "insertDate": {
             "type": "string",
             "format": "date"
+          },
+          "flagged": {
+            "type": "boolean",
+            "default": false
+          },
+          "bidOffer": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lowest": {
+                "type": "integer"
+              },
+              "highest": {
+                "type": "integer"
+              },
+              "lowestphone": {
+                "type": "string"
+              },
+              "highestphone": {
+                "type": "string"
+              },
+              "lowestemail": {
+                "type": "string"
+              },
+              "highestemail": {
+                "type": "string"
+              },
+              "avarage": {
+                "type": "number"
+              },
+              "avarageCount": {
+                "type": "integer"
+              }
+            }
+          },
+          "year": {
+            "type": "string",
+            "format": "date"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "meetUpAddress": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
           },
           "published_at": {
             "type": "string",

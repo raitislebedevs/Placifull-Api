@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_language_skills_language_skills",
+  "info": {
+    "name": "LanguageSkills",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "languageName": {
+      "type": "string"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "a1",
+        "a2",
+        "b1",
+        "b2",
+        "c1",
+        "c2",
+        "native"
+      ]
+    },
+    "certificate": {
+      "type": "string"
+    }
+  }
+}

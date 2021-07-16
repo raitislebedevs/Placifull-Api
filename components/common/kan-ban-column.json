@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_common_kan_ban_columns",
+  "info": {
+    "name": "KanBanColumn",
+    "icon": "adjust",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "columnId": {
+      "type": "string",
+      "default": "applicants"
+    },
+    "title": {
+      "type": "string"
+    },
+    "background": {
+      "type": "string"
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "countColor": {
+      "type": "string"
+    }
+  }
+}

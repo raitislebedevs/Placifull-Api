@@ -62,9 +62,6 @@
     "userInfo": {
       "model": "user-info"
     },
-    "subscription": {
-      "model": "subscriptions"
-    },
     "curriculumVitae": {
       "model": "curriculum-vitaes"
     }

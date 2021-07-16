@@ -15,6 +15,39 @@
       "type": "component",
       "repeatable": false,
       "component": "personal-details.personal-details"
+    },
+    "EducationHistory": {
+      "type": "component",
+      "repeatable": true,
+      "component": "education-history.education-history"
+    },
+    "WorkExpierience": {
+      "type": "component",
+      "repeatable": true,
+      "component": "work-expierience.work-expierience"
+    },
+    "LanguageSkiills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "language-skills.language-skills"
+    },
+    "ComputerSkiills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "computer-skills.computer-skills"
+    },
+    "TransportLicenses": {
+      "type": "component",
+      "repeatable": true,
+      "component": "transport-licenses.transport-licenses"
+    },
+    "WorkExpectations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "work-expectations.work-expectations"
+    },
+    "currency": {
+      "model": "currency"
     }
   }
 }

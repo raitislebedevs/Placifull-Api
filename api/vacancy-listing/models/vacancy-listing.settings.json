@@ -58,7 +58,7 @@
         "fullTime",
         "partTime",
         "remoteFullTime",
-        "remoteParttime",
+        "remotePartTime",
         "other"
       ]
     },
@@ -137,7 +137,8 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "videoLink": {
       "type": "string"
@@ -145,10 +146,75 @@
     "tags": {
       "collection": "tag"
     },
+    "bids": {
+      "collection": "bid",
+      "via": "vacancy_listing"
+    },
     "popularity": {
       "type": "component",
       "repeatable": false,
       "component": "common.popularity"
+    },
+    "companyName": {
+      "type": "string"
+    },
+    "enLanguages": {
+      "type": "json"
+    },
+    "nativeLanguages": {
+      "type": "json"
+    },
+    "country": {
+      "model": "country"
+    },
+    "state": {
+      "model": "state"
+    },
+    "city": {
+      "model": "city"
+    },
+    "companyLogo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "insertDate": {
+      "type": "date"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "bidOffer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.bidoffer"
+    },
+    "Applicants": {
+      "type": "component",
+      "repeatable": true,
+      "component": "applicants.applicants"
+    },
+    "expiryDate": {
+      "type": "date"
+    },
+    "latitude": {
+      "type": "float"
+    },
+    "longitude": {
+      "type": "float"
+    },
+    "KanBanColumns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.kan-ban-column"
     }
   }
 }

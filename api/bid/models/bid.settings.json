@@ -25,6 +25,10 @@
     "transport_listing": {
       "via": "bids",
       "model": "transport-listings"
+    },
+    "vacancy_listing": {
+      "via": "bids",
+      "model": "vacancy-listing"
     }
   }
 }

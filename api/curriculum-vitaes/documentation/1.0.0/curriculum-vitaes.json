@@ -259,6 +259,120 @@
         }
       }
     },
+    "/curriculum-vitaes/form": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve curriculum-vitaes document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Curriculum-vitaes"
+        ],
+        "parameters": []
+      }
+    },
+    "/curriculum-vitaes/form/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve curriculum-vitaes document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Curriculum-vitaes"
+        ],
+        "parameters": []
+      }
+    },
     "/curriculum-vitaes/count": {
       "get": {
         "deprecated": false,
@@ -523,6 +637,78 @@
           }
         ]
       }
+    },
+    "/curriculum-vitaes/me": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single curriculum-vitaes record",
+        "responses": {
+          "200": {
+            "description": "Retrieve curriculum-vitaes document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Curriculum-vitaes"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": []
+      }
     }
   },
   "components": {
@@ -560,9 +746,6 @@
                   "birthDateOnly"
                 ]
               },
-              "cvPhoneNumber": {
-                "type": "integer"
-              },
               "aboutMe": {
                 "type": "string"
               },
@@ -572,114 +755,375 @@
               "cvPersonalEmail": {
                 "type": "string"
               },
-              "city": {
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "latitude": {
-                    "type": "number"
-                  },
-                  "longitude": {
-                    "type": "number"
-                  },
-                  "country": {
-                    "type": "string"
-                  },
-                  "state": {
-                    "type": "string"
-                  },
-                  "published_at": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
-              },
-              "state": {
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "state_code": {
-                    "type": "string"
-                  },
-                  "country": {
-                    "type": "string"
-                  },
-                  "published_at": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
-              },
               "cvLasttName": {
                 "type": "string"
-              },
-              "country": {
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "iso2": {
-                    "type": "string"
-                  },
-                  "iso3": {
-                    "type": "string"
-                  },
-                  "phone_code": {
-                    "type": "string"
-                  },
-                  "currency": {
-                    "type": "string"
-                  },
-                  "capital": {
-                    "type": "string"
-                  },
-                  "native": {
-                    "type": "string"
-                  },
-                  "published_at": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
               },
               "birthDay": {
                 "type": "string",
                 "format": "date"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "cvProfession": {
+                "type": "string"
+              },
+              "cvPhoneNumber": {
+                "type": "string"
+              }
+            }
+          },
+          "EducationHistory": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "fromYear": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "toYear": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "qualification": {
+                  "type": "string",
+                  "enum": [
+                    "primary",
+                    "secondary",
+                    "vocational",
+                    "bachelors",
+                    "master",
+                    "doctorate",
+                    "other"
+                  ]
+                },
+                "avarageGrade": {
+                  "type": "string"
+                },
+                "schoolName": {
+                  "type": "string"
+                },
+                "qualificationArea": {
+                  "type": "object"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "studyArea": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "WorkExpierience": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "companyName": {
+                  "type": "string"
+                },
+                "employmentSector": {
+                  "type": "string",
+                  "enum": [
+                    "intern",
+                    "volunteerWork",
+                    "stockExchange",
+                    "administrationAssistance",
+                    "constructionRealEstate",
+                    "humanResources",
+                    "securityRescue",
+                    "military",
+                    "electronicsTelecomunication",
+                    "freelanceTemporary",
+                    "energyElectricity",
+                    "pharmacy",
+                    "financeAccounting",
+                    "infromationTechnology",
+                    "jurisprudenceJustice",
+                    "cultureArtEntertainemnt",
+                    "sports",
+                    "qualityControl",
+                    "agricutureEnvironmental",
+                    "medicineSocialCare",
+                    "mediaPublicRelations",
+                    "forestryWoodworkingMetalWorking",
+                    "marketingAdvertising",
+                    "productionIndustry",
+                    "seasonalWork",
+                    "technicalScience",
+                    "services",
+                    "transportLogistics",
+                    "tourismCateringHotels",
+                    "managment",
+                    "government",
+                    "others"
+                  ]
+                },
+                "positionDescription": {
+                  "type": "string"
+                },
+                "positionName": {
+                  "type": "string"
+                },
+                "seniority": {
+                  "type": "string",
+                  "enum": [
+                    "volunteer",
+                    "intern",
+                    "junior",
+                    "intermediate",
+                    "senior",
+                    "executive",
+                    "ceo",
+                    "other"
+                  ]
+                },
+                "fromDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "toDate": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          },
+          "LanguageSkiills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "languageName": {
+                  "type": "string"
+                },
+                "level": {
+                  "type": "string",
+                  "enum": [
+                    "a1",
+                    "a2",
+                    "b1",
+                    "b2",
+                    "c1",
+                    "c2",
+                    "native"
+                  ]
+                },
+                "certificate": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ComputerSkiills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "skill": {
+                  "type": "string"
+                },
+                "expierienceGathered": {
+                  "type": "string",
+                  "enum": [
+                    "selfTaught",
+                    "course",
+                    "freelance",
+                    "contractProject",
+                    "fullTimeJob",
+                    "other"
+                  ]
+                },
+                "yearExpierience": {
+                  "type": "string",
+                  "enum": [
+                    "uptoOne",
+                    "oneToThree",
+                    "threeToFive",
+                    "fiveToTen",
+                    "tenToFifteen",
+                    "moreThanFifteen"
+                  ]
+                },
+                "skillCertificate": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "TransportLicenses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "issueCountry": {
+                  "type": "string"
+                },
+                "licence": {
+                  "type": "string"
+                },
+                "yearExpierience": {
+                  "type": "string",
+                  "enum": [
+                    "uptoOne",
+                    "oneToThree",
+                    "threeToFive",
+                    "fiveToTen",
+                    "tenToFifteen",
+                    "moreThanFifteen"
+                  ]
+                }
+              }
+            }
+          },
+          "WorkExpectations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "vacancyOption": {
+                  "type": "string",
+                  "enum": [
+                    "intern",
+                    "volunteerWork",
+                    "stockExchange",
+                    "administrationAssistance",
+                    "constructionRealEstate",
+                    "humanResources",
+                    "securityRescue",
+                    "military",
+                    "electronicsTelecomunication",
+                    "freelanceTemporary",
+                    "energyElectricity",
+                    "pharmacy",
+                    "financeAccounting",
+                    "infromationTechnology",
+                    "jurisprudenceJustice",
+                    "cultureArtEntertainemnt",
+                    "sports",
+                    "qualityControl",
+                    "agricutureEnvironmental",
+                    "medicineSocialCare",
+                    "mediaPublicRelations",
+                    "forestryWoodworkingMetalWorking",
+                    "marketingAdvertising",
+                    "productionIndustry",
+                    "seasonalWork",
+                    "technicalScience",
+                    "services",
+                    "transportLogistics",
+                    "tourismCateringHotels",
+                    "managment",
+                    "government",
+                    "others"
+                  ]
+                },
+                "position": {
+                  "type": "string"
+                },
+                "seniority": {
+                  "type": "string",
+                  "enum": [
+                    "volunteer",
+                    "intern",
+                    "junior",
+                    "intermediate",
+                    "senior",
+                    "executive",
+                    "ceo",
+                    "other"
+                  ]
+                },
+                "hourlyRate": {
+                  "type": "number"
+                },
+                "monthly": {
+                  "type": "number"
+                },
+                "yearly": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "currency": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "symbol_native": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "name_plural": {
+                "type": "string"
+              },
+              "popularity": {
+                "type": "integer"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           },
@@ -716,9 +1160,6 @@
                   "birthDateOnly"
                 ]
               },
-              "cvPhoneNumber": {
-                "type": "integer"
-              },
               "aboutMe": {
                 "type": "string"
               },
@@ -728,116 +1169,343 @@
               "cvPersonalEmail": {
                 "type": "string"
               },
-              "city": {
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "latitude": {
-                    "type": "number"
-                  },
-                  "longitude": {
-                    "type": "number"
-                  },
-                  "country": {
-                    "type": "string"
-                  },
-                  "state": {
-                    "type": "string"
-                  },
-                  "published_at": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
-              },
-              "state": {
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "state_code": {
-                    "type": "string"
-                  },
-                  "country": {
-                    "type": "string"
-                  },
-                  "published_at": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
-              },
               "cvLasttName": {
                 "type": "string"
-              },
-              "country": {
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "iso2": {
-                    "type": "string"
-                  },
-                  "iso3": {
-                    "type": "string"
-                  },
-                  "phone_code": {
-                    "type": "string"
-                  },
-                  "currency": {
-                    "type": "string"
-                  },
-                  "capital": {
-                    "type": "string"
-                  },
-                  "native": {
-                    "type": "string"
-                  },
-                  "published_at": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
               },
               "birthDay": {
                 "type": "string",
                 "format": "date"
+              },
+              "country": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "cvProfession": {
+                "type": "string"
+              },
+              "cvPhoneNumber": {
+                "type": "string"
               }
             }
+          },
+          "EducationHistory": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "fromYear": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "toYear": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "qualification": {
+                  "type": "string",
+                  "enum": [
+                    "primary",
+                    "secondary",
+                    "vocational",
+                    "bachelors",
+                    "master",
+                    "doctorate",
+                    "other"
+                  ]
+                },
+                "avarageGrade": {
+                  "type": "string"
+                },
+                "schoolName": {
+                  "type": "string"
+                },
+                "qualificationArea": {
+                  "type": "object"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "studyArea": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "WorkExpierience": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "companyName": {
+                  "type": "string"
+                },
+                "employmentSector": {
+                  "type": "string",
+                  "enum": [
+                    "intern",
+                    "volunteerWork",
+                    "stockExchange",
+                    "administrationAssistance",
+                    "constructionRealEstate",
+                    "humanResources",
+                    "securityRescue",
+                    "military",
+                    "electronicsTelecomunication",
+                    "freelanceTemporary",
+                    "energyElectricity",
+                    "pharmacy",
+                    "financeAccounting",
+                    "infromationTechnology",
+                    "jurisprudenceJustice",
+                    "cultureArtEntertainemnt",
+                    "sports",
+                    "qualityControl",
+                    "agricutureEnvironmental",
+                    "medicineSocialCare",
+                    "mediaPublicRelations",
+                    "forestryWoodworkingMetalWorking",
+                    "marketingAdvertising",
+                    "productionIndustry",
+                    "seasonalWork",
+                    "technicalScience",
+                    "services",
+                    "transportLogistics",
+                    "tourismCateringHotels",
+                    "managment",
+                    "government",
+                    "others"
+                  ]
+                },
+                "positionDescription": {
+                  "type": "string"
+                },
+                "positionName": {
+                  "type": "string"
+                },
+                "seniority": {
+                  "type": "string",
+                  "enum": [
+                    "volunteer",
+                    "intern",
+                    "junior",
+                    "intermediate",
+                    "senior",
+                    "executive",
+                    "ceo",
+                    "other"
+                  ]
+                },
+                "fromDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "toDate": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          },
+          "LanguageSkiills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "languageName": {
+                  "type": "string"
+                },
+                "level": {
+                  "type": "string",
+                  "enum": [
+                    "a1",
+                    "a2",
+                    "b1",
+                    "b2",
+                    "c1",
+                    "c2",
+                    "native"
+                  ]
+                },
+                "certificate": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ComputerSkiills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "skill": {
+                  "type": "string"
+                },
+                "expierienceGathered": {
+                  "type": "string",
+                  "enum": [
+                    "selfTaught",
+                    "course",
+                    "freelance",
+                    "contractProject",
+                    "fullTimeJob",
+                    "other"
+                  ]
+                },
+                "yearExpierience": {
+                  "type": "string",
+                  "enum": [
+                    "uptoOne",
+                    "oneToThree",
+                    "threeToFive",
+                    "fiveToTen",
+                    "tenToFifteen",
+                    "moreThanFifteen"
+                  ]
+                },
+                "skillCertificate": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "TransportLicenses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "issueCountry": {
+                  "type": "string"
+                },
+                "licence": {
+                  "type": "string"
+                },
+                "yearExpierience": {
+                  "type": "string",
+                  "enum": [
+                    "uptoOne",
+                    "oneToThree",
+                    "threeToFive",
+                    "fiveToTen",
+                    "tenToFifteen",
+                    "moreThanFifteen"
+                  ]
+                }
+              }
+            }
+          },
+          "WorkExpectations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "vacancyOption": {
+                  "type": "string",
+                  "enum": [
+                    "intern",
+                    "volunteerWork",
+                    "stockExchange",
+                    "administrationAssistance",
+                    "constructionRealEstate",
+                    "humanResources",
+                    "securityRescue",
+                    "military",
+                    "electronicsTelecomunication",
+                    "freelanceTemporary",
+                    "energyElectricity",
+                    "pharmacy",
+                    "financeAccounting",
+                    "infromationTechnology",
+                    "jurisprudenceJustice",
+                    "cultureArtEntertainemnt",
+                    "sports",
+                    "qualityControl",
+                    "agricutureEnvironmental",
+                    "medicineSocialCare",
+                    "mediaPublicRelations",
+                    "forestryWoodworkingMetalWorking",
+                    "marketingAdvertising",
+                    "productionIndustry",
+                    "seasonalWork",
+                    "technicalScience",
+                    "services",
+                    "transportLogistics",
+                    "tourismCateringHotels",
+                    "managment",
+                    "government",
+                    "others"
+                  ]
+                },
+                "position": {
+                  "type": "string"
+                },
+                "seniority": {
+                  "type": "string",
+                  "enum": [
+                    "volunteer",
+                    "intern",
+                    "junior",
+                    "intermediate",
+                    "senior",
+                    "executive",
+                    "ceo",
+                    "other"
+                  ]
+                },
+                "hourlyRate": {
+                  "type": "number"
+                },
+                "monthly": {
+                  "type": "number"
+                },
+                "yearly": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "currency": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

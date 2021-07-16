@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_subscription_real_estates",
+  "info": {
+    "name": "standaloneSubscription",
+    "icon": "archway",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "standalone": {
+      "type": "integer",
+      "default": 0
+    },
+    "subscriptionQuarterly": {
+      "type": "integer",
+      "default": 0
+    },
+    "subscriptionExpiryQuarterly": {
+      "type": "date"
+    },
+    "subscriptionYearly": {
+      "type": "integer",
+      "default": 0
+    },
+    "subscriptionExpiryYearly": {
+      "type": "date"
+    },
+    "standaloneInUse": {
+      "type": "integer",
+      "default": 0
+    },
+    "subscriptionQuarterlyInUse": {
+      "type": "integer",
+      "default": 0
+    },
+    "subscriptionYearlyInUse": {
+      "type": "integer",
+      "default": 0
+    },
+    "listingIds": {
+      "type": "json"
+    }
+  }
+}

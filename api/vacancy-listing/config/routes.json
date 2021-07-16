@@ -10,8 +10,24 @@
     },
     {
       "method": "GET",
+      "path": "/vacancy-listings/form",
+      "handler": "vacancy-listing.findForm",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/vacancy-listings/count",
       "handler": "vacancy-listing.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vacancy-listings/form/count",
+      "handler": "vacancy-listing.countForm",
       "config": {
         "policies": []
       }

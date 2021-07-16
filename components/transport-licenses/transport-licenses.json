@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_transport_licenses_transport_licenses",
+  "info": {
+    "name": "TransportLicenses",
+    "icon": "baby-carriage"
+  },
+  "options": {},
+  "attributes": {
+    "issueCountry": {
+      "type": "string"
+    },
+    "licence": {
+      "type": "string"
+    },
+    "yearExpierience": {
+      "type": "enumeration",
+      "enum": [
+        "uptoOne",
+        "oneToThree",
+        "threeToFive",
+        "fiveToTen",
+        "tenToFifteen",
+        "moreThanFifteen"
+      ]
+    }
+  }
+}

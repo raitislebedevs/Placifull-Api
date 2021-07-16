@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_subscription_browser_cvs",
+  "info": {
+    "name": "browserCv",
+    "icon": "camera-retro"
+  },
+  "options": {},
+  "attributes": {
+    "subscriptionExpiryBrowserCV": {
+      "type": "date"
+    },
+    "activeSubscription": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_education_history_education_histories",
+  "info": {
+    "name": "Education-History",
+    "icon": "atlas",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "fromYear": {
+      "type": "date"
+    },
+    "toYear": {
+      "type": "date"
+    },
+    "qualification": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "vocational",
+        "bachelors",
+        "master",
+        "doctorate",
+        "other"
+      ]
+    },
+    "avarageGrade": {
+      "type": "string"
+    },
+    "schoolName": {
+      "type": "string"
+    },
+    "qualificationArea": {
+      "type": "json"
+    },
+    "country": {
+      "type": "string"
+    },
+    "studyArea": {
+      "type": "string"
+    }
+  }
+}

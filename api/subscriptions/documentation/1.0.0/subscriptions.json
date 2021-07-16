@@ -522,7 +522,7 @@
           "id": {
             "type": "string"
           },
-          "realestate": {
+          "realEstate": {
             "type": "object",
             "required": [
               "id"
@@ -531,32 +531,40 @@
               "id": {
                 "type": "string"
               },
-              "subscriptionPeriods": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "posts": {
-                      "type": "integer"
-                    },
-                    "validTo": {
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
+              "standalone": {
+                "type": "integer",
+                "default": 0
               },
-              "totalAvailable": {
-                "type": "integer"
+              "subscriptionQuarterly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryQuarterly": {
+                "type": "string",
+                "format": "date"
+              },
+              "subscriptionYearly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryYearly": {
+                "type": "string",
+                "format": "date"
+              },
+              "standaloneInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionQuarterlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionYearlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "listingIds": {
+                "type": "object"
               }
             }
           },
@@ -569,32 +577,40 @@
               "id": {
                 "type": "string"
               },
-              "subscriptionPeriods": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "posts": {
-                      "type": "integer"
-                    },
-                    "validTo": {
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
+              "standalone": {
+                "type": "integer",
+                "default": 0
               },
-              "totalAvailable": {
-                "type": "integer"
+              "subscriptionQuarterly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryQuarterly": {
+                "type": "string",
+                "format": "date"
+              },
+              "subscriptionYearly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryYearly": {
+                "type": "string",
+                "format": "date"
+              },
+              "standaloneInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionQuarterlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionYearlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "listingIds": {
+                "type": "object"
               }
             }
           },
@@ -607,37 +623,63 @@
               "id": {
                 "type": "string"
               },
-              "subscriptionPeriods": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "posts": {
-                      "type": "integer"
-                    },
-                    "validTo": {
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
+              "standalone": {
+                "type": "integer",
+                "default": 0
               },
-              "totalAvailable": {
-                "type": "integer"
+              "subscriptionQuarterly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryQuarterly": {
+                "type": "string",
+                "format": "date"
+              },
+              "subscriptionYearly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryYearly": {
+                "type": "string",
+                "format": "date"
+              },
+              "standaloneInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionQuarterlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionYearlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "listingIds": {
+                "type": "object"
               }
             }
           },
-          "jobsearchpurchased": {
-            "type": "boolean"
+          "browserCv": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "subscriptionExpiryBrowserCV": {
+                "type": "string",
+                "format": "date"
+              },
+              "activeSubscription": {
+                "type": "boolean"
+              }
+            }
+          },
+          "userId": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -647,7 +689,7 @@
       },
       "NewSubscriptions": {
         "properties": {
-          "realestate": {
+          "realEstate": {
             "type": "object",
             "required": [
               "id"
@@ -656,32 +698,40 @@
               "id": {
                 "type": "string"
               },
-              "subscriptionPeriods": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "posts": {
-                      "type": "integer"
-                    },
-                    "validTo": {
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
+              "standalone": {
+                "type": "integer",
+                "default": 0
               },
-              "totalAvailable": {
-                "type": "integer"
+              "subscriptionQuarterly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryQuarterly": {
+                "type": "string",
+                "format": "date"
+              },
+              "subscriptionYearly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryYearly": {
+                "type": "string",
+                "format": "date"
+              },
+              "standaloneInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionQuarterlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionYearlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "listingIds": {
+                "type": "object"
               }
             }
           },
@@ -694,32 +744,40 @@
               "id": {
                 "type": "string"
               },
-              "subscriptionPeriods": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "posts": {
-                      "type": "integer"
-                    },
-                    "validTo": {
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
+              "standalone": {
+                "type": "integer",
+                "default": 0
               },
-              "totalAvailable": {
-                "type": "integer"
+              "subscriptionQuarterly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryQuarterly": {
+                "type": "string",
+                "format": "date"
+              },
+              "subscriptionYearly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryYearly": {
+                "type": "string",
+                "format": "date"
+              },
+              "standaloneInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionQuarterlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionYearlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "listingIds": {
+                "type": "object"
               }
             }
           },
@@ -732,37 +790,63 @@
               "id": {
                 "type": "string"
               },
-              "subscriptionPeriods": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "posts": {
-                      "type": "integer"
-                    },
-                    "validTo": {
-                      "type": "string",
-                      "format": "date"
-                    }
-                  }
-                }
+              "standalone": {
+                "type": "integer",
+                "default": 0
               },
-              "totalAvailable": {
-                "type": "integer"
+              "subscriptionQuarterly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryQuarterly": {
+                "type": "string",
+                "format": "date"
+              },
+              "subscriptionYearly": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionExpiryYearly": {
+                "type": "string",
+                "format": "date"
+              },
+              "standaloneInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionQuarterlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "subscriptionYearlyInUse": {
+                "type": "integer",
+                "default": 0
+              },
+              "listingIds": {
+                "type": "object"
               }
             }
           },
-          "jobsearchpurchased": {
-            "type": "boolean"
+          "browserCv": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "subscriptionExpiryBrowserCV": {
+                "type": "string",
+                "format": "date"
+              },
+              "activeSubscription": {
+                "type": "boolean"
+              }
+            }
+          },
+          "userId": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

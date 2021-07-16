@@ -27,17 +27,18 @@
       "enum": [
         "sell",
         "rent",
-        "exchange"
+        "exchange",
+        "forParts"
       ]
     },
     "condition": {
       "type": "enumeration",
       "enum": [
         "brandNew",
-        "goodCondition",
-        "medium",
+        "likeNew",
+        "used",
         "requiresFixing",
-        "requiresConstruction"
+        "afterCrash"
       ]
     },
     "description": {
@@ -48,9 +49,6 @@
     },
     "transportModel": {
       "type": "string"
-    },
-    "year": {
-      "type": "integer"
     },
     "price": {
       "type": "decimal"
@@ -146,7 +144,8 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "videoUrl": {
       "type": "string"
@@ -205,6 +204,30 @@
     },
     "insertDate": {
       "type": "date"
+    },
+    "flagged": {
+      "type": "boolean",
+      "default": false
+    },
+    "bidOffer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.bidoffer"
+    },
+    "year": {
+      "type": "date"
+    },
+    "expiryDate": {
+      "type": "date"
+    },
+    "meetUpAddress": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "float"
+    },
+    "longitude": {
+      "type": "float"
     }
   }
 }

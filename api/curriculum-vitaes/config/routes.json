@@ -10,6 +10,22 @@
     },
     {
       "method": "GET",
+      "path": "/curriculum-vitaes/form",
+      "handler": "curriculum-vitaes.findForm",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/curriculum-vitaes/form/count",
+      "handler": "curriculum-vitaes.countForm",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/curriculum-vitaes/count",
       "handler": "curriculum-vitaes.count",
       "config": {
@@ -28,6 +44,14 @@
       "method": "POST",
       "path": "/curriculum-vitaes",
       "handler": "curriculum-vitaes.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/curriculum-vitaes/me",
+      "handler": "curriculum-vitaes.updateCv",
       "config": {
         "policies": []
       }
