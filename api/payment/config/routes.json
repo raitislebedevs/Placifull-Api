@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/payment",
+      "handler": "payment.chargeCard",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
