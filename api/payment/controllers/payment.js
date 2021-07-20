@@ -20,12 +20,12 @@ module.exports = {
       if (!charge) throw new Error("charge unsuccessful");
 
       ctx.send({
-        message: "charge posted successfully",
-        charge,
+        charged: true,
       });
     } catch (error) {
       ctx.send({
-        message: error.message,
+        charged: false,
+        message: error,
       });
     }
   },
