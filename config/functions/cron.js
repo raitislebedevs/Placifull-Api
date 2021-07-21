@@ -86,7 +86,6 @@ module.exports = {
         });
 
         const { transport } = subscription;
-        console.log("transport", transport);
         if (!transport || !transport?.listingIds) {
           return;
         }
@@ -133,7 +132,6 @@ module.exports = {
         });
         const { jobs } = subscription;
 
-        console.log("jobs", jobs);
         if (!jobs || !jobs?.listingIds) {
           return;
         }
