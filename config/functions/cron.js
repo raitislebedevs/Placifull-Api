@@ -44,7 +44,12 @@ module.exports = {
           return;
         }
 
-        handleListingRemoveSubscription(realEstate, "realEstate");
+        handleListingRemoveSubscription(
+          realEstate,
+          "realEstate",
+          entry.id,
+          subscription.id
+        );
       });
     } catch (error) {
       console.log(error.message);
@@ -67,7 +72,7 @@ module.exports = {
           id: entry?.id,
         });
 
-        handleAwsUploadremove(entry);
+        handleAwsUploadremove(entry, entry.id);
 
         let subscription = await strapi.services["subscriptions"].findOne({
           userId: entry.user.id,
@@ -78,7 +83,12 @@ module.exports = {
           return;
         }
 
-        handleListingRemoveSubscription(transport, "transport");
+        handleListingRemoveSubscription(
+          transport,
+          "transport",
+          entry.id,
+          subscription.id
+        );
       });
     } catch (error) {}
   },
@@ -110,14 +120,19 @@ module.exports = {
           return;
         }
 
-        handleListingRemoveSubscription(jobs, "jobs");
+        handleListingRemoveSubscription(
+          jobs,
+          "jobs",
+          entry.id,
+          subscription.id
+        );
       });
     } catch (error) {}
   },
 
   ///**********************LISTING CRON_JOB END*************************
 
-  "30 4 * * *": async () => {
+  "25 4 * * *": async () => {
     try {
       let subscription = await strapi.services["subscriptions"].find();
       subscription.forEach(async (subscription) => {
@@ -132,49 +147,50 @@ module.exports = {
   },
 };
 
-async function handleListingRemoveSubscription(component, plan) {
+async function handleListingRemoveSubscription(
+  component,
+  plan,
+  entryId,
+  subsId
+) {
   let listingValus = [];
   let planInUse = {};
   let payload = {};
 
   planInUse = component.listingIds.filter(
-    (listing) => listing?.id == entry?.id
+    (listing) => listing?.id == entryId
   )[0];
 
   listingValus = component.listingIds.filter(
-    (listing) => listing?.id != entry?.id
+    (listing) => listing?.id != entryId
   );
 
   if (
     planInUse.plan === "subscriptionQuarterly" &&
-    moment().isAfter(moment(component.subscriptionExpiryQuarterly))
+    compareDates(component.subscriptionExpiryQuarterly)
   ) {
-    let subscriptionLeft = component.subscriptionQuarterly + 1;
     let subscriptionInUse =
       component.subscriptionQuarterlyInUse - 1 < 0
         ? 0
-        : component.subscriptionQuarterlyInUse;
+        : component.subscriptionQuarterlyInUse - 1;
     payload = {
       id: component.id,
       listingIds: listingValus,
-      subscriptionQuarterly: subscriptionLeft,
       subscriptionQuarterlyInUse: subscriptionInUse,
     };
   }
 
   if (
     planInUse.plan === "subscriptionYearly" &&
-    moment().isAfter(moment(component.subscriptionExpiryYearly))
+    compareDates(component.subscriptionExpiryYearly)
   ) {
-    let subscriptionLeft = component.subscriptionYearly + 1;
     let subscriptionInUse =
       component.subscriptionYearlyInUse - 1 < 0
         ? 0
-        : component.subscriptionYearlyInUse;
+        : component.subscriptionYearlyInUse - 1;
     payload = {
       id: component.id,
       listingIds: listingValus,
-      subscriptionYearly: subscriptionLeft,
       subscriptionYearlyInUse: subscriptionInUse,
     };
   }
@@ -188,7 +204,7 @@ async function handleListingRemoveSubscription(component, plan) {
 
   if (listingValus != component?.listingIds) {
     strapi.services["subscriptions"].update(
-      { id: subscription.id },
+      { id: subsId },
       {
         [plan]: payload,
       }
@@ -196,8 +212,17 @@ async function handleListingRemoveSubscription(component, plan) {
   }
 }
 
+function compareDates(date) {
+  let currentDate = new Date();
+  let subscriptionDate = new Date(date);
+  if (currentDate.getTime() < subscriptionDate.getTime()) {
+    return true;
+  }
+
+  return false;
+}
+
 async function handleAwsUploadremove(entry) {
-  console.log(entry);
   if (entry?.listingGallery) {
     entry.listingGallery.forEach(async (item) => {
       const file = await strapi.plugins["upload"].services.upload.fetch({
