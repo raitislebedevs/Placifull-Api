@@ -34,6 +34,8 @@ module.exports = {
           id: entry?.id,
         });
 
+        handleAwsUploadremove(entry);
+
         let subscription = await strapi.services["subscriptions"].findOne({
           userId: entry.user.id,
         });
@@ -42,23 +44,7 @@ module.exports = {
           return;
         }
 
-        let listingValus = [];
-
-        listingValus = realEstate.listingIds.filter(
-          (listing) => listing?.id != entry?.id
-        );
-
-        if (listingValus != realEstate?.listingIds) {
-          strapi.services["subscriptions"].update(
-            { id: subscription.id },
-            {
-              realEstate: {
-                id: realEstate.id,
-                listingIds: listingValus,
-              },
-            }
-          );
-        }
+        handleListingRemoveSubscription(realEstate, "realEstate");
       });
     } catch (error) {
       console.log(error.message);
@@ -81,6 +67,8 @@ module.exports = {
           id: entry?.id,
         });
 
+        handleAwsUploadremove(entry);
+
         let subscription = await strapi.services["subscriptions"].findOne({
           userId: entry.user.id,
         });
@@ -90,23 +78,7 @@ module.exports = {
           return;
         }
 
-        let listingValus = [];
-
-        listingValus = transport.listingIds.filter(
-          (listing) => listing?.id != entry?.id
-        );
-
-        if (listingValus != transport?.listingIds) {
-          strapi.services["subscriptions"].update(
-            { id: subscription.id },
-            {
-              transport: {
-                id: transport.id,
-                listingIds: listingValus,
-              },
-            }
-          );
-        }
+        handleListingRemoveSubscription(transport, "transport");
       });
     } catch (error) {}
   },
@@ -127,6 +99,8 @@ module.exports = {
           id: entry?.id,
         });
 
+        handleAwsUploadremove(entry);
+
         let subscription = await strapi.services["subscriptions"].findOne({
           userId: entry.user.id,
         });
@@ -136,23 +110,7 @@ module.exports = {
           return;
         }
 
-        let listingValus = [];
-
-        listingValus = jobs.listingIds.filter(
-          (listing) => listing?.id != entry?.id
-        );
-
-        if (listingValus != jobs?.listingIds) {
-          strapi.services["subscriptions"].update(
-            { id: subscription.id },
-            {
-              jobs: {
-                id: jobs.id,
-                listingIds: listingValus,
-              },
-            }
-          );
-        }
+        handleListingRemoveSubscription(jobs, "jobs");
       });
     } catch (error) {}
   },
@@ -173,6 +131,89 @@ module.exports = {
     } catch (error) {}
   },
 };
+
+async function handleListingRemoveSubscription(component, plan) {
+  let listingValus = [];
+  let planInUse = {};
+  let payload = {};
+
+  planInUse = component.listingIds.filter(
+    (listing) => listing?.id == entry?.id
+  )[0];
+
+  listingValus = component.listingIds.filter(
+    (listing) => listing?.id != entry?.id
+  );
+
+  if (
+    planInUse.plan === "subscriptionQuarterly" &&
+    moment().isAfter(moment(component.subscriptionExpiryQuarterly))
+  ) {
+    let subscriptionLeft = component.subscriptionQuarterly + 1;
+    let subscriptionInUse =
+      component.subscriptionQuarterlyInUse - 1 < 0
+        ? 0
+        : component.subscriptionQuarterlyInUse;
+    payload = {
+      id: component.id,
+      listingIds: listingValus,
+      subscriptionQuarterly: subscriptionLeft,
+      subscriptionQuarterlyInUse: subscriptionInUse,
+    };
+  }
+
+  if (
+    planInUse.plan === "subscriptionYearly" &&
+    moment().isAfter(moment(component.subscriptionExpiryYearly))
+  ) {
+    let subscriptionLeft = component.subscriptionYearly + 1;
+    let subscriptionInUse =
+      component.subscriptionYearlyInUse - 1 < 0
+        ? 0
+        : component.subscriptionYearlyInUse;
+    payload = {
+      id: component.id,
+      listingIds: listingValus,
+      subscriptionYearly: subscriptionLeft,
+      subscriptionYearlyInUse: subscriptionInUse,
+    };
+  }
+
+  if (planInUse.plan === "standalone") {
+    payload = {
+      id: component.id,
+      listingIds: listingValus,
+    };
+  }
+
+  if (listingValus != component?.listingIds) {
+    strapi.services["subscriptions"].update(
+      { id: subscription.id },
+      {
+        [plan]: payload,
+      }
+    );
+  }
+}
+
+async function handleAwsUploadremove(entry) {
+  console.log(entry);
+  if (entry?.listingGallery) {
+    entry.listingGallery.forEach(async (item) => {
+      const file = await strapi.plugins["upload"].services.upload.fetch({
+        id: item?.id,
+      });
+      await strapi.plugins["upload"].services.upload.remove(file);
+    });
+  }
+
+  if (entry?.componyLogo) {
+    const file = await strapi.plugins["upload"].services.upload.fetch({
+      id: entry.componyLogo.id,
+    });
+    await strapi.plugins["upload"].services.upload.remove(file);
+  }
+}
 
 async function handleSubscription(component, plan, id) {
   if (!component) return;
