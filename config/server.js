@@ -9,5 +9,5 @@ module.exports = ({ env }) => ({
   cron: {
     enabled: true,
   },
-  url: env("HEROKU_URL", "http://localhost:8080"),
+  url: env("HEROKU_URL"),
 });
