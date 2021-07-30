@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/28/2021 2:54:16 PM"
+    "x-generation-date": "07/30/2021 1:08:16 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -11935,6 +11935,9 @@
               "longitude": {
                 "type": "number"
               },
+              "isPromotable": {
+                "type": "boolean"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -12139,6 +12142,9 @@
               },
               "KanBanColumns": {
                 "type": "component"
+              },
+              "isPromotable": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"
@@ -13008,6 +13014,10 @@
               }
             }
           },
+          "published": {
+            "type": "boolean",
+            "default": false
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -13387,6 +13397,10 @@
           },
           "currency": {
             "type": "string"
+          },
+          "published": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -15468,6 +15482,10 @@
           "longitude": {
             "type": "number"
           },
+          "isPromotable": {
+            "type": "boolean",
+            "default": false
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -15736,6 +15754,10 @@
           },
           "longitude": {
             "type": "number"
+          },
+          "isPromotable": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -16517,6 +16539,9 @@
                     "currency": {
                       "type": "string"
                     },
+                    "published": {
+                      "type": "boolean"
+                    },
                     "published_at": {
                       "type": "string"
                     },
@@ -16593,6 +16618,10 @@
                 }
               }
             }
+          },
+          "isPromotable": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -16862,6 +16891,9 @@
                     "currency": {
                       "type": "string"
                     },
+                    "published": {
+                      "type": "boolean"
+                    },
                     "published_at": {
                       "type": "string"
                     },
@@ -16938,6 +16970,10 @@
                 }
               }
             }
+          },
+          "isPromotable": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -17237,6 +17273,9 @@
               },
               "currency": {
                 "type": "string"
+              },
+              "published": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"

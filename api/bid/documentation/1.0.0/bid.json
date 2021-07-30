@@ -983,6 +983,9 @@
               "longitude": {
                 "type": "number"
               },
+              "isPromotable": {
+                "type": "boolean"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -1187,6 +1190,9 @@
               },
               "KanBanColumns": {
                 "type": "component"
+              },
+              "isPromotable": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"

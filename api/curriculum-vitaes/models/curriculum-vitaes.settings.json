@@ -48,6 +48,10 @@
     },
     "currency": {
       "model": "currency"
+    },
+    "published": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

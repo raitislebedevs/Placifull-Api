@@ -228,6 +228,10 @@
     },
     "longitude": {
       "type": "float"
+    },
+    "isPromotable": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

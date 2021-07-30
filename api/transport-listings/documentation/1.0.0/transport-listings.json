@@ -1218,6 +1218,10 @@
           "longitude": {
             "type": "number"
           },
+          "isPromotable": {
+            "type": "boolean",
+            "default": false
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1486,6 +1490,10 @@
           },
           "longitude": {
             "type": "number"
+          },
+          "isPromotable": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",

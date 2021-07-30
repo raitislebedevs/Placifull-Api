@@ -1391,6 +1391,9 @@
               "currency": {
                 "type": "string"
               },
+              "published": {
+                "type": "boolean"
+              },
               "published_at": {
                 "type": "string"
               },

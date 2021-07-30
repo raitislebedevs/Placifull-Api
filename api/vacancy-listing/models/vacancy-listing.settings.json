@@ -215,6 +215,11 @@
       "type": "component",
       "repeatable": true,
       "component": "common.kan-ban-column"
+    },
+    "isPromotable": {
+      "type": "boolean",
+      "default": false,
+      "required": false
     }
   }
 }

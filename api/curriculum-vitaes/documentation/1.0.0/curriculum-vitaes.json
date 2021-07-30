@@ -1127,6 +1127,10 @@
               }
             }
           },
+          "published": {
+            "type": "boolean",
+            "default": false
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1506,6 +1510,10 @@
           },
           "currency": {
             "type": "string"
+          },
+          "published": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",

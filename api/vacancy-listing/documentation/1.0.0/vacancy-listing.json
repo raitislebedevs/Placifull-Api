@@ -1284,6 +1284,9 @@
                     "currency": {
                       "type": "string"
                     },
+                    "published": {
+                      "type": "boolean"
+                    },
                     "published_at": {
                       "type": "string"
                     },
@@ -1360,6 +1363,10 @@
                 }
               }
             }
+          },
+          "isPromotable": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -1629,6 +1636,9 @@
                     "currency": {
                       "type": "string"
                     },
+                    "published": {
+                      "type": "boolean"
+                    },
                     "published_at": {
                       "type": "string"
                     },
@@ -1705,6 +1715,10 @@
                 }
               }
             }
+          },
+          "isPromotable": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
