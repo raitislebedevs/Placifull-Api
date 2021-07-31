@@ -114,3 +114,5 @@ build
 .strapi-updater.json
 .env_prod
 .env_dev
+.envfile
+.env_test
