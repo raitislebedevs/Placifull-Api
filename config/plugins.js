@@ -15,6 +15,7 @@ module.exports = ({ env }) => ({
     providerOptions: {
       apiKey: env("MAILGUN_API_KEY"),
       domain: env("MAILGUN_DOMAIN"),
+      host: env("MAILGUN_HOST"),
     },
     settings: {
       defaultFrom: env("MAILGUN_DEFAULT_FROM"),
