@@ -545,9 +545,9 @@
             "type": "integer"
           },
           "rating": {
-            "type": "integer"
+            "type": "number"
           },
-          "usersVoted": {
+          "votedUsers": {
             "type": "object"
           },
           "totalRaters": {
@@ -571,9 +571,9 @@
             "type": "integer"
           },
           "rating": {
-            "type": "integer"
+            "type": "number"
           },
-          "usersVoted": {
+          "votedUsers": {
             "type": "object"
           },
           "totalRaters": {

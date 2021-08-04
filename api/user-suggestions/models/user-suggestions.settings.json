@@ -22,9 +22,9 @@
       "type": "integer"
     },
     "rating": {
-      "type": "integer"
+      "type": "decimal"
     },
-    "usersVoted": {
+    "votedUsers": {
       "type": "json"
     },
     "totalRaters": {
