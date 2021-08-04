@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_suggestions",
+  "info": {
+    "name": "UserSuggestions",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "endVotes": {
+      "type": "integer"
+    },
+    "rating": {
+      "type": "integer"
+    },
+    "usersVoted": {
+      "type": "json"
+    },
+    "totalRaters": {
+      "type": "integer"
+    }
+  }
+}
