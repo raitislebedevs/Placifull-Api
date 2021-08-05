@@ -1404,6 +1404,40 @@
                 "type": "string"
               }
             }
+          },
+          "referralProgram": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "amountEarned": {
+                "type": "number"
+              },
+              "referredPayments": {
+                "type": "object"
+              },
+              "referralCode": {
+                "type": "string"
+              },
+              "percantage": {
+                "type": "number"
+              },
+              "referralCodeUsed": {
+                "type": "integer"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -1450,6 +1484,9 @@
             "type": "string"
           },
           "curriculumVitae": {
+            "type": "string"
+          },
+          "referralProgram": {
             "type": "string"
           },
           "created_by": {

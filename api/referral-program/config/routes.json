@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/referral-programs",
+      "handler": "referral-program.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/referral-programs/count",
+      "handler": "referral-program.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/referral-programs/:id",
+      "handler": "referral-program.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/referral-programs",
+      "handler": "referral-program.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/referral-programs/:id",
+      "handler": "referral-program.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/referral-programs/:id",
+      "handler": "referral-program.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

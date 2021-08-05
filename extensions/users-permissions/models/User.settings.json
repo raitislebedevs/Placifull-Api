@@ -64,6 +64,9 @@
     },
     "curriculumVitae": {
       "model": "curriculum-vitaes"
+    },
+    "referralProgram": {
+      "model": "referral-program"
     }
   }
 }

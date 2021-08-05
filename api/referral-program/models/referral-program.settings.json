@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "referral_programs",
+  "info": {
+    "name": "referralProgram",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amountEarned": {
+      "type": "decimal",
+      "default": 0
+    },
+    "referredPayments": {
+      "type": "json"
+    },
+    "referralCode": {
+      "type": "string"
+    },
+    "percantage": {
+      "type": "decimal"
+    },
+    "referralCodeUsed": {
+      "type": "integer"
+    }
+  }
+}

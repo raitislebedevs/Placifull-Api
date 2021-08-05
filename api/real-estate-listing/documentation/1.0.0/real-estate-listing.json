@@ -813,6 +813,9 @@
               "curriculumVitae": {
                 "type": "string"
               },
+              "referralProgram": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
