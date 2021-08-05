@@ -23,10 +23,14 @@
       "type": "string"
     },
     "percantage": {
-      "type": "decimal"
+      "type": "decimal",
+      "default": 10,
+      "max": 25,
+      "min": 0
     },
     "referralCodeUsed": {
-      "type": "integer"
+      "type": "integer",
+      "default": 0
     }
   }
 }

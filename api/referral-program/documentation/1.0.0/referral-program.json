@@ -546,10 +546,12 @@
             "type": "string"
           },
           "percantage": {
-            "type": "number"
+            "type": "number",
+            "default": 10
           },
           "referralCodeUsed": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "published_at": {
             "type": "string",
@@ -570,10 +572,12 @@
             "type": "string"
           },
           "percantage": {
-            "type": "number"
+            "type": "number",
+            "default": 10
           },
           "referralCodeUsed": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "published_at": {
             "type": "string",
