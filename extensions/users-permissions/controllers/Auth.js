@@ -547,6 +547,11 @@ module.exports = {
         .create(params.curriculumVitae);
       params.curriculumVitae = cv.id;
 
+      const referralCode = await strapi
+        .query("referral-program")
+        .create(params.referralProgram);
+      params.referralProgram = referralCode.id;
+
       const user = await strapi
         .query("user", "users-permissions")
         .create(params);
@@ -578,10 +583,10 @@ module.exports = {
     } catch (err) {
       const adminError = _.includes(err.message, "username")
         ? {
-            id: "Auth.form.error.username.taken",
+            id: "internal-error",
             message: "Username already taken",
           }
-        : { id: "Auth.form.error.email.taken", message: "Email already taken" };
+        : { id: "internal-error", message: "Email already taken" };
 
       ctx.badRequest(null, formatError(adminError));
     }
