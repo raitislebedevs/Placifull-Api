@@ -90,7 +90,7 @@ module.exports = {
         return ctx.badRequest(
           null,
           formatError({
-            id: "Auth.form.error.confirmed",
+            id: "Auth.form.error.email.confirmed",
             message: "Your account email is not confirmed",
           })
         );
@@ -661,6 +661,8 @@ module.exports = {
       return ctx.badRequest("blocked.user");
     }
 
+    console.log("The issue with the sendConfirmation Email?");
+
     try {
       await strapi.plugins[
         "users-permissions"
@@ -721,6 +723,61 @@ module.exports = {
     await strapi
       .query("user", "users-permissions")
       .update({ id: user.id }, { password: hashPassword });
+
+    ctx.send({ ok: true });
+  },
+
+  async sendConfirmationEmail(user) {
+    let { email } = user;
+
+    // Check if the provided email is valid or not.
+    const isEmail = emailRegExp.test(email);
+
+    if (isEmail) {
+      email = email.toLowerCase();
+    } else {
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.email.format",
+          message: "Please provide valid email address.",
+        })
+      );
+    }
+
+    const pluginStore = await strapi.store({
+      environment: "",
+      type: "plugin",
+      name: "users-permissions",
+    });
+
+    const settings = await pluginStore
+      .get({ key: "email" })
+      .then((storeEmail) => storeEmail["email_confirmation"].options);
+
+    const confirmationToken = crypto.randomBytes(64).toString("hex");
+
+    try {
+      // Send an email to the user.
+      await strapi.plugins["email"].services.email.send({
+        to: user.email,
+        from:
+          settings.from.email || settings.from.name
+            ? `${settings.from.name} <${settings.from.email}>`
+            : undefined,
+        replyTo: settings.response_email,
+        subject: settings.object,
+        text: settings.message,
+        html: settings.message,
+      });
+    } catch (err) {
+      return ctx.badRequest(null, err);
+    }
+
+    // Update the user.
+    await strapi
+      .query("user", "users-permissions")
+      .update({ id: user.id }, { confirmationToken });
 
     ctx.send({ ok: true });
   },
