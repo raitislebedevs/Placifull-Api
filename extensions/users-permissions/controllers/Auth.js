@@ -448,7 +448,6 @@ module.exports = {
         })
       );
     }
-
     // Email is required.
     if (!params.email) {
       return ctx.badRequest(
@@ -459,7 +458,6 @@ module.exports = {
         })
       );
     }
-
     // Throw an error if the password selected by the user
     // contains more than three times the symbol '$'.
     if (
@@ -490,7 +488,6 @@ module.exports = {
         })
       );
     }
-
     // Check if the provided email is valid or not.
     const isEmail = emailRegExp.test(params.email);
 
@@ -505,7 +502,6 @@ module.exports = {
         })
       );
     }
-
     params.role = role.id;
     params.password = await strapi.plugins[
       "users-permissions"
@@ -559,7 +555,6 @@ module.exports = {
       const sanitizedUser = sanitizeEntity(user, {
         model: strapi.query("user", "users-permissions").model,
       });
-
       if (settings.email_confirmation) {
         try {
           await strapi.plugins[
@@ -749,7 +744,6 @@ module.exports = {
 
   async sendConfirmationEmail(user) {
     let { email } = user;
-
     // Check if the provided email is valid or not.
     const isEmail = emailRegExp.test(email);
 
@@ -764,7 +758,6 @@ module.exports = {
         })
       );
     }
-
     const pluginStore = await strapi.store({
       environment: "",
       type: "plugin",
@@ -776,7 +769,6 @@ module.exports = {
       .then((storeEmail) => storeEmail["email_confirmation"].options);
 
     const confirmationToken = crypto.randomBytes(64).toString("hex");
-
     try {
       // Send an email to the user.
       await strapi.plugins["email"].services.email.send({
@@ -791,9 +783,14 @@ module.exports = {
         html: settings.message,
       });
     } catch (err) {
-      return ctx.badRequest(null, err);
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.email.not-send",
+          message: "Email was not send.",
+        })
+      );
     }
-
     // Update the user.
     await strapi
       .query("user", "users-permissions")
