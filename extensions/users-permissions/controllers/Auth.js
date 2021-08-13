@@ -561,7 +561,13 @@ module.exports = {
             "users-permissions"
           ].services.user.sendConfirmationEmail(user);
         } catch (err) {
-          return ctx.badRequest(null, err);
+          return ctx.badRequest(
+            null,
+            formatError({
+              id: "Auth.form.error.email.not-send",
+              message: "Email was not send.",
+            })
+          );
         }
 
         return ctx.send({ user: sanitizedUser });
