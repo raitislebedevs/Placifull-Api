@@ -653,15 +653,35 @@ module.exports = {
       email: params.email,
     });
 
+    if (!user) {
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.user.not-exist",
+          message: "User with this email does not exist",
+        })
+      );
+    }
+
     if (user.confirmed) {
-      return ctx.badRequest("already.confirmed");
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.email.already-confirmed",
+          message: "User already confirmed",
+        })
+      );
     }
 
     if (user.blocked) {
-      return ctx.badRequest("blocked.user");
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.user.user-blocked",
+          message: "User is blocked",
+        })
+      );
     }
-
-    console.log("The issue with the sendConfirmation Email?");
 
     try {
       await strapi.plugins[
