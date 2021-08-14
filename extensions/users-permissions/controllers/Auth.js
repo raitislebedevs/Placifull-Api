@@ -19,6 +19,86 @@ const formatError = (error) => [
   { messages: [{ id: error.id, message: error.message, field: error.field }] },
 ];
 
+const emailText = `Welcome to Placifull!
+              We are so delighted to have you with us. Please don't be shy and let us know how you like here at placifull@placifull.com
+              www.placifull.com`;
+
+const htmlText = `
+   <!doctype html>
+   <html lang="en-US">
+   
+   <head>
+       <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+       <title>Reset Password Email Template</title>
+       <meta name="description" content="Reset Password Email Template.">
+       <style type="text/css">
+           a:hover {text-decoration: underline !important;}
+       </style>
+   </head>
+   
+   <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #f2f3f8;" leftmargin="0">
+       <!--100% body table-->
+       <table cellspacing="0" border="0" cellpadding="0" width="100%" bgcolor="#f2f3f8"
+           style="@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;">
+           <tr>
+               <td>
+                   <table style="background-color: #f2f3f8; max-width:670px;  margin:0 auto;" width="100%" border="0"
+                       align="center" cellpadding="0" cellspacing="0">
+                       <tr>
+                           <td style="height:80px;">&nbsp;</td>
+                       </tr>
+                       <tr>
+                           <td style="text-align:center;">
+                             <a href="https://rakeshmandal.com" title="logo" target="_blank">
+                               <img width="175" src="https://placifull-static.s3.eu-central-1.amazonaws.com/logo.png" title="logo" alt="logo">
+                             </a>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td style="height:20px;">&nbsp;</td>
+                       </tr>
+                       <tr>
+                           <td>
+                               <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0"
+                                   style="max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
+                                   <tr>
+                                       <td style="height:40px;">&nbsp;</td>
+                                   </tr>
+                                   <tr>
+                                       <td style="padding:0 35px;">
+                                           <h1 style="color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">Welcome to Placifull!</h1>
+                                           <span
+                                               style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;"></span>
+                                           <p style="color:#455056; font-size:15px;line-height:24px; margin:0;">
+                                               We are so delighted to have you with us. Please don't be shy and let us know how you like here at <a style="color:blue; font-size:15px; text-decoration: underline;">placifull@placifull.com</a>.
+                                           </p>
+                                       </td>
+                                   </tr>
+                                   <tr>
+                                       <td style="height:40px;">&nbsp;</td>
+                                   </tr>
+                               </table>
+                           </td>
+                       <tr>
+                           <td style="height:20px;">&nbsp;</td>
+                       </tr>
+                       <tr>
+                           <td style="text-align:center;">
+                               <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">&copy; <strong>www.placifull.com</strong></p>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td style="height:80px;">&nbsp;</td>
+                       </tr>
+                   </table>
+               </td>
+           </tr>
+       </table>
+       <!--/100% body table-->
+   </body>
+   
+   </html>`;
+
 module.exports = {
   async callback(ctx) {
     const provider = ctx.params.provider || "local";
@@ -448,7 +528,6 @@ module.exports = {
         })
       );
     }
-
     // Email is required.
     if (!params.email) {
       return ctx.badRequest(
@@ -456,6 +535,33 @@ module.exports = {
         formatError({
           id: "Auth.form.error.email.provide",
           message: "Please provide your email.",
+        })
+      );
+    }
+
+    // Check if the provided email is valid or not.
+    const isEmail = emailRegExp.test(params.email);
+
+    if (isEmail) {
+      params.email = params.email.toLowerCase();
+    } else {
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.email.format",
+          message: "Please provide valid email address.",
+        })
+      );
+    }
+
+    try {
+      await this.sendValidationEmail(params.email);
+    } catch {
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.email.not-send",
+          message: "Email was not send.",
         })
       );
     }
@@ -487,21 +593,6 @@ module.exports = {
         formatError({
           id: "Auth.form.error.role.notFound",
           message: "Impossible to find the default role.",
-        })
-      );
-    }
-
-    // Check if the provided email is valid or not.
-    const isEmail = emailRegExp.test(params.email);
-
-    if (isEmail) {
-      params.email = params.email.toLowerCase();
-    } else {
-      return ctx.badRequest(
-        null,
-        formatError({
-          id: "Auth.form.error.email.format",
-          message: "Please provide valid email address.",
         })
       );
     }
@@ -559,14 +650,19 @@ module.exports = {
       const sanitizedUser = sanitizeEntity(user, {
         model: strapi.query("user", "users-permissions").model,
       });
-
       if (settings.email_confirmation) {
         try {
           await strapi.plugins[
             "users-permissions"
           ].services.user.sendConfirmationEmail(user);
         } catch (err) {
-          return ctx.badRequest(null, err);
+          ctx.badRequest(
+            null,
+            formatError({
+              id: "Auth.form.error.email.not-send",
+              message: "Email was not send.",
+            })
+          );
         }
 
         return ctx.send({ user: sanitizedUser });
@@ -749,7 +845,6 @@ module.exports = {
 
   async sendConfirmationEmail(user) {
     let { email } = user;
-
     // Check if the provided email is valid or not.
     const isEmail = emailRegExp.test(email);
 
@@ -764,7 +859,6 @@ module.exports = {
         })
       );
     }
-
     const pluginStore = await strapi.store({
       environment: "",
       type: "plugin",
@@ -776,7 +870,6 @@ module.exports = {
       .then((storeEmail) => storeEmail["email_confirmation"].options);
 
     const confirmationToken = crypto.randomBytes(64).toString("hex");
-
     try {
       // Send an email to the user.
       await strapi.plugins["email"].services.email.send({
@@ -791,14 +884,64 @@ module.exports = {
         html: settings.message,
       });
     } catch (err) {
-      return ctx.badRequest(null, err);
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.email.not-send",
+          message: "Email was not send.",
+        })
+      );
     }
-
     // Update the user.
     await strapi
       .query("user", "users-permissions")
       .update({ id: user.id }, { confirmationToken });
 
     ctx.send({ ok: true });
+  },
+
+  async sendValidationEmail(email) {
+    // Check if the provided email is valid or not.
+    const isEmail = emailRegExp.test(email);
+    console.log(email);
+    if (isEmail) {
+      email = email.toLowerCase();
+    } else {
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.email.format",
+          message: "Please provide valid email address.",
+        })
+      );
+    }
+    console.log("Getting till plugin?");
+    const pluginStore = await strapi.store({
+      environment: "",
+      type: "plugin",
+      name: "users-permissions",
+    });
+
+    const settings = await pluginStore
+      .get({ key: "email" })
+      .then((storeEmail) => storeEmail["email_confirmation"].options);
+
+    try {
+      // Send an email to the user.
+      await strapi.plugins["email"].services.email.send({
+        to: email,
+        from:
+          settings.from.email || settings.from.name
+            ? `${settings.from.name} <${settings.from.email}>`
+            : undefined,
+        replyTo: settings.response_email,
+        subject: "Welcome To Placifull",
+        text: emailText,
+        html: htmlText,
+      });
+    } catch (err) {
+      return ctx.badRequest(null, err);
+    }
+    // Update the user.
   },
 };
