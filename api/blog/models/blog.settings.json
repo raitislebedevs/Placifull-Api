@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "name": "Blog",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Header": {
+      "type": "string"
+    },
+    "blogInformation": {
+      "type": "richtext"
+    },
+    "insertDate": {
+      "type": "date"
+    },
+    "blogType": {
+      "type": "enumeration",
+      "enum": [
+        "realEstate",
+        "transport",
+        "job",
+        "moving",
+        "other"
+      ]
+    },
+    "author": {
+      "type": "string"
+    },
+    "viewed": {
+      "type": "integer"
+    },
+    "gallery": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "popularity": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.popularity"
+    }
+  }
+}
