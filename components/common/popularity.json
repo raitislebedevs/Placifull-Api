@@ -19,6 +19,12 @@
     "voteCount": {
       "type": "integer",
       "default": 0
+    },
+    "usersViewed": {
+      "type": "json"
+    },
+    "usersVoted": {
+      "type": "json"
     }
   }
 }
