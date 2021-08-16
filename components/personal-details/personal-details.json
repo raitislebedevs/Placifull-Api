@@ -11,7 +11,7 @@
       "type": "enumeration",
       "enum": [
         "male",
-        "female",
+        "women",
         "notSpecified"
       ]
     },

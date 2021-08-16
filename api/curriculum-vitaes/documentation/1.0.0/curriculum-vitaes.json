@@ -734,7 +734,7 @@
                 "type": "string",
                 "enum": [
                   "male",
-                  "female",
+                  "women",
                   "notSpecified"
                 ]
               },
@@ -1152,7 +1152,7 @@
                 "type": "string",
                 "enum": [
                   "male",
-                  "female",
+                  "women",
                   "notSpecified"
                 ]
               },
