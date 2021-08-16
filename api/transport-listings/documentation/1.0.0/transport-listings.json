@@ -956,6 +956,12 @@
               "voteCount": {
                 "type": "integer",
                 "default": 0
+              },
+              "usersViewed": {
+                "type": "object"
+              },
+              "usersVoted": {
+                "type": "object"
               }
             }
           },
@@ -1408,6 +1414,12 @@
               "voteCount": {
                 "type": "integer",
                 "default": 0
+              },
+              "usersViewed": {
+                "type": "object"
+              },
+              "usersVoted": {
+                "type": "object"
               }
             }
           },

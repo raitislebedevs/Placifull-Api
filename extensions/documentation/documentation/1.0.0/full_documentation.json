@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/16/2021 5:53:22 PM"
+    "x-generation-date": "08/16/2021 6:57:11 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -13876,6 +13876,12 @@
               "voteCount": {
                 "type": "integer",
                 "default": 0
+              },
+              "usersViewed": {
+                "type": "object"
+              },
+              "usersVoted": {
+                "type": "object"
               }
             }
           },
@@ -13933,6 +13939,12 @@
               "voteCount": {
                 "type": "integer",
                 "default": 0
+              },
+              "usersViewed": {
+                "type": "object"
+              },
+              "usersVoted": {
+                "type": "object"
               }
             }
           },
@@ -15345,6 +15357,12 @@
               "voteCount": {
                 "type": "integer",
                 "default": 0
+              },
+              "usersViewed": {
+                "type": "object"
+              },
+              "usersVoted": {
+                "type": "object"
               }
             }
           },
@@ -15925,6 +15943,12 @@
               "voteCount": {
                 "type": "integer",
                 "default": 0
+              },
+              "usersViewed": {
+                "type": "object"
+              },
+              "usersVoted": {
+                "type": "object"
               }
             }
           },
@@ -17050,6 +17074,12 @@
               "voteCount": {
                 "type": "integer",
                 "default": 0
+              },
+              "usersViewed": {
+                "type": "object"
+              },
+              "usersVoted": {
+                "type": "object"
               }
             }
           },
@@ -17502,6 +17532,12 @@
               "voteCount": {
                 "type": "integer",
                 "default": 0
+              },
+              "usersViewed": {
+                "type": "object"
+              },
+              "usersVoted": {
+                "type": "object"
               }
             }
           },
@@ -18124,6 +18160,12 @@
               "voteCount": {
                 "type": "integer",
                 "default": 0
+              },
+              "usersViewed": {
+                "type": "object"
+              },
+              "usersVoted": {
+                "type": "object"
               }
             }
           },
@@ -18691,6 +18733,12 @@
               "voteCount": {
                 "type": "integer",
                 "default": 0
+              },
+              "usersViewed": {
+                "type": "object"
+              },
+              "usersVoted": {
+                "type": "object"
               }
             }
           },
