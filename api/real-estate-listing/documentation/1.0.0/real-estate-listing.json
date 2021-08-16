@@ -774,7 +774,8 @@
             "required": [
               "id",
               "username",
-              "email"
+              "email",
+              "blogContent"
             ],
             "properties": {
               "id": {
@@ -815,6 +816,9 @@
               },
               "referralProgram": {
                 "type": "string"
+              },
+              "blogContent": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"

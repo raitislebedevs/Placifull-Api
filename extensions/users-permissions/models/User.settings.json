@@ -67,6 +67,11 @@
     },
     "referralProgram": {
       "model": "referral-program"
+    },
+    "blogContent": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

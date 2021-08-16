@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/16/2021 10:04:22 AM"
+    "x-generation-date": "08/16/2021 5:53:22 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -13037,7 +13037,8 @@
             "required": [
               "id",
               "username",
-              "email"
+              "email",
+              "blogContent"
             ],
             "properties": {
               "id": {
@@ -13078,6 +13079,9 @@
               },
               "referralProgram": {
                 "type": "string"
+              },
+              "blogContent": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"
@@ -13762,7 +13766,7 @@
           "id": {
             "type": "string"
           },
-          "Header": {
+          "header": {
             "type": "string"
           },
           "blogInformation": {
@@ -13784,9 +13788,6 @@
           },
           "author": {
             "type": "string"
-          },
-          "viewed": {
-            "type": "integer"
           },
           "gallery": {
             "required": [
@@ -13878,6 +13879,9 @@
               }
             }
           },
+          "blogInformationText": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -13886,7 +13890,7 @@
       },
       "NewBlog": {
         "properties": {
-          "Header": {
+          "header": {
             "type": "string"
           },
           "blogInformation": {
@@ -13908,9 +13912,6 @@
           },
           "author": {
             "type": "string"
-          },
-          "viewed": {
-            "type": "integer"
           },
           "popularity": {
             "type": "object",
@@ -13934,6 +13935,9 @@
                 "default": 0
               }
             }
+          },
+          "blogInformationText": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -15418,7 +15422,8 @@
             "required": [
               "id",
               "username",
-              "email"
+              "email",
+              "blogContent"
             ],
             "properties": {
               "id": {
@@ -15459,6 +15464,9 @@
               },
               "referralProgram": {
                 "type": "string"
+              },
+              "blogContent": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"
@@ -17049,7 +17057,8 @@
             "required": [
               "id",
               "username",
-              "email"
+              "email",
+              "blogContent"
             ],
             "properties": {
               "id": {
@@ -17090,6 +17099,9 @@
               },
               "referralProgram": {
                 "type": "string"
+              },
+              "blogContent": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"
@@ -18301,7 +18313,8 @@
             "required": [
               "id",
               "username",
-              "email"
+              "email",
+              "blogContent"
             ],
             "properties": {
               "id": {
@@ -18342,6 +18355,9 @@
               },
               "referralProgram": {
                 "type": "string"
+              },
+              "blogContent": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"
@@ -18945,7 +18961,8 @@
               "required": [
                 "id",
                 "username",
-                "email"
+                "email",
+                "blogContent"
               ],
               "properties": {
                 "id": {
@@ -18986,6 +19003,9 @@
                 },
                 "referralProgram": {
                   "type": "string"
+                },
+                "blogContent": {
+                  "type": "boolean"
                 },
                 "created_by": {
                   "type": "string"
@@ -19037,7 +19057,8 @@
         "required": [
           "id",
           "username",
-          "email"
+          "email",
+          "blogContent"
         ],
         "properties": {
           "id": {
@@ -19216,13 +19237,18 @@
                 "type": "string"
               }
             }
+          },
+          "blogContent": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
       "NewUsersPermissionsUser": {
         "required": [
           "username",
-          "email"
+          "email",
+          "blogContent"
         ],
         "properties": {
           "username": {
@@ -19266,6 +19292,10 @@
           },
           "referralProgram": {
             "type": "string"
+          },
+          "blogContent": {
+            "type": "boolean",
+            "default": false
           },
           "created_by": {
             "type": "string"
