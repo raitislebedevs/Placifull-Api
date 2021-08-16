@@ -1259,7 +1259,8 @@
         "required": [
           "id",
           "username",
-          "email"
+          "email",
+          "blogContent"
         ],
         "properties": {
           "id": {
@@ -1438,13 +1439,18 @@
                 "type": "string"
               }
             }
+          },
+          "blogContent": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
       "NewUsersPermissionsUser": {
         "required": [
           "username",
-          "email"
+          "email",
+          "blogContent"
         ],
         "properties": {
           "username": {
@@ -1488,6 +1494,10 @@
           },
           "referralProgram": {
             "type": "string"
+          },
+          "blogContent": {
+            "type": "boolean",
+            "default": false
           },
           "created_by": {
             "type": "string"

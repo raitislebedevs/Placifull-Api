@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Header": {
+    "header": {
       "type": "string"
     },
     "blogInformation": {
@@ -34,9 +34,6 @@
     "author": {
       "type": "string"
     },
-    "viewed": {
-      "type": "integer"
-    },
     "gallery": {
       "model": "file",
       "via": "related",
@@ -53,6 +50,9 @@
       "type": "component",
       "repeatable": false,
       "component": "common.popularity"
+    },
+    "blogInformationText": {
+      "type": "text"
     }
   }
 }

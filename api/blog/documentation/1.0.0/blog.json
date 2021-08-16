@@ -522,7 +522,7 @@
           "id": {
             "type": "string"
           },
-          "Header": {
+          "header": {
             "type": "string"
           },
           "blogInformation": {
@@ -544,9 +544,6 @@
           },
           "author": {
             "type": "string"
-          },
-          "viewed": {
-            "type": "integer"
           },
           "gallery": {
             "required": [
@@ -638,6 +635,9 @@
               }
             }
           },
+          "blogInformationText": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -646,7 +646,7 @@
       },
       "NewBlog": {
         "properties": {
-          "Header": {
+          "header": {
             "type": "string"
           },
           "blogInformation": {
@@ -668,9 +668,6 @@
           },
           "author": {
             "type": "string"
-          },
-          "viewed": {
-            "type": "integer"
           },
           "popularity": {
             "type": "object",
@@ -694,6 +691,9 @@
                 "default": 0
               }
             }
+          },
+          "blogInformationText": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
