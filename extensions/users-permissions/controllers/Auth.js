@@ -50,7 +50,7 @@ const htmlText = `
                        <tr>
                            <td style="text-align:center;">
                              <a href="https://rakeshmandal.com" title="logo" target="_blank">
-                               <img width="175" src="https://placifull-static.s3.eu-central-1.amazonaws.com/logo.png" title="logo" alt="logo">
+                               <img width="175" src="https://placifull-static.s3.eu-central-1.amazonaws.com/logo.webp" title="logo" alt="logo">
                              </a>
                            </td>
                        </tr>
