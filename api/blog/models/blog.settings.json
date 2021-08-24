@@ -53,6 +53,13 @@
     },
     "blogInformationText": {
       "type": "text"
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "latvian",
+        "english"
+      ]
     }
   }
 }

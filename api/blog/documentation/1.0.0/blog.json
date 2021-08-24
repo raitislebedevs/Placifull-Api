@@ -644,6 +644,13 @@
           "blogInformationText": {
             "type": "string"
           },
+          "language": {
+            "type": "string",
+            "enum": [
+              "latvian",
+              "english"
+            ]
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -706,6 +713,13 @@
           },
           "blogInformationText": {
             "type": "string"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "latvian",
+              "english"
+            ]
           },
           "published_at": {
             "type": "string",
