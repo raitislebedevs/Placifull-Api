@@ -651,6 +651,9 @@
               "english"
             ]
           },
+          "photograph": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -720,6 +723,9 @@
               "latvian",
               "english"
             ]
+          },
+          "photograph": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
