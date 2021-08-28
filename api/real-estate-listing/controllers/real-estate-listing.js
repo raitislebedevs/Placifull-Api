@@ -11,13 +11,15 @@ module.exports = {
   async findForm(ctx) {
     let tags;
     let entities;
+    let entitiesExtra = [];
     let tagEntities = [];
     let limit;
-    let areaMeasurement;
-    const convert = ctx.query?._where?.convert;
-    const multiplier = 10.7639104;
+    const convertHelper = ctx.query?._where?.convertHelper;
     try {
-      delete ctx.query?._where?.convert;
+      if (convertHelper) {
+        delete ctx.query._where.convertHelper;
+      }
+
       if (ctx.query?._limit) {
         limit = ctx.query._limit;
         delete ctx.query._limit;
@@ -30,7 +32,23 @@ module.exports = {
       }
 
       entities = await strapi.services["real-estate-listing"].find(ctx.query);
-      tagEntities = [];
+
+      if (convertHelper) {
+        ctx.query._where.areaMeasurement_contains =
+          convertHelper.areaMeasurement;
+        ctx.query._where.area_gte =
+          convertHelper[convertHelper.areaMeasurement].area_gte;
+        ctx.query._where.area_lte =
+          convertHelper[convertHelper.areaMeasurement].area_lte;
+
+        entitiesExtra = await strapi.services["real-estate-listing"].find(
+          ctx.query
+        );
+      }
+
+      if (entitiesExtra?.length > 0) {
+        entitiesExtra.forEach((extra) => entities.push(extra));
+      }
 
       entities.forEach((element) => {
         if (limit <= 0) throw BreakException;
@@ -62,10 +80,15 @@ module.exports = {
   async countForm(ctx) {
     let tags;
     let entities;
+    let entitiesExtra = [];
     let tagEntities = [];
     let limit;
-
+    const convertHelper = ctx.query?._where?.convertHelper;
     try {
+      if (convertHelper) {
+        delete ctx.query._where.convertHelper;
+      }
+
       if (ctx.query?._limit) {
         limit = ctx.query._limit;
         delete ctx.query._limit;
@@ -78,8 +101,22 @@ module.exports = {
       }
 
       entities = await strapi.services["real-estate-listing"].find(ctx.query);
+      if (convertHelper) {
+        ctx.query._where.areaMeasurement_contains =
+          convertHelper.areaMeasurement;
+        ctx.query._where.area_gte =
+          convertHelper[convertHelper.areaMeasurement].area_gte;
+        ctx.query._where.area_lte =
+          convertHelper[convertHelper.areaMeasurement].area_lte;
+        ctx.query._where;
+        entitiesExtra = await strapi.services["real-estate-listing"].find(
+          ctx.query
+        );
+      }
 
-      tagEntities = [];
+      if (entitiesExtra?.length > 0) {
+        entitiesExtra.forEach((extra) => entities.push(extra));
+      }
 
       entities.forEach((element) => {
         if (limit <= 0) throw BreakException;
