@@ -14,8 +14,10 @@ module.exports = {
     let tagEntities = [];
     let limit;
     let areaMeasurement;
-
+    const convert = ctx.query?._where?.convert;
+    const multiplier = 10.7639104;
     try {
+      delete ctx.query?._where?.convert;
       if (ctx.query?._limit) {
         limit = ctx.query._limit;
         delete ctx.query._limit;
@@ -25,14 +27,6 @@ module.exports = {
         tags = ctx.query._where.tags;
         delete ctx.query._where.tags;
         ctx.query._where["tags.id_in"] = tags;
-      }
-
-      if (
-        ctx.query?._where?.areaMeasurement &&
-        (ctx.query?._where?.area_gte || ctx.query?._where?.area_lte)
-      ) {
-        areaMeasurement = ctx.query._where.areaMeasurement;
-        //delete ctx.query._where.areaMeasurement;
       }
 
       entities = await strapi.services["real-estate-listing"].find(ctx.query);
