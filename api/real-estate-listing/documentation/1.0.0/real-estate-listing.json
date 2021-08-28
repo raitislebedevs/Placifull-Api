@@ -1226,10 +1226,10 @@
             "format": "date"
           },
           "floors": {
-            "type": "string"
+            "type": "integer"
           },
           "inFloor": {
-            "type": "string"
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -1503,10 +1503,10 @@
             "format": "date"
           },
           "floors": {
-            "type": "string"
+            "type": "integer"
           },
           "inFloor": {
-            "type": "string"
+            "type": "integer"
           },
           "published_at": {
             "type": "string",

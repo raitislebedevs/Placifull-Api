@@ -191,10 +191,10 @@
       "type": "date"
     },
     "floors": {
-      "type": "string"
+      "type": "integer"
     },
     "inFloor": {
-      "type": "string"
+      "type": "integer"
     }
   }
 }
