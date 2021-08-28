@@ -1225,6 +1225,12 @@
             "type": "string",
             "format": "date"
           },
+          "floors": {
+            "type": "string"
+          },
+          "inFloor": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1495,6 +1501,12 @@
           "yearBuilt": {
             "type": "string",
             "format": "date"
+          },
+          "floors": {
+            "type": "string"
+          },
+          "inFloor": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
