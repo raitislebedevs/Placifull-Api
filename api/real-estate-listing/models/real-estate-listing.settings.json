@@ -189,6 +189,12 @@
     },
     "yearBuilt": {
       "type": "date"
+    },
+    "floors": {
+      "type": "string"
+    },
+    "inFloor": {
+      "type": "string"
     }
   }
 }
