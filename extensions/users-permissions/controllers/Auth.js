@@ -903,7 +903,6 @@ module.exports = {
   async sendValidationEmail(email) {
     // Check if the provided email is valid or not.
     const isEmail = emailRegExp.test(email);
-    console.log(email);
     if (isEmail) {
       email = email.toLowerCase();
     } else {
@@ -915,7 +914,6 @@ module.exports = {
         })
       );
     }
-    console.log("Getting till plugin?");
     const pluginStore = await strapi.store({
       environment: "",
       type: "plugin",
@@ -942,6 +940,5 @@ module.exports = {
     } catch (err) {
       return ctx.badRequest(null, err);
     }
-    // Update the user.
   },
 };
