@@ -13,8 +13,13 @@ module.exports = {
     let entities;
     let tagEntities = [];
     let limit;
-
+    let polygon = ctx.query?._where?.polygon;
     try {
+      delete ctx.query?._where?.polygon;
+      if (polygon?.length > 0) {
+        polygon = strapi.config.functions["polygon"].convertToNumbers(polygon);
+      }
+
       if (ctx.query?._limit) {
         limit = ctx.query._limit;
         delete ctx.query._limit;
@@ -30,7 +35,17 @@ module.exports = {
       tagEntities = [];
 
       entities.forEach((element) => {
-        if (limit <= 0) throw BreakException;
+        if (limit <= 0) throw "Found all items";
+        if (polygon?.length > 0) {
+          let point = [element?.latitude, element?.longitude];
+          let inPolygon = strapi.config.functions["polygon"].contains(
+            point,
+            polygon
+          );
+          if (!inPolygon) {
+            return;
+          }
+        }
 
         let newListId = [];
         element.tags?.forEach((tag) => newListId.push(tag?.id));
@@ -61,8 +76,13 @@ module.exports = {
     let entities;
     let tagEntities = [];
     let limit;
-
+    let polygon = ctx.query?._where?.polygon;
     try {
+      delete ctx.query?._where?.polygon;
+      if (polygon?.length > 0) {
+        polygon = strapi.config.functions["polygon"].convertToNumbers(polygon);
+      }
+
       if (ctx.query?._limit) {
         limit = ctx.query._limit;
         delete ctx.query._limit;
@@ -78,7 +98,17 @@ module.exports = {
 
       tagEntities = [];
       entities.forEach((element) => {
-        if (limit <= 0) throw BreakException;
+        if (limit <= 0) throw "Found all items";
+        if (polygon?.length > 0) {
+          let point = [element?.latitude, element?.longitude];
+          let inPolygon = strapi.config.functions["polygon"].contains(
+            point,
+            polygon
+          );
+          if (!inPolygon) {
+            return;
+          }
+        }
 
         let newListId = [];
         element.tags?.forEach((tag) => newListId.push(tag?.id));

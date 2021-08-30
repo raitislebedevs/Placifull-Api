@@ -14,11 +14,14 @@ module.exports = {
     let tagEntities = [];
     let limit;
     const convertHelper = ctx.query?._where?.convertHelper;
-    const polygon = ctx.query?._where?.polygon;
+    let polygon = ctx.query?._where?.polygon;
 
     try {
       delete ctx.query?._where?.convertHelper;
       delete ctx.query?._where?.polygon;
+      if (polygon?.length > 0) {
+        polygon = strapi.config.functions["polygon"].convertToNumbers(polygon);
+      }
 
       if (ctx.query?._limit) {
         limit = ctx.query._limit;
@@ -30,22 +33,6 @@ module.exports = {
         delete ctx.query._where.tags;
         ctx.query._where["tags.id_in"] = tags;
       }
-
-      // let poligon = [
-      //   { lat: -5, lng: 9 },
-      //   { lat: -1, lng: 12 },
-      //   { lat: 2, lng: 7 },
-      //   { lat: 6, lng: 11 },
-      //   { lat: 9, lng: 5 },
-      //   { lat: 2, lng: 1 },
-      //   { lat: -6, lng: 3 },
-      // ];
-
-      // await strapi.config.functions["polygon"].checkIfPointInside(
-      //   poligon,
-      //   1,
-      //   4
-      // );
 
       entities = await strapi.services["real-estate-listing"].find(ctx.query);
 
@@ -67,19 +54,19 @@ module.exports = {
       }
 
       entities.forEach((element) => {
-        if (limit <= 0) throw BreakException;
+        if (limit <= 0) throw "Found all items";
 
         if (polygon?.length > 0) {
-          let inPolygon = strapi.config.functions["polygon"].checkIfPointInside(
-            polygon,
-            element?.latitude,
-            element?.longitude
+          let point = [element?.latitude, element?.longitude];
+          let inPolygon = strapi.config.functions["polygon"].contains(
+            point,
+            polygon
           );
-          console.log(inPolygon);
           if (!inPolygon) {
             return;
           }
         }
+
         let newListId = [];
         element.tags.forEach((tag) => newListId.push(tag?.id));
 
@@ -97,7 +84,9 @@ module.exports = {
           limit--;
         }
       });
-    } catch (e) {}
+    } catch (e) {
+      console.log(e);
+    }
 
     return tagEntities.map((entity) =>
       sanitizeEntity(entity, { model: strapi.models["real-estate-listing"] })
@@ -111,10 +100,13 @@ module.exports = {
     let tagEntities = [];
     let limit;
     const convertHelper = ctx.query?._where?.convertHelper;
-    const polygon = ctx.query?._where?.polygon;
+    let polygon = ctx.query?._where?.polygon;
     try {
       delete ctx.query?._where?.convertHelper;
       delete ctx.query?._where?.polygon;
+      if (polygon?.length > 0) {
+        polygon = strapi.config.functions["polygon"].convertToNumbers(polygon);
+      }
 
       if (ctx.query?._limit) {
         limit = ctx.query._limit;
@@ -146,7 +138,20 @@ module.exports = {
       }
 
       entities.forEach((element) => {
-        if (limit <= 0) throw BreakException;
+        if (limit <= 0) throw "Found all items";
+
+        //Once you go to the next page, this might give back the same results.
+        // This is because it skips first and then filters them out.
+        if (polygon?.length > 0) {
+          let point = [element?.latitude, element?.longitude];
+          let inPolygon = strapi.config.functions["polygon"].contains(
+            point,
+            polygon
+          );
+          if (!inPolygon) {
+            return;
+          }
+        }
 
         let newListId = [];
         element.tags.forEach((tag) => newListId.push(tag?.id));
@@ -165,7 +170,9 @@ module.exports = {
           limit--;
         }
       });
-    } catch (e) {}
+    } catch (e) {
+      console.log(e);
+    }
 
     return tagEntities.length;
   },
