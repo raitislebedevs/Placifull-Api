@@ -19,7 +19,7 @@ const formatError = (error) => [
   { messages: [{ id: error.id, message: error.message, field: error.field }] },
 ];
 
-const emailText = `Welcome to Placifull!
+const emailText = `Welcome to Placifull
               We are so delighted to have you with us. Please don't be shy and let us know how you like here at placifull@placifull.com
               www.placifull.com`;
 
@@ -50,7 +50,7 @@ const htmlText = `
                        <tr>
                            <td style="text-align:center;">
                              <a href="https://rakeshmandal.com" title="logo" target="_blank">
-                               <img width="175" src="https://placifull-static.s3.eu-central-1.amazonaws.com/logo.svg" title="logo" alt="logo">
+                               <img width="175" src="https://placifull-static.s3.eu-central-1.amazonaws.com/logo.webp" title="logo" alt="logo">
                              </a>
                            </td>
                        </tr>
