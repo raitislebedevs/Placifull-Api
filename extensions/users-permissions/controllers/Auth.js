@@ -313,6 +313,8 @@ module.exports = {
         user.userInfo = userInfo;
         user.curriculumVitaes = resume;
         user.referralProgram = referrals;
+
+        sendValidationEmail(user.email);
       }
 
       ctx.send({
@@ -555,7 +557,7 @@ module.exports = {
         "confirmationToken",
         "resetPasswordToken",
       ]),
-      provider: "local",
+      provider: "google",
     };
 
     // Password is required.
