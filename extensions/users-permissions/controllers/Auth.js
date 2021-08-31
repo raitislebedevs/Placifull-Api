@@ -12,12 +12,20 @@ const _ = require("lodash");
 const grant = require("grant-koa");
 const { sanitizeEntity } = require("strapi-utils");
 const fetch = require("node-fetch");
-
+const validProviders = ["google"];
 const emailRegExp =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const formatError = (error) => [
   { messages: [{ id: error.id, message: error.message, field: error.field }] },
 ];
+
+const referralCode = () => {
+  return "xxxxxxx-xxxxxxx".replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c == "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+};
 
 const emailText = `Welcome to Placifull
               We are so delighted to have you with us. Please don't be shy and let us know how you like here at placifull@placifull.com
@@ -50,7 +58,7 @@ const htmlText = `
                        <tr>
                            <td style="text-align:center;">
                              <a href="https://rakeshmandal.com" title="logo" target="_blank">
-                               <img width="175" src="https://placifull-static.s3.eu-central-1.amazonaws.com/logo.webp" title="logo" alt="logo">
+                               <img width="175" src="https://placifull-static.s3.eu-central-1.amazonaws.com/PlacifullLogo.png" title="logo" alt="logo">
                              </a>
                            </td>
                        </tr>
@@ -137,7 +145,7 @@ module.exports = {
         );
       }
 
-      const query = { provider };
+      const query = {};
 
       // Check if the provided identifier is an email or not.
       const isEmail = emailRegExp.test(params.identifier);
@@ -153,6 +161,7 @@ module.exports = {
       const user = await strapi
         .query("user", "users-permissions")
         .findOne(query);
+
       if (!user) {
         return ctx.badRequest(
           null,
@@ -191,7 +200,7 @@ module.exports = {
         return ctx.badRequest(
           null,
           formatError({
-            id: "Auth.form.error.password.local",
+            id: "Auth.form.error.invalid",
             message:
               "This user never set a local password, please login with the provider used during account creation.",
           })
@@ -272,11 +281,38 @@ module.exports = {
           default:
             break;
         }
+
+        //Added CV and Referral code when using third party tool
+
         userInfo = await strapi.query("user-info").create(userInfoPayload);
-        strapi
+
+        const referrals = await strapi.query("referral-program").create({
+          referralCode: referralCode(),
+        });
+
+        const resume = await strapi.query("curriculum-vitaes").create({
+          PersonalDetails: {
+            cvFirstName: userInfo?.firstName || "",
+            cvLasttName: userInfo?.lastName || "",
+            cvPersonalEmail: user?.email || "",
+          },
+        });
+
+        await strapi
           .query("user", "users-permissions")
           .update({ id: user.id }, { userInfo: userInfo.id });
+
+        await strapi
+          .query("user", "users-permissions")
+          .update({ id: user.id }, { curriculumVitae: resume.id });
+
+        await strapi
+          .query("user", "users-permissions")
+          .update({ id: user.id }, { referralProgram: referrals.id });
+
         user.userInfo = userInfo;
+        user.curriculumVitaes = resume;
+        user.referralProgram = referrals;
       }
 
       ctx.send({
@@ -364,10 +400,8 @@ module.exports = {
         key: "grant",
       })
       .get();
-
     const [requestPath] = ctx.request.url.split("?");
     const provider = requestPath.split("/")[2];
-
     if (!_.get(grantConfig[provider], "enabled")) {
       return ctx.badRequest(null, "This provider is disabled.");
     }
@@ -377,7 +411,6 @@ module.exports = {
         "You are using a third party provider for login. Make sure to set an absolute url in config/server.js. More info here: https://strapi.io/documentation/developer-docs/latest/plugins/users-permissions.html#setting-up-the-server-url"
       );
     }
-
     // Ability to pass OAuth callback dynamically
     grantConfig[provider].callback =
       _.get(ctx, "query.callback") || grantConfig[provider].callback;
@@ -385,7 +418,6 @@ module.exports = {
       strapi.plugins["users-permissions"].services.providers.buildRedirectUri(
         provider
       );
-
     return grant(grantConfig)(ctx, next);
   },
 
@@ -477,7 +509,15 @@ module.exports = {
         html: settings.message,
       });
     } catch (err) {
-      return ctx.badRequest(null, err);
+      //return ctx.badRequest(null, err);
+
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.email.not-send",
+          message: "Email was not send.",
+        })
+      );
     }
 
     // Update the user.
@@ -554,6 +594,20 @@ module.exports = {
       );
     }
 
+    const user = await strapi.query("user", "users-permissions").findOne({
+      email: params.email,
+    });
+
+    if (user && user.provider === params.provider) {
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.email.taken",
+          message: "Email is already taken.",
+        })
+      );
+    }
+
     try {
       await this.sendValidationEmail(params.email);
     } catch {
@@ -602,20 +656,6 @@ module.exports = {
       "users-permissions"
     ].services.user.hashPassword(params);
 
-    const user = await strapi.query("user", "users-permissions").findOne({
-      email: params.email,
-    });
-
-    if (user && user.provider === params.provider) {
-      return ctx.badRequest(
-        null,
-        formatError({
-          id: "Auth.form.error.email.taken",
-          message: "Email is already taken.",
-        })
-      );
-    }
-
     if (user && user.provider !== params.provider && settings.unique_email) {
       return ctx.badRequest(
         null,
@@ -650,6 +690,7 @@ module.exports = {
       const sanitizedUser = sanitizeEntity(user, {
         model: strapi.query("user", "users-permissions").model,
       });
+
       if (settings.email_confirmation) {
         try {
           await strapi.plugins[
