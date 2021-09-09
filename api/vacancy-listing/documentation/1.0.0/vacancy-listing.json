@@ -1381,6 +1381,10 @@
             "type": "boolean",
             "default": false
           },
+          "isPublished": {
+            "type": "boolean",
+            "default": true
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1738,6 +1742,10 @@
           "isPromotable": {
             "type": "boolean",
             "default": false
+          },
+          "isPublished": {
+            "type": "boolean",
+            "default": true
           },
           "published_at": {
             "type": "string",

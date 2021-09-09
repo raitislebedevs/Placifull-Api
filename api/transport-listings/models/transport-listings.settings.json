@@ -196,9 +196,6 @@
     "city": {
       "model": "city"
     },
-    "phone": {
-      "type": "integer"
-    },
     "socialLinks": {
       "type": "json"
     },
@@ -232,6 +229,13 @@
     "isPromotable": {
       "type": "boolean",
       "default": false
+    },
+    "phone": {
+      "type": "string"
+    },
+    "isPublished": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

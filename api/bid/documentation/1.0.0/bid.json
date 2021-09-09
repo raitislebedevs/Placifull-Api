@@ -763,6 +763,9 @@
               "inFloor": {
                 "type": "integer"
               },
+              "isPublished": {
+                "type": "boolean"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -966,9 +969,6 @@
               "city": {
                 "type": "string"
               },
-              "phone": {
-                "type": "integer"
-              },
               "socialLinks": {
                 "type": "object"
               },
@@ -997,6 +997,12 @@
                 "type": "number"
               },
               "isPromotable": {
+                "type": "boolean"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "isPublished": {
                 "type": "boolean"
               },
               "published_at": {
@@ -1205,6 +1211,9 @@
                 "type": "component"
               },
               "isPromotable": {
+                "type": "boolean"
+              },
+              "isPublished": {
                 "type": "boolean"
               },
               "published_at": {

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/31/2021 9:21:03 PM"
+    "x-generation-date": "09/09/2021 4:05:22 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -13274,6 +13274,9 @@
               "inFloor": {
                 "type": "integer"
               },
+              "isPublished": {
+                "type": "boolean"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -13477,9 +13480,6 @@
               "city": {
                 "type": "string"
               },
-              "phone": {
-                "type": "integer"
-              },
               "socialLinks": {
                 "type": "object"
               },
@@ -13508,6 +13508,12 @@
                 "type": "number"
               },
               "isPromotable": {
+                "type": "boolean"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "isPublished": {
                 "type": "boolean"
               },
               "published_at": {
@@ -13716,6 +13722,9 @@
                 "type": "component"
               },
               "isPromotable": {
+                "type": "boolean"
+              },
+              "isPublished": {
                 "type": "boolean"
               },
               "published_at": {
@@ -15917,6 +15926,10 @@
           "inFloor": {
             "type": "integer"
           },
+          "isPublished": {
+            "type": "boolean",
+            "default": true
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -16193,6 +16206,10 @@
           },
           "inFloor": {
             "type": "integer"
+          },
+          "isPublished": {
+            "type": "boolean",
+            "default": true
           },
           "published_at": {
             "type": "string",
@@ -17321,9 +17338,6 @@
               }
             }
           },
-          "phone": {
-            "type": "integer"
-          },
           "socialLinks": {
             "type": "object"
           },
@@ -17390,6 +17404,13 @@
           "isPromotable": {
             "type": "boolean",
             "default": false
+          },
+          "phone": {
+            "type": "string"
+          },
+          "isPublished": {
+            "type": "boolean",
+            "default": true
           },
           "published_at": {
             "type": "string",
@@ -17600,9 +17621,6 @@
           "city": {
             "type": "string"
           },
-          "phone": {
-            "type": "integer"
-          },
           "socialLinks": {
             "type": "object"
           },
@@ -17669,6 +17687,13 @@
           "isPromotable": {
             "type": "boolean",
             "default": false
+          },
+          "phone": {
+            "type": "string"
+          },
+          "isPublished": {
+            "type": "boolean",
+            "default": true
           },
           "published_at": {
             "type": "string",
@@ -18611,6 +18636,10 @@
             "type": "boolean",
             "default": false
           },
+          "isPublished": {
+            "type": "boolean",
+            "default": true
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -18968,6 +18997,10 @@
           "isPromotable": {
             "type": "boolean",
             "default": false
+          },
+          "isPublished": {
+            "type": "boolean",
+            "default": true
           },
           "published_at": {
             "type": "string",
