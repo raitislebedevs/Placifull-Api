@@ -1165,9 +1165,6 @@
               }
             }
           },
-          "phone": {
-            "type": "integer"
-          },
           "socialLinks": {
             "type": "object"
           },
@@ -1234,6 +1231,13 @@
           "isPromotable": {
             "type": "boolean",
             "default": false
+          },
+          "phone": {
+            "type": "string"
+          },
+          "isPublished": {
+            "type": "boolean",
+            "default": true
           },
           "published_at": {
             "type": "string",
@@ -1444,9 +1448,6 @@
           "city": {
             "type": "string"
           },
-          "phone": {
-            "type": "integer"
-          },
           "socialLinks": {
             "type": "object"
           },
@@ -1513,6 +1514,13 @@
           "isPromotable": {
             "type": "boolean",
             "default": false
+          },
+          "phone": {
+            "type": "string"
+          },
+          "isPublished": {
+            "type": "boolean",
+            "default": true
           },
           "published_at": {
             "type": "string",

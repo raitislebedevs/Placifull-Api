@@ -220,6 +220,10 @@
       "type": "boolean",
       "default": false,
       "required": false
+    },
+    "isPublished": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

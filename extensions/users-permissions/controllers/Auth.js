@@ -404,6 +404,9 @@ module.exports = {
       .get();
     const [requestPath] = ctx.request.url.split("?");
     const provider = requestPath.split("/")[2];
+
+    ///Should I update here the user if one exists and if so then how???
+
     if (!_.get(grantConfig[provider], "enabled")) {
       return ctx.badRequest(null, "This provider is disabled.");
     }
