@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/09/2021 4:05:22 PM"
+    "x-generation-date": "09/17/2021 3:54:52 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -13083,6 +13083,9 @@
               "blogContent": {
                 "type": "boolean"
               },
+              "apiClient": {
+                "type": "boolean"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -15521,6 +15524,9 @@
               "blogContent": {
                 "type": "boolean"
               },
+              "apiClient": {
+                "type": "boolean"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -17188,6 +17194,9 @@
               "blogContent": {
                 "type": "boolean"
               },
+              "apiClient": {
+                "type": "boolean"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -18464,6 +18473,9 @@
               "blogContent": {
                 "type": "boolean"
               },
+              "apiClient": {
+                "type": "boolean"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -19126,6 +19138,9 @@
                 "blogContent": {
                   "type": "boolean"
                 },
+                "apiClient": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -19360,6 +19375,9 @@
           "blogContent": {
             "type": "boolean",
             "default": false
+          },
+          "apiClient": {
+            "type": "boolean"
           }
         }
       },
@@ -19415,6 +19433,9 @@
           "blogContent": {
             "type": "boolean",
             "default": false
+          },
+          "apiClient": {
+            "type": "boolean"
           },
           "created_by": {
             "type": "string"

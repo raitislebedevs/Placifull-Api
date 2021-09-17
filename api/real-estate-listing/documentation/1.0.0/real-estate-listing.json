@@ -826,6 +826,9 @@
               "blogContent": {
                 "type": "boolean"
               },
+              "apiClient": {
+                "type": "boolean"
+              },
               "created_by": {
                 "type": "string"
               },

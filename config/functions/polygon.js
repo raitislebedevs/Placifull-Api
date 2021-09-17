@@ -41,4 +41,27 @@ module.exports = {
     }
     return polygon;
   },
+
+  getMaxMinCoordinates(polygon) {
+    var lat = polygon.map(function (p) {
+      return p.lat;
+    });
+    var lng = polygon.map(function (p) {
+      return p.lng;
+    });
+
+    var min_coords = {
+      lat: Math.min.apply(null, lat),
+      lng: Math.min.apply(null, lng),
+    };
+    var max_coords = {
+      lat: Math.max.apply(null, lat),
+      lng: Math.max.apply(null, lng),
+    };
+    let coordinates;
+    coordinates.minValue = min_coords;
+    coordinates.maxValue = max_coords;
+
+    return coordinates;
+  },
 };
