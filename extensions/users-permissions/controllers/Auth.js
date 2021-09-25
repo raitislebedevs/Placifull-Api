@@ -57,8 +57,8 @@ const htmlText = `
                        </tr>
                        <tr>
                            <td style="text-align:center;">
-                             <a href="https://rakeshmandal.com" title="logo" target="_blank">
-                               <img width="175" src="https://placifull-static.s3.eu-central-1.amazonaws.com/PlacifullLogo.png" title="logo" alt="logo">
+                             <a href="https://placifull.com" title="logo" target="_blank">
+                               <img width="250" src="https://placifull-static.s3.eu-central-1.amazonaws.com/WholeLogo.png" title="logo" alt="logo">
                              </a>
                            </td>
                        </tr>
