@@ -49,6 +49,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/real-estate-listings/notify-user",
+      "handler": "real-estate-listing.notifyUser",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/real-estate-listings/:id",
       "handler": "real-estate-listing.update",

@@ -1,0 +1,101 @@
+{
+  "kind": "collectionType",
+  "collectionName": "real_estate_filters",
+  "info": {
+    "name": "RealEstateFilter",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "category_contains": {
+      "type": "string"
+    },
+    "action_contains": {
+      "type": "string"
+    },
+    "condition_contains": {
+      "type": "string"
+    },
+    "areaMeasurement_contains": {
+      "type": "string"
+    },
+    "country_id": {
+      "type": "string"
+    },
+    "state_id": {
+      "type": "string"
+    },
+    "city_id": {
+      "type": "string"
+    },
+    "currency_id": {
+      "type": "string"
+    },
+    "price_gte": {
+      "type": "decimal"
+    },
+    "price_lte": {
+      "type": "decimal"
+    },
+    "rooms_gte": {
+      "type": "decimal"
+    },
+    "rooms_lte": {
+      "type": "decimal"
+    },
+    "area_gte": {
+      "type": "decimal"
+    },
+    "area_lte": {
+      "type": "decimal"
+    },
+    "totalUltilities_gte": {
+      "type": "decimal"
+    },
+    "totalUltilities_lte": {
+      "type": "decimal"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "inFloor_gte": {
+      "type": "decimal"
+    },
+    "inFloor_lte": {
+      "type": "decimal"
+    },
+    "floors_gte": {
+      "type": "decimal"
+    },
+    "floors_lte": {
+      "type": "decimal"
+    },
+    "moveInDate_gte": {
+      "type": "date"
+    },
+    "moveOutDate_lte": {
+      "type": "date"
+    },
+    "yearBuilt_gte": {
+      "type": "date"
+    },
+    "polygon": {
+      "type": "json"
+    },
+    "yearBuilt_lte": {
+      "type": "date"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "realEstateListingsFound": {
+      "type": "json"
+    }
+  }
+}

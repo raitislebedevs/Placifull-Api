@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/real-estate-filters",
+      "handler": "real-estate-filter.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/real-estate-filters/count",
+      "handler": "real-estate-filter.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/real-estate-filters/:id",
+      "handler": "real-estate-filter.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/real-estate-filters",
+      "handler": "real-estate-filter.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/real-estate-filters/:id",
+      "handler": "real-estate-filter.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/real-estate-filters/:id",
+      "handler": "real-estate-filter.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
