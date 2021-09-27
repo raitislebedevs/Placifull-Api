@@ -49,6 +49,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/vacancy-listings/notify-user",
+      "handler": "vacancy-listing.notifyUser",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/vacancy-listings/:id",
       "handler": "vacancy-listing.update",

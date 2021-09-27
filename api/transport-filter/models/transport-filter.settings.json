@@ -1,0 +1,101 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transport_filters",
+  "info": {
+    "name": "TransportFilter",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "transportType_contains": {
+      "type": "string"
+    },
+    "action_contains": {
+      "type": "string"
+    },
+    "condition_contains": {
+      "type": "string"
+    },
+    "engineType_contains": {
+      "type": "string"
+    },
+    "gearBox_contains": {
+      "type": "string"
+    },
+    "color_contains": {
+      "type": "string"
+    },
+    "transportBrand_contains": {
+      "type": "string"
+    },
+    "transportModel_contains": {
+      "type": "string"
+    },
+    "distanceMesurment_contains": {
+      "type": "string"
+    },
+    "speedMesurment_contains": {
+      "type": "string"
+    },
+    "fuelEconomyMesurment_contains": {
+      "type": "string"
+    },
+    "country_id": {
+      "type": "string"
+    },
+    "state_id": {
+      "type": "string"
+    },
+    "city_id": {
+      "type": "string"
+    },
+    "currency_id": {
+      "type": "string"
+    },
+    "price_gte": {
+      "type": "decimal"
+    },
+    "price_lte": {
+      "type": "decimal"
+    },
+    "year_gte": {
+      "type": "date"
+    },
+    "year_lte": {
+      "type": "date"
+    },
+    "fuelEconomy_gte": {
+      "type": "decimal"
+    },
+    "fuelEconomy_lte": {
+      "type": "decimal"
+    },
+    "maxSpeed_gte": {
+      "type": "decimal"
+    },
+    "maxSpeed_lte": {
+      "type": "decimal"
+    },
+    "distance_gte": {
+      "type": "decimal"
+    },
+    "distance_lte": {
+      "type": "decimal"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "polygon": {
+      "type": "json"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

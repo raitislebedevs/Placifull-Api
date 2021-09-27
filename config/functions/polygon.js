@@ -44,21 +44,23 @@ module.exports = {
 
   getMaxMinCoordinates(polygon) {
     var lat = polygon.map(function (p) {
-      return p.lat;
+      return p[0];
     });
     var lng = polygon.map(function (p) {
-      return p.lng;
+      return p[1];
     });
 
     var min_coords = {
-      lat: Math.min.apply(null, lat),
-      lng: Math.min.apply(null, lng),
+      lat: Math.min(...lat),
+      lng: Math.min(...lng),
     };
+
     var max_coords = {
-      lat: Math.max.apply(null, lat),
-      lng: Math.max.apply(null, lng),
+      lat: Math.max(...lat),
+      lng: Math.max(...lng),
     };
-    let coordinates;
+
+    let coordinates = {};
     coordinates.minValue = min_coords;
     coordinates.maxValue = max_coords;
 

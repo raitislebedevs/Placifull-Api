@@ -49,6 +49,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/transport-listings/notify-user",
+      "handler": "transport-listings.notifyUser",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/transport-listings/:id",
       "handler": "transport-listings.update",

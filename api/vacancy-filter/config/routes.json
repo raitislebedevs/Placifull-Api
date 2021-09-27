@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/vacancy-filters",
+      "handler": "vacancy-filter.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vacancy-filters/count",
+      "handler": "vacancy-filter.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vacancy-filters/:id",
+      "handler": "vacancy-filter.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/vacancy-filters",
+      "handler": "vacancy-filter.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/vacancy-filters/:id",
+      "handler": "vacancy-filter.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/vacancy-filters/:id",
+      "handler": "vacancy-filter.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
