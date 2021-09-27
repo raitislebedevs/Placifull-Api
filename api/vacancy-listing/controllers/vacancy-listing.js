@@ -22,6 +22,13 @@ module.exports = {
       delete ctx.query?._where?.polygon;
       if (polygon?.length > 0) {
         polygon = strapi.config.functions["polygon"].convertToNumbers(polygon);
+        let borders =
+          strapi.config.functions["polygon"].getMaxMinCoordinates(polygon);
+
+        ctx.query._where["longitude_lte"] = borders.maxValue.lng;
+        ctx.query._where["latitude_lte"] = borders.maxValue.lat;
+        ctx.query._where["longitude_gte"] = borders.minValue.lng;
+        ctx.query._where["latitude_gte"] = borders.minValue.lat;
       }
 
       if (ctx.query?._limit) {
@@ -105,6 +112,13 @@ module.exports = {
       delete ctx.query?._where?.polygon;
       if (polygon?.length > 0) {
         polygon = strapi.config.functions["polygon"].convertToNumbers(polygon);
+        let borders =
+          strapi.config.functions["polygon"].getMaxMinCoordinates(polygon);
+
+        ctx.query._where["longitude_lte"] = borders.maxValue.lng;
+        ctx.query._where["latitude_lte"] = borders.maxValue.lat;
+        ctx.query._where["longitude_gte"] = borders.minValue.lng;
+        ctx.query._where["latitude_gte"] = borders.minValue.lat;
       }
 
       if (ctx.query?._limit) {

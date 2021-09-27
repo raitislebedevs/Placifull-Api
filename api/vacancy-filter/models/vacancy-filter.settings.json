@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vacancy_filters",
+  "info": {
+    "name": "VacancyFilter"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "vacancyOption_contains": {
+      "type": "string"
+    },
+    "contractType_contains": {
+      "type": "string"
+    },
+    "workingTime_contains": {
+      "type": "string"
+    },
+    "country_id": {
+      "type": "string"
+    },
+    "state_id": {
+      "type": "string"
+    },
+    "city_id": {
+      "type": "string"
+    },
+    "currency_id": {
+      "type": "string"
+    },
+    "enLanguages": {
+      "type": "json"
+    },
+    "nativeLanguages": {
+      "type": "json"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "annualSalaryFrom_gte": {
+      "type": "decimal"
+    },
+    "annualSalaryTo_lte": {
+      "type": "decimal"
+    },
+    "monthlySalaryFrom_gte": {
+      "type": "decimal"
+    },
+    "monthlySalaryTo_lte": {
+      "type": "decimal"
+    },
+    "hourlySalaryFrom_gte": {
+      "type": "decimal"
+    },
+    "hourlySalaryTo_lte": {
+      "type": "decimal"
+    },
+    "polygon": {
+      "type": "json"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}
