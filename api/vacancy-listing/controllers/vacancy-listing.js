@@ -185,4 +185,133 @@ module.exports = {
 
     return tagEntities.length;
   },
+
+  async notifyUser(ctx) {
+    let { id } = ctx?.request?.body;
+    try {
+      //console.log(id);
+      if (!id) return [];
+      let realEstateItem = await strapi.services["vacancy-listing"].findOne({
+        id,
+      });
+      let realEstateFilters = await strapi.services["vacancy-filter"].find();
+
+      realEstateFilters.forEach(async (element) => {
+        //console.log(element);
+        let isMatchingCriteria = true;
+
+        if (element?.polygon?.length > 0 && isMatchingCriteria) {
+          let point = [realEstateItem?.latitude, realEstateItem?.longitude];
+          isMatchingCriteria = strapi.config.functions["polygon"].contains(
+            point,
+            element.polygon
+          );
+        }
+
+        //console.log("Polygon", isMatchingCriteria);
+
+        if (element?.tags && isMatchingCriteria) {
+          let listTagId = [];
+          realEstateItem?.tags.map((tag) => {
+            listTagId.push(tag.id);
+          });
+
+          isMatchingCriteria = element.tags.every((ai) =>
+            listTagId.includes(ai)
+          );
+        }
+
+        if (element?.enLanguages && isMatchingCriteria) {
+          isMatchingCriteria = element.enLanguages.some(
+            (r) => realEstateItem?.enLanguages.indexOf(r) >= 0
+          );
+        }
+
+        if (element?.nativeLanguages && isMatchingCriteria) {
+          isMatchingCriteria = element.nativeLanguages.some(
+            (r) => realEstateItem?.nativeLanguages.indexOf(r) >= 0
+          );
+        }
+
+        //console.log("Tags", isMatchingCriteria);
+
+        if (element?.currency_id && isMatchingCriteria)
+          isMatchingCriteria =
+            element.currency_id == realEstateItem?.currency.id;
+
+        //console.log("currency", isMatchingCriteria);
+
+        if (element?.country_id && isMatchingCriteria)
+          isMatchingCriteria = element.country_id == realEstateItem?.country.id;
+
+        //console.log("Country", isMatchingCriteria);
+        if (element?.state_id && isMatchingCriteria)
+          isMatchingCriteria = element.state_id == realEstateItem?.state.id;
+
+        //console.log("State", isMatchingCriteria);
+        if (element?.city_id && isMatchingCriteria)
+          isMatchingCriteria = element.city_id == realEstateItem?.city.id;
+
+        //console.log("City", isMatchingCriteria);
+
+        if (element?.vacancyOption_contains && isMatchingCriteria)
+          isMatchingCriteria =
+            element.vacancyOption_contains == realEstateItem?.vacancyOption;
+
+        //console.log("vacancyOption_contains", isMatchingCriteria);
+        if (element?.contractType_contains && isMatchingCriteria)
+          isMatchingCriteria =
+            element.contractType_contains == realEstateItem?.contractType;
+
+        //console.log("contractType_contains", isMatchingCriteria);
+        if (element?.workingTime_contains && isMatchingCriteria)
+          isMatchingCriteria =
+            element.workingTime_contains == realEstateItem?.workingTime;
+        //console.log("workingTime_contains", isMatchingCriteria);
+        if (element?.annualSalaryFrom_gte && isMatchingCriteria)
+          isMatchingCriteria =
+            element.annualSalaryFrom_gte <= realEstateItem?.annualSalaryFrom;
+
+        //console.log("annualSalaryFrom_gte", isMatchingCriteria);
+        if (element?.annualSalaryTo_lte && isMatchingCriteria)
+          isMatchingCriteria =
+            element.annualSalaryTo_lte >= realEstateItem?.annualSalaryTo;
+
+        //console.log("annualSalaryTo_lte", isMatchingCriteria);
+        if (element?.monthlySalaryFrom_gte && isMatchingCriteria)
+          isMatchingCriteria =
+            element.monthlySalaryFrom_gte <= realEstateItem?.monthlySalaryFrom;
+
+        //console.log("monthlySalaryFrom_gte", isMatchingCriteria);
+        if (element?.monthlySalaryTo_lte && isMatchingCriteria)
+          isMatchingCriteria =
+            element.monthlySalaryTo_lte >= realEstateItem?.monthlySalaryTo;
+
+        //console.log("monthlySalaryTo_lte", isMatchingCriteria);
+        if (element?.hourlySalaryFrom_gte && isMatchingCriteria)
+          isMatchingCriteria =
+            element.hourlySalaryFrom_gte <= realEstateItem?.hourlySalaryFrom;
+
+        //console.log("hourlySalaryFrom_gte", isMatchingCriteria);
+        if (element?.hourlySalaryTo_lte && isMatchingCriteria)
+          isMatchingCriteria =
+            element.hourlySalaryTo_lte >= realEstateItem?.hourlySalaryTo;
+
+        //console.log("hourlySalaryTo_lte", isMatchingCriteria);
+
+        if (isMatchingCriteria) {
+          //console.log("Sending Email");
+
+          await strapi.config.functions["utils"].notifyUserEmail(
+            id,
+            element.user.email,
+            realEstateItem?.companyLogo.url
+          );
+        }
+      });
+      ctx.send({ ok: true });
+    } catch (error) {
+      //console.log(error);
+    }
+  },
 };
