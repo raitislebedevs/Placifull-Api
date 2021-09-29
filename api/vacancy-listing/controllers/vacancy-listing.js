@@ -85,7 +85,7 @@ module.exports = {
     try {
       //console.log(id);
       if (!id) return [];
-      let realEstateItem = await strapi.services["vacancy-listing"].findOne({
+      let jobItem = await strapi.services["vacancy-listing"].findOne({
         id,
       });
       let realEstateFilters = await strapi.services["vacancy-filter"].find();
@@ -95,7 +95,7 @@ module.exports = {
         let isMatchingCriteria = true;
 
         if (element?.polygon?.length > 0 && isMatchingCriteria) {
-          let point = [realEstateItem?.latitude, realEstateItem?.longitude];
+          let point = [jobItem?.latitude, jobItem?.longitude];
           isMatchingCriteria = strapi.config.functions["polygon"].contains(
             point,
             element.polygon
@@ -104,9 +104,14 @@ module.exports = {
 
         //console.log("Polygon", isMatchingCriteria);
 
+        if (element?.isPromotable && isMatchingCriteria)
+          isMatchingCriteria = element.isPromotable == jobItem?.isPromotable;
+
+        //console.log("Promotable", isMatchingCriteria);
+
         if (element?.tags && isMatchingCriteria) {
           let listTagId = [];
-          realEstateItem?.tags.map((tag) => {
+          jobItem?.tags.map((tag) => {
             listTagId.push(tag.id);
           });
 
@@ -117,79 +122,78 @@ module.exports = {
 
         if (element?.enLanguages && isMatchingCriteria) {
           isMatchingCriteria = element.enLanguages.some(
-            (r) => realEstateItem?.enLanguages.indexOf(r) >= 0
+            (r) => jobItem?.enLanguages.indexOf(r) >= 0
           );
         }
 
         if (element?.nativeLanguages && isMatchingCriteria) {
           isMatchingCriteria = element.nativeLanguages.some(
-            (r) => realEstateItem?.nativeLanguages.indexOf(r) >= 0
+            (r) => jobItem?.nativeLanguages.indexOf(r) >= 0
           );
         }
 
         //console.log("Tags", isMatchingCriteria);
 
         if (element?.currency_id && isMatchingCriteria)
-          isMatchingCriteria =
-            element.currency_id == realEstateItem?.currency.id;
+          isMatchingCriteria = element.currency_id == jobItem?.currency.id;
 
         //console.log("currency", isMatchingCriteria);
 
         if (element?.country_id && isMatchingCriteria)
-          isMatchingCriteria = element.country_id == realEstateItem?.country.id;
+          isMatchingCriteria = element.country_id == jobItem?.country.id;
 
         //console.log("Country", isMatchingCriteria);
         if (element?.state_id && isMatchingCriteria)
-          isMatchingCriteria = element.state_id == realEstateItem?.state.id;
+          isMatchingCriteria = element.state_id == jobItem?.state.id;
 
         //console.log("State", isMatchingCriteria);
         if (element?.city_id && isMatchingCriteria)
-          isMatchingCriteria = element.city_id == realEstateItem?.city.id;
+          isMatchingCriteria = element.city_id == jobItem?.city.id;
 
         //console.log("City", isMatchingCriteria);
 
         if (element?.vacancyOption_contains && isMatchingCriteria)
           isMatchingCriteria =
-            element.vacancyOption_contains == realEstateItem?.vacancyOption;
+            element.vacancyOption_contains == jobItem?.vacancyOption;
 
         //console.log("vacancyOption_contains", isMatchingCriteria);
         if (element?.contractType_contains && isMatchingCriteria)
           isMatchingCriteria =
-            element.contractType_contains == realEstateItem?.contractType;
+            element.contractType_contains == jobItem?.contractType;
 
         //console.log("contractType_contains", isMatchingCriteria);
         if (element?.workingTime_contains && isMatchingCriteria)
           isMatchingCriteria =
-            element.workingTime_contains == realEstateItem?.workingTime;
+            element.workingTime_contains == jobItem?.workingTime;
         //console.log("workingTime_contains", isMatchingCriteria);
         if (element?.annualSalaryFrom_gte && isMatchingCriteria)
           isMatchingCriteria =
-            element.annualSalaryFrom_gte <= realEstateItem?.annualSalaryFrom;
+            element.annualSalaryFrom_gte <= jobItem?.annualSalaryFrom;
 
         //console.log("annualSalaryFrom_gte", isMatchingCriteria);
         if (element?.annualSalaryTo_lte && isMatchingCriteria)
           isMatchingCriteria =
-            element.annualSalaryTo_lte >= realEstateItem?.annualSalaryTo;
+            element.annualSalaryTo_lte >= jobItem?.annualSalaryTo;
 
         //console.log("annualSalaryTo_lte", isMatchingCriteria);
         if (element?.monthlySalaryFrom_gte && isMatchingCriteria)
           isMatchingCriteria =
-            element.monthlySalaryFrom_gte <= realEstateItem?.monthlySalaryFrom;
+            element.monthlySalaryFrom_gte <= jobItem?.monthlySalaryFrom;
 
         //console.log("monthlySalaryFrom_gte", isMatchingCriteria);
         if (element?.monthlySalaryTo_lte && isMatchingCriteria)
           isMatchingCriteria =
-            element.monthlySalaryTo_lte >= realEstateItem?.monthlySalaryTo;
+            element.monthlySalaryTo_lte >= jobItem?.monthlySalaryTo;
 
         //console.log("monthlySalaryTo_lte", isMatchingCriteria);
         if (element?.hourlySalaryFrom_gte && isMatchingCriteria)
           isMatchingCriteria =
-            element.hourlySalaryFrom_gte <= realEstateItem?.hourlySalaryFrom;
+            element.hourlySalaryFrom_gte <= jobItem?.hourlySalaryFrom;
 
         //console.log("hourlySalaryFrom_gte", isMatchingCriteria);
         if (element?.hourlySalaryTo_lte && isMatchingCriteria)
           isMatchingCriteria =
-            element.hourlySalaryTo_lte >= realEstateItem?.hourlySalaryTo;
+            element.hourlySalaryTo_lte >= jobItem?.hourlySalaryTo;
 
         //console.log("hourlySalaryTo_lte", isMatchingCriteria);
 
@@ -199,7 +203,7 @@ module.exports = {
           await strapi.config.functions["utils"].notifyUserEmail(
             id,
             element.user.email,
-            realEstateItem?.companyLogo.url
+            jobItem?.companyLogo.url
           );
         }
       });

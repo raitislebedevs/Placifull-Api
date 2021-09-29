@@ -681,6 +681,9 @@
           "realEstateListingsFound": {
             "type": "object"
           },
+          "isPromotable": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -776,6 +779,9 @@
           },
           "realEstateListingsFound": {
             "type": "object"
+          },
+          "isPromotable": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",

@@ -647,6 +647,9 @@
               }
             }
           },
+          "isPromotable": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -708,6 +711,9 @@
           },
           "user": {
             "type": "string"
+          },
+          "isPromotable": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",

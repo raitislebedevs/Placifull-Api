@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/29/2021 2:31:07 PM"
+    "x-generation-date": "09/29/2021 4:46:09 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -15065,6 +15065,9 @@
               "isPublished": {
                 "type": "boolean"
               },
+              "pricePerUnit": {
+                "type": "number"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -17279,6 +17282,9 @@
           "realEstateListingsFound": {
             "type": "object"
           },
+          "isPromotable": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -17374,6 +17380,9 @@
           },
           "realEstateListingsFound": {
             "type": "object"
+          },
+          "isPromotable": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",
@@ -17984,6 +17993,9 @@
             "type": "boolean",
             "default": true
           },
+          "pricePerUnit": {
+            "type": "number"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -18264,6 +18276,9 @@
           "isPublished": {
             "type": "boolean",
             "default": true
+          },
+          "pricePerUnit": {
+            "type": "number"
           },
           "published_at": {
             "type": "string",
@@ -19020,6 +19035,9 @@
               }
             }
           },
+          "isPromotable": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -19113,6 +19131,9 @@
           },
           "user": {
             "type": "string"
+          },
+          "isPromotable": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",
@@ -20331,6 +20352,9 @@
               }
             }
           },
+          "isPromotable": {
+            "type": "boolean"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -20392,6 +20416,9 @@
           },
           "user": {
             "type": "string"
+          },
+          "isPromotable": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",

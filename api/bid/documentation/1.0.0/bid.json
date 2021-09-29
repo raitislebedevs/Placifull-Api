@@ -769,6 +769,9 @@
               "isPublished": {
                 "type": "boolean"
               },
+              "pricePerUnit": {
+                "type": "number"
+              },
               "published_at": {
                 "type": "string"
               },
