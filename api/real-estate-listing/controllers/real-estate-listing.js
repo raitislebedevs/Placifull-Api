@@ -1,5 +1,6 @@
 "use strict";
 
+const { off } = require("npmlog");
 const { sanitizeEntity } = require("strapi-utils");
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/concepts/controllers.html#core-controllers)
@@ -13,6 +14,7 @@ module.exports = {
     let entitiesExtra = [];
     let tagEntities = [];
     let limit;
+    let start;
     const convertHelper = ctx.query?._where?.convertHelper;
     let polygon = ctx.query?._where?.polygon;
 
@@ -21,6 +23,7 @@ module.exports = {
       ctx = result.ctx;
       tags = result.tags;
       limit = result.limit;
+      start = result.start;
 
       entities = await strapi.services["real-estate-listing"].find(ctx.query);
 
@@ -36,9 +39,9 @@ module.exports = {
         entitiesExtra.forEach((extra) => entities.push(extra));
       }
 
-      addElementToResults(entities, polygon, limit, tagEntities, tags);
+      addElementToResults(entities, polygon, limit, tagEntities, tags, start);
     } catch (e) {
-      //console.log(e);
+      console.log(e);
     }
 
     return tagEntities.map((entity) =>
@@ -265,6 +268,9 @@ function convertMessurement(ctx, convertHelper) {
 }
 
 function createQueryString(ctx, polygon, tags, limit) {
+  let start = ctx.query?._start;
+
+  delete ctx.query?._start;
   delete ctx.query?._where?.convertHelper;
   delete ctx.query?._where?.polygon;
   if (polygon?.length > 0) {
@@ -288,10 +294,17 @@ function createQueryString(ctx, polygon, tags, limit) {
     delete ctx.query._where.tags;
     ctx.query._where["tags.id_in"] = tags;
   }
-  return { ctx, tags, limit };
+  return { ctx, tags, limit, start };
 }
 
-function addElementToResults(entities, polygon, limit, tagEntities, tags) {
+function addElementToResults(
+  entities,
+  polygon,
+  limit,
+  tagEntities,
+  tags,
+  start
+) {
   entities.forEach((element) => {
     if (limit <= 0) throw "Found all items";
 
@@ -313,12 +326,12 @@ function addElementToResults(entities, polygon, limit, tagEntities, tags) {
       return newListId.indexOf(val) >= 0;
     });
 
-    if (!tags) {
-      tagEntities.push(element);
-      limit--;
+    if (start > 0) {
+      start--;
+      return;
     }
 
-    if (result) {
+    if (!tags || result) {
       tagEntities.push(element);
       limit--;
     }
