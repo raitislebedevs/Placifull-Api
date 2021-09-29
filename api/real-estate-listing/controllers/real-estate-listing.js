@@ -121,6 +121,12 @@ module.exports = {
         }
         //console.log("Tags", isMatchingCriteria);
 
+        if (element?.isPromotable && isMatchingCriteria)
+          isMatchingCriteria =
+            element.isPromotable == realEstateItem?.isPromotable;
+
+        //console.log("Promotable", isMatchingCriteria);
+
         if (element?.currency_id && isMatchingCriteria)
           isMatchingCriteria =
             element.currency_id == realEstateItem?.currency.id;

@@ -1309,6 +1309,9 @@
             "type": "boolean",
             "default": true
           },
+          "pricePerUnit": {
+            "type": "number"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1589,6 +1592,9 @@
           "isPublished": {
             "type": "boolean",
             "default": true
+          },
+          "pricePerUnit": {
+            "type": "number"
           },
           "published_at": {
             "type": "string",

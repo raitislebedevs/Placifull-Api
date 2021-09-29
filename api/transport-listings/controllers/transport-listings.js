@@ -94,6 +94,12 @@ module.exports = {
         }
         //console.log("Tags", isMatchingCriteria);
 
+        if (element?.isPromotable && isMatchingCriteria)
+          isMatchingCriteria =
+            element.isPromotable == trasnsportItem?.isPromotable;
+
+        //console.log("Promotable", isMatchingCriteria);
+
         if (element?.currency_id && isMatchingCriteria)
           isMatchingCriteria =
             element.currency_id == trasnsportItem?.currency.id;

@@ -199,6 +199,9 @@
     "isPublished": {
       "type": "boolean",
       "default": true
+    },
+    "pricePerUnit": {
+      "type": "decimal"
     }
   }
 }
