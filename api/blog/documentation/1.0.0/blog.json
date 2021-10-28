@@ -538,7 +538,6 @@
               "realEstate",
               "transport",
               "job",
-              "moving",
               "other"
             ]
           },
@@ -678,7 +677,6 @@
               "realEstate",
               "transport",
               "job",
-              "moving",
               "other"
             ]
           },

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/29/2021 4:46:09 PM"
+    "x-generation-date": "10/28/2021 3:06:50 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -15068,6 +15068,9 @@
               "pricePerUnit": {
                 "type": "number"
               },
+              "BountyReward": {
+                "type": "component"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -15307,6 +15310,9 @@
               "isPublished": {
                 "type": "boolean"
               },
+              "BountyReward": {
+                "type": "component"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -15519,6 +15525,9 @@
               "isPublished": {
                 "type": "boolean"
               },
+              "BountyReward": {
+                "type": "component"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -15589,7 +15598,6 @@
               "realEstate",
               "transport",
               "job",
-              "moving",
               "other"
             ]
           },
@@ -15729,7 +15737,6 @@
               "realEstate",
               "transport",
               "job",
-              "moving",
               "other"
             ]
           },
@@ -17996,6 +18003,26 @@
           "pricePerUnit": {
             "type": "number"
           },
+          "BountyReward": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "oneToFive": {
+                "type": "number"
+              },
+              "sixToFifteen": {
+                "type": "number"
+              },
+              "sixteenPlus": {
+                "type": "number"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -18279,6 +18306,26 @@
           },
           "pricePerUnit": {
             "type": "number"
+          },
+          "BountyReward": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "oneToFive": {
+                "type": "number"
+              },
+              "sixToFifteen": {
+                "type": "number"
+              },
+              "sixteenPlus": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -19748,6 +19795,26 @@
             "type": "boolean",
             "default": true
           },
+          "BountyReward": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "oneToFive": {
+                "type": "number"
+              },
+              "sixToFifteen": {
+                "type": "number"
+              },
+              "sixteenPlus": {
+                "type": "number"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -20030,6 +20097,26 @@
           "isPublished": {
             "type": "boolean",
             "default": true
+          },
+          "BountyReward": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "oneToFive": {
+                "type": "number"
+              },
+              "sixToFifteen": {
+                "type": "number"
+              },
+              "sixteenPlus": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -21180,6 +21267,26 @@
             "type": "boolean",
             "default": true
           },
+          "BountyReward": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "oneToFive": {
+                "type": "number"
+              },
+              "sixToFifteen": {
+                "type": "number"
+              },
+              "sixteenPlus": {
+                "type": "number"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -21542,6 +21649,26 @@
           "isPublished": {
             "type": "boolean",
             "default": true
+          },
+          "BountyReward": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "oneToFive": {
+                "type": "number"
+              },
+              "sixToFifteen": {
+                "type": "number"
+              },
+              "sixteenPlus": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",

@@ -1312,6 +1312,26 @@
           "pricePerUnit": {
             "type": "number"
           },
+          "BountyReward": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "oneToFive": {
+                "type": "number"
+              },
+              "sixToFifteen": {
+                "type": "number"
+              },
+              "sixteenPlus": {
+                "type": "number"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1595,6 +1615,26 @@
           },
           "pricePerUnit": {
             "type": "number"
+          },
+          "BountyReward": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "oneToFive": {
+                "type": "number"
+              },
+              "sixToFifteen": {
+                "type": "number"
+              },
+              "sixteenPlus": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",
