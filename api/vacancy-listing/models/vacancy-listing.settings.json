@@ -225,6 +225,11 @@
     "isPublished": {
       "type": "boolean",
       "default": true
+    },
+    "BountyReward": {
+      "type": "component",
+      "repeatable": false,
+      "component": "bounty-rewards.bounty-rewards"
     }
   }
 }

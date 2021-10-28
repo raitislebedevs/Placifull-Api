@@ -772,6 +772,9 @@
               "pricePerUnit": {
                 "type": "number"
               },
+              "BountyReward": {
+                "type": "component"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -1011,6 +1014,9 @@
               "isPublished": {
                 "type": "boolean"
               },
+              "BountyReward": {
+                "type": "component"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -1222,6 +1228,9 @@
               },
               "isPublished": {
                 "type": "boolean"
+              },
+              "BountyReward": {
+                "type": "component"
               },
               "published_at": {
                 "type": "string"

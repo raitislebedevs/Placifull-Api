@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_bounty_rewards_bounty_rewards",
+  "info": {
+    "name": "BountyRewards",
+    "icon": "balance-scale-right"
+  },
+  "options": {},
+  "attributes": {
+    "oneToFive": {
+      "type": "decimal"
+    },
+    "sixToFifteen": {
+      "type": "decimal"
+    },
+    "sixteenPlus": {
+      "type": "decimal"
+    }
+  }
+}

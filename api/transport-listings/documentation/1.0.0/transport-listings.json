@@ -1313,6 +1313,26 @@
             "type": "boolean",
             "default": true
           },
+          "BountyReward": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "oneToFive": {
+                "type": "number"
+              },
+              "sixToFifteen": {
+                "type": "number"
+              },
+              "sixteenPlus": {
+                "type": "number"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1595,6 +1615,26 @@
           "isPublished": {
             "type": "boolean",
             "default": true
+          },
+          "BountyReward": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "oneToFive": {
+                "type": "number"
+              },
+              "sixToFifteen": {
+                "type": "number"
+              },
+              "sixteenPlus": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",

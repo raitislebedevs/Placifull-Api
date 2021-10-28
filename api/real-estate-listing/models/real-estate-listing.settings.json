@@ -202,6 +202,11 @@
     },
     "pricePerUnit": {
       "type": "decimal"
+    },
+    "BountyReward": {
+      "type": "component",
+      "repeatable": false,
+      "component": "bounty-rewards.bounty-rewards"
     }
   }
 }
