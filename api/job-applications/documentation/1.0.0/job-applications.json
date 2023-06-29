@@ -262,7 +262,7 @@
     "/job-applications/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of job-applications documents",
+        "description": "Retrieve the number of job-applications documents",
         "responses": {
           "200": {
             "description": "Retrieve job-applications document(s)",

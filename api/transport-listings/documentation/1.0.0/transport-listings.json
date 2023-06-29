@@ -319,7 +319,7 @@
     "/transport-listings/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of transport-listings documents",
+        "description": "Retrieve the number of transport-listings documents",
         "responses": {
           "200": {
             "description": "Retrieve transport-listings document(s)",

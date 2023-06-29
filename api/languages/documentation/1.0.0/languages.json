@@ -257,7 +257,7 @@
     "/languages/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of languages documents",
+        "description": "Retrieve the number of languages documents",
         "responses": {
           "200": {
             "description": "Retrieve languages document(s)",

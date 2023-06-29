@@ -376,7 +376,7 @@
     "/curriculum-vitaes/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of curriculum-vitaes documents",
+        "description": "Retrieve the number of curriculum-vitaes documents",
         "responses": {
           "200": {
             "description": "Retrieve curriculum-vitaes document(s)",

@@ -10,11 +10,11 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "strapi": "3.6.5",
     "strapi-admin": "3.6.5",
     "strapi-connector-mongoose": "^3.6.5",
-    "strapi-middleware-cache": "^1.5.0",
+    "strapi-middleware-cache": "^2.1.8",
     "strapi-plugin-content-manager": "3.6.5",
     "strapi-plugin-content-type-builder": "3.6.5",
     "strapi-plugin-documentation": "^3.6.5",
@@ -25,7 +25,7 @@
     "strapi-provider-email-mailgun": "^3.6.5",
     "strapi-provider-upload-aws-s3": "^3.6.5",
     "strapi-utils": "3.6.5",
-    "stripe": "^8.163.0"
+    "stripe": "^12.10.0"
   },
   "author": {
     "name": "A Strapi developer"
@@ -34,7 +34,7 @@
     "uuid": "eda156e2-c9d8-4a7d-9f50-09abadbba7bb"
   },
   "engines": {
-    "node": ">=10.16.0 <=18.16.1",
+    "node": ">=10.16.0 <=17.x.x",
     "npm": "^6.0.0"
   },
   "license": "MIT"

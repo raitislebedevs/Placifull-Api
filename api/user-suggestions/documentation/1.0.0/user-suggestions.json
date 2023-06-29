@@ -262,7 +262,7 @@
     "/user-suggestions/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of user-suggestions documents",
+        "description": "Retrieve the number of user-suggestions documents",
         "responses": {
           "200": {
             "description": "Retrieve user-suggestions document(s)",

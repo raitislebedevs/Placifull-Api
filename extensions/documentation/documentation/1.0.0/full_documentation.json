@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "02/04/2023 5:42:57 PM"
+    "x-generation-date": "06/29/2023 11:30:02 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3500,7 +3500,7 @@
     "/curriculum-vitaes/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of curriculum-vitaes documents",
+        "description": "Retrieve the number of curriculum-vitaes documents",
         "responses": {
           "200": {
             "description": "Retrieve curriculum-vitaes document(s)",
@@ -4153,7 +4153,7 @@
     "/job-applications/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of job-applications documents",
+        "description": "Retrieve the number of job-applications documents",
         "responses": {
           "200": {
             "description": "Retrieve job-applications document(s)",
@@ -4672,7 +4672,7 @@
     "/languages/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of languages documents",
+        "description": "Retrieve the number of languages documents",
         "responses": {
           "200": {
             "description": "Retrieve languages document(s)",
@@ -7648,7 +7648,7 @@
     "/subscribers/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of subscribers documents",
+        "description": "Retrieve the number of subscribers documents",
         "responses": {
           "200": {
             "description": "Retrieve subscribers document(s)",
@@ -8159,7 +8159,7 @@
     "/subscriptions/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of subscriptions documents",
+        "description": "Retrieve the number of subscriptions documents",
         "responses": {
           "200": {
             "description": "Retrieve subscriptions document(s)",
@@ -9767,7 +9767,7 @@
     "/transport-listings/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of transport-listings documents",
+        "description": "Retrieve the number of transport-listings documents",
         "responses": {
           "200": {
             "description": "Retrieve transport-listings document(s)",
@@ -11015,7 +11015,7 @@
     "/user-suggestions/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of user-suggestions documents",
+        "description": "Retrieve the number of user-suggestions documents",
         "responses": {
           "200": {
             "description": "Retrieve user-suggestions document(s)",

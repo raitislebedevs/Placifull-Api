@@ -257,7 +257,7 @@
     "/subscribers/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of subscribers documents",
+        "description": "Retrieve the number of subscribers documents",
         "responses": {
           "200": {
             "description": "Retrieve subscribers document(s)",

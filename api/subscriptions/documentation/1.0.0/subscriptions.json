@@ -257,7 +257,7 @@
     "/subscriptions/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of subscriptions documents",
+        "description": "Retrieve the number of subscriptions documents",
         "responses": {
           "200": {
             "description": "Retrieve subscriptions document(s)",
