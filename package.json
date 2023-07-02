@@ -10,7 +10,6 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "moment": "^2.29.1",
     "strapi": "3.6.5",
     "strapi-admin": "3.6.5",
     "strapi-connector-mongoose": "^3.6.5",
